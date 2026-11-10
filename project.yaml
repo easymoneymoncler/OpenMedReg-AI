@@ -37,7 +37,8 @@ regulatory_scope:
 
 technical_principles:
   architecture: "RAG avec citation obligatoire et vérification mécanique des citations"
-  verdicts: ["conforme", "non_conforme", "non_trouve"]
+  verdicts: ["conforme", "non_conforme", "non_trouve", "non_applicable"]
+  # non_applicable : proposé par l'agent le 2026-11-11, à confirmer par l'utilisateur (voir eval/README.md)
   default_verdict: "non_trouve"  # sans preuve explicite citée, pas de verdict positif
   citation_rule: >
     Un verdict n'est émis que s'il cite (a) l'article ou le point de l'annexe
@@ -61,8 +62,10 @@ roadmap:
     tasks:
       - task: "Ingestion du MDR depuis EUR-Lex, découpé par article et point d'annexe, avec identifiants stables"
         status: "fait (2026-11-10) — version consolidée du 2026-11-09, FR et EN"
-      - "Dossier technique fictif (dispositif inventé) avec écarts injectés et vérité terrain annotée"
-      - "Banc d'évaluation : précision/rappel des verdicts, taux de citations valides, taux de faux « conforme »"
+      - task: "Dossier technique fictif (dispositif inventé) avec écarts injectés et vérité terrain annotée"
+        status: "fait (2026-11-11) — 1 cas, 44 unités de l'Annexe II, annotations non relues"
+      - task: "Banc d'évaluation : précision/rappel des verdicts, taux de citations valides, taux de faux « conforme »"
+        status: "fait (2026-11-11)"
   phase_2:
     name: "Analyse d'écarts"
     tasks:

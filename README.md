@@ -11,9 +11,11 @@ vérifiables : `conforme`, `non_conforme` ou `non_trouve`.
 
 ## État
 
-Phase 1 en cours. Le MDR consolidé (version du 9 novembre 2026, français et
-anglais) est dans le corpus et se découpe en 2 445 unités citables. Aucun
-moteur d'analyse n'existe encore. Périmètre et feuille de route :
+Phase 1 terminée côté outillage. Le MDR consolidé (version du 9 novembre
+2026, français et anglais) est dans le corpus et se découpe en 2 445 unités
+citables. Un premier dossier technique fictif est annoté face à l'Annexe II
+(annotations non relues par un expert) et un banc d'évaluation mesure les
+verdicts. Aucun moteur d'analyse n'existe encore. Périmètre et feuille de route :
 [project.yaml](project.yaml).
 
 ## Principes
@@ -53,6 +55,14 @@ identifiant stable, identique en français et en anglais : `art_10/4` pour
 l'article 10, paragraphe 4 ; `anx_II/1.1/a` pour l'annexe II, section 1.1,
 point a). Provenance et limites du texte : [SOURCE.yaml](corpus/public/mdr/SOURCE.yaml).
 
+## Mesurer un moteur sur le cas fictif
+
+```bash
+.venv/bin/python -m openmedreg.evaluation eval/cases/fictif-therm-t1 --baseline non_trouve
+```
+
+Verdicts, format des prédictions et lecture des mesures : [eval/README.md](eval/README.md).
+
 ## Organisation
 
 | Chemin | Contenu |
@@ -61,7 +71,7 @@ point a). Provenance et limites du texte : [SOURCE.yaml](corpus/public/mdr/SOURC
 | `corpus/private/` | Vos normes achetées — ignoré par git |
 | `data/client/` | Vos documents réels — ignoré par git |
 | `eval/` | Dossiers fictifs et vérité terrain |
-| `src/openmedreg/` | Code du projet (découpage du corpus pour l'instant) |
+| `src/openmedreg/` | Découpage du corpus, vérification des citations, banc d'évaluation |
 | `scripts/` | Tests, garde-fous git, coordination des agents |
 | `.ai/` | État partagé et journal des agents |
 

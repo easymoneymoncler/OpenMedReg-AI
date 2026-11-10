@@ -20,3 +20,14 @@
   intégralement ; 43 tests passent (`./scripts/run_tests.sh`).
 - Non vérifié par un humain : le choix de la version consolidée du
   2026-11-09 et la liste des actes modificatifs (`review_status: non_relu`).
+
+## 2026-11-11 — Cas fictif et banc d'évaluation
+
+- Ajouté : `eval/cases/fictif-therm-t1/` (dossier, vérité terrain),
+  `src/openmedreg/citations.py`, `src/openmedreg/evaluation.py`,
+  `tests/test_eval_case.py`, `eval/README.md` réécrit.
+- Mesuré : 56 tests passent. Repère « toujours non_trouve » : exactitude
+  7/44, taux de faux conforme 0, rappel des lacunes 1. Repère « oracle » :
+  exactitude 1, validité des citations 1.
+- Non vérifié par un humain : les 44 annotations (`non_relu`) et le verdict
+  `non_applicable`, proposé par l'agent.

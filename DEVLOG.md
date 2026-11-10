@@ -59,3 +59,32 @@ les considérants. Le découpage n'a été essayé que sur le MDR.
 
 **Prochaines étapes.** Dossier technique fictif annoté, puis banc
 d'évaluation.
+
+## 2026-11-11 — Phase 1 : cas fictif et banc d'évaluation (CLAUDE)
+
+**Objectifs.** Disposer d'un moyen de mesurer un moteur avant de l'écrire.
+
+**Fait.**
+- `eval/cases/fictif-therm-t1/dossier.md` : documentation technique d'un
+  capteur de température inventé, avec 13 lacunes volontaires.
+- `ground_truth.yaml` : un verdict attendu pour chacune des 44 unités
+  feuilles de l'Annexe II, avec passages cités mot pour mot et motif.
+- `citations.py` : comparaison exacte, tolérante aux seuls espaces,
+  apostrophes et formes Unicode.
+- `evaluation.py` : taux de faux « conforme », rappel des lacunes,
+  exactitude, validité des citations ; un verdict mal cité est ramené à
+  `non_trouve` avant le calcul.
+
+**Décisions.**
+- Ajout proposé d'un quatrième verdict, `non_applicable`, pour les unités
+  qui ne visent qu'un cas particulier. À confirmer par l'utilisateur.
+- Une unité qui demande « une mention indiquant si… » est `conforme` dès que
+  la mention existe, même négative (annexe II, 6.2 a) et b)).
+- Le périmètre d'un cas est l'ensemble des unités feuilles ; un test échoue
+  si une unité n'est pas annotée.
+
+**Limites.** Dossier et annotations écrits par le même agent, non relus ;
+lacunes plus nettes que dans un dossier réel ; un seul cas, en français.
+
+**Prochaines étapes.** Relecture des annotations par l'utilisateur ; premier
+moteur d'analyse mesuré sur ce cas.

@@ -9,7 +9,7 @@ description = "Aide à la relecture réglementaire MDR avec citations vérifiabl
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.10"
-dependencies = []
+dependencies = ["pyyaml>=6"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

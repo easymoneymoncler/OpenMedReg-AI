@@ -1,0 +1,382 @@
+case: fictif-therm-t1
+description: "Capteur de température cutané connecté, fictif, confronté à l'Annexe II du MDR."
+document: dossier.md
+lang: fr
+corpus:
+  celex: "02017R0745-20261109"
+  scope: anx_II  # toutes les unités feuilles de l'Annexe II
+authored_by: CLAUDE
+# Chaque annotation est rédigée par un agent à partir du seul texte de l'unité
+# citée. Elle reste non_relu tant que l'utilisateur ne l'a pas validée.
+units:
+  # --- 1.1 Description et spécification du dispositif -----------------------
+  - unit: anx_II/1.1/a
+    expected: conforme
+    evidence:
+      - "FICTIF-Therm T1 est un capteur de température cutané adhésif, à usage unique, associé à une application mobile de suivi."
+      - "Le dispositif est destiné à la mesure continue de la température cutanée axillaire de patients hospitalisés, afin de signaler au personnel soignant une élévation de température."
+      - "Les utilisateurs prévus sont les infirmiers et les médecins des services d'hospitalisation"
+    rationale: "Nom, description générale, destination et utilisateurs prévus sont donnés."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/1.1/b
+    expected: non_trouve
+    evidence: []
+    rationale: "Aucun IUD-ID de base, code de produit, numéro de catalogue ni autre référence du dispositif. Seule la référence du document est indiquée."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/1.1/c
+    expected: conforme
+    evidence:
+      - "La population visée est constituée des patients adultes hospitalisés en service de médecine ou de chirurgie"
+      - "L'affection surveillée est la fièvre, notamment post-opératoire ou d'origine infectieuse."
+      - "Contre-indications : ne pas utiliser sur une peau lésée"
+      - "Mise en garde : le dispositif ne remplace pas une mesure de température centrale lorsque celle-ci est cliniquement requise."
+    rationale: "Population, affection surveillée, contre-indications et mise en garde sont présentes."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/1.1/d
+    expected: conforme
+    evidence:
+      - "Une thermistance placée au contact de la peau voit sa résistance varier avec la température"
+      - "Ce principe de mesure par thermistance est établi de longue date pour la thermométrie de contact et ne nécessite pas de démonstration scientifique nouvelle."
+    rationale: "Le principe de fonctionnement est décrit et l'absence de démonstration nouvelle est motivée."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/1.1/e
+    expected: conforme
+    evidence:
+      - "Le produit est un dispositif médical car il est destiné par le fabricant à être utilisé chez l'homme à des fins de surveillance d'une maladie"
+    rationale: "Les raisons de la qualification en dispositif sont exposées."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/1.1/f
+    expected: non_conforme
+    evidence:
+      - "Le dispositif relève de la classe IIa."
+    rationale: "La classe est indiquée, mais aucune règle de classification n'est citée ni justifiée."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/1.1/g
+    expected: non_trouve
+    evidence: []
+    rationale: "Le dossier ne dit rien des nouvelles caractéristiques, ni qu'il n'y en a pas."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/1.1/h
+    expected: conforme
+    evidence:
+      - "Le dispositif n'a pas d'accessoire."
+      - "Il est utilisé avec un téléphone ou une tablette du commerce, fourni par l'établissement, sur lequel l'application FICTIF-Therm est installée ; ce téléphone n'est pas un dispositif médical."
+    rationale: "L'absence d'accessoire est déclarée et le produit non-dispositif utilisé en combinaison est décrit."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/1.1/i
+    expected: non_conforme
+    evidence:
+      - "Le capteur est disponible en plusieurs tailles."
+    rationale: "L'existence de variantes est mentionnée sans description ni liste complète."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/1.1/j
+    expected: conforme
+    evidence:
+      - "Le dispositif comprend quatre éléments fonctionnels"
+      - "le logiciel, composé du micrologiciel du capteur (version 1.4) et de l'application mobile FICTIF-Therm (version 2.1)"
+      - "La figure 1 du plan PL-T1-001 représente une vue éclatée légendée du capteur et repère chacun de ces éléments."
+    rationale: "Éléments fonctionnels, logiciel compris, et représentation visuelle légendée."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/1.1/k
+    expected: conforme
+    evidence:
+      - "Le boîtier est en élastomère de silicone de qualité médicale ; la couche adhésive, seul élément en contact direct avec la peau, est un adhésif acrylique sur support en polyuréthane"
+    rationale: "Les matières des éléments clés et de l'élément en contact direct sont décrites."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/1.1/l
+    expected: conforme
+    evidence:
+      - "Plage de mesure : 30,0 °C à 43,0 °C. Exactitude annoncée : ± 0,1 °C entre 35,0 °C et 42,0 °C."
+      - "Dimensions du capteur : 48 mm × 30 mm × 5 mm."
+    rationale: "Caractéristiques, dimensions et performances sont spécifiées."
+    injected_gap: false
+    review_status: non_relu
+
+  # --- 1.2 Générations précédentes et dispositifs similaires ----------------
+  - unit: anx_II/1.2/a
+    expected: non_applicable
+    evidence:
+      - "il n'existe pas de génération précédente"
+    rationale: "L'unité ne vise que les générations précédentes « s'il en existe » ; le dossier déclare qu'il n'y en a pas."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/1.2/b
+    expected: non_trouve
+    evidence: []
+    rationale: "Aucune présentation de dispositifs similaires, ni déclaration qu'il n'en existe pas."
+    injected_gap: true
+    review_status: non_relu
+
+  # --- 2. Informations fournies par le fabricant ----------------------------
+  - unit: anx_II/2/t1
+    expected: non_conforme
+    evidence:
+      - "Le dispositif est destiné à être mis sur le marché en France, en Belgique et en Allemagne."
+      - "Ces étiquettes sont établies en français uniquement."
+    rationale: "Les étiquettes n'existent qu'en français alors que trois États membres sont visés."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/2/t2
+    expected: conforme
+    evidence:
+      - "L'annexe NOT-T1 contient la notice d'utilisation en français, en néerlandais et en allemand."
+    rationale: "La notice est fournie dans trois langues pour les trois États membres visés. L'adéquation des langues à chaque État reste à apprécier par le relecteur."
+    injected_gap: false
+    review_status: non_relu
+
+  # --- 3. Conception et fabrication -----------------------------------------
+  - unit: anx_II/3/a
+    expected: conforme
+    evidence:
+      - "La conception a suivi cinq étapes, chacune close par une revue documentée"
+    rationale: "Les étapes de conception sont décrites."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/3/b
+    expected: conforme
+    evidence:
+      - "La fabrication comprend l'assemblage de la carte électronique, le surmoulage du boîtier, la pose de la couche adhésive, la programmation du micrologiciel, l'étalonnage et le conditionnement en sachet unitaire."
+      - "leur validation est consignée dans les rapports VAL-SM-02 et VAL-AD-01"
+      - "Le surmoulage utilise un agent de démoulage, éliminé par un nettoyage dont l'efficacité est vérifiée dans le rapport VAL-NET-01."
+      - "Chaque lot fait l'objet de contrôles en cours de fabrication"
+    rationale: "Procédés, validation, adjuvant, contrôles en cours et essai final sont couverts."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/3/c
+    expected: non_conforme
+    evidence:
+      - "La conception et le conditionnement sont réalisés sur le site d'Exemplia Dispositifs SAS, 12 rue des Exemples, 00000 Ville-Fictive, France."
+      - "L'assemblage de la carte électronique est confié à un sous-traitant."
+    rationale: "Le site du fabricant est identifié, mais le sous-traitant d'assemblage n'est ni nommé ni localisé."
+    injected_gap: true
+    review_status: non_relu
+
+  # --- 4. Exigences générales de sécurité et de performances ----------------
+  - unit: anx_II/4/a
+    expected: non_conforme
+    evidence:
+      - "Le tableau EG-T1 liste les exigences générales de l'annexe I retenues comme applicables au dispositif"
+    rationale: "Les exigences applicables sont listées, mais aucune raison n'est donnée pour celles qui sont écartées."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/4/b
+    expected: conforme
+    evidence:
+      - "Pour chaque exigence retenue, le tableau indique la méthode de démonstration : essai en laboratoire, analyse de conception, évaluation clinique ou revue de l'étiquetage."
+    rationale: "Une méthode de démonstration est indiquée pour chaque exigence applicable."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/4/c
+    expected: conforme
+    evidence:
+      - "Les référentiels appliqués sont : EN ISO 14971 (gestion des risques), EN ISO 10993-1 (évaluation biologique)"
+    rationale: "Les normes appliquées sont énumérées."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/4/d
+    expected: non_trouve
+    evidence: []
+    rationale: "La section sur les exigences générales ne renvoie à aucun document contrôlé apportant la preuve du respect de chaque norme ou méthode."
+    injected_gap: true
+    review_status: non_relu
+
+  # --- 5. Analyse bénéfice/risque et gestion des risques --------------------
+  - unit: anx_II/5/a
+    expected: non_trouve
+    evidence: []
+    rationale: "Le dossier présente la gestion des risques mais ne contient aucune analyse mettant en balance les bénéfices et les risques."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/5/b
+    expected: conforme
+    evidence:
+      - "Les mesures de maîtrise retenues sont, par ordre de priorité : la conception"
+      - "Après application de ces mesures, 43 risques sont classés acceptables et 3 risques résiduels sont signalés dans la notice"
+    rationale: "Solutions retenues et résultats de la gestion des risques sont présentés."
+    injected_gap: false
+    review_status: non_relu
+
+  # --- 6.1 Données précliniques et cliniques --------------------------------
+  - unit: anx_II/6.1/a
+    expected: conforme
+    evidence:
+      - "Le rapport ESS-LAB-07 présente les essais d'ingénierie réalisés en laboratoire"
+      - "Une simulation d'utilisation par douze infirmiers (rapport APT-02) a confirmé que la pose, l'appairage et le retrait sont réalisés sans erreur critique."
+    rationale: "Résultats d'essais d'ingénierie, de laboratoire et de simulation d'utilisation."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.1/b/t1
+    expected: conforme
+    evidence:
+      - "Les matériaux en contact avec le patient ou l'utilisateur sont recensés dans le rapport BIO-01"
+      - "Le protocole BIO-P-01 prévoit des essais de cytotoxicité, de sensibilisation et d'irritation cutanée"
+    rationale: "Recensement des matériaux en contact, protocole et conclusions de biocompatibilité."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.1/b/t2
+    expected: conforme
+    evidence:
+      - "Le rapport CAR-03 décrit la caractérisation chimique de l'adhésif par analyse des substances extractibles selon le protocole CAR-P-03, ainsi que le dénombrement microbien sur produit fini"
+    rationale: "Caractérisation chimique et microbiologique avec protocole et conclusion."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.1/b/t3
+    expected: non_conforme
+    evidence:
+      - "Les essais de sécurité électrique ont été réalisés par un laboratoire externe selon le protocole SEC-P-04"
+    rationale: "La sécurité électrique est traitée, mais rien ne porte sur la compatibilité électromagnétique d'un dispositif pourtant doté d'un émetteur radio."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/6.1/b/t4
+    expected: conforme
+    evidence:
+      - "Le logiciel a été développé selon un cycle en V décrit dans le plan de développement PDL-T1"
+      - "Le rapport de validation logicielle RVL-T1 résume les résultats"
+      - "Les essais ont couvert les deux systèmes d'exploitation mobiles pris en charge et les six modèles de téléphone et de tablette listés dans la notice."
+    rationale: "Processus de développement, résumé de la vérification et de la validation, configurations matérielles et systèmes d'exploitation."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.1/b/t5
+    expected: non_trouve
+    evidence: []
+    rationale: "Aucune donnée de stabilité ni de durée de conservation en stock."
+    injected_gap: true
+    review_status: non_relu
+
+  - unit: anx_II/6.1/b/t6
+    expected: conforme
+    evidence:
+      - "Le protocole PERF-P-05 compare les mesures du capteur à celles d'un thermomètre de référence étalonné, sur 30 points de température"
+    rationale: "Protocole, méthode d'analyse et conclusion des essais de performance."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.1/c
+    expected: conforme
+    evidence:
+      - "Le plan d'évaluation clinique PEC-T1 définit la destination, les critères de performance clinique et les sources de données retenues."
+      - "Le rapport d'évaluation clinique REC-T1, révision B, mis à jour après l'étude de concordance EC-T1-01 menée sur 60 patients"
+    rationale: "Plan d'évaluation clinique et rapport mis à jour sont référencés."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.1/d
+    expected: non_trouve
+    evidence: []
+    rationale: "Ni plan ni rapport de suivi clinique après commercialisation, ni justification de son absence."
+    injected_gap: true
+    review_status: non_relu
+
+  # --- 6.2 Cas spécifiques ---------------------------------------------------
+  - unit: anx_II/6.2/a
+    expected: conforme
+    evidence:
+      - "Le dispositif n'incorpore aucune substance qui, utilisée séparément, pourrait être considérée comme un médicament."
+    rationale: "L'unité demande une mention indiquant si le dispositif incorpore une telle substance ; la mention, négative, est présente."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/b
+    expected: conforme
+    evidence:
+      - "Le dispositif n'est fabriqué à partir d'aucun tissu ni d'aucune cellule d'origine humaine ou animale, ni de leurs dérivés, et n'en incorpore pas."
+    rationale: "L'unité demande une mention ; la mention, négative, est présente."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/c/t1
+    expected: non_applicable
+    evidence: &not_substance
+      - "Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau."
+    rationale: &not_substance_reason "L'unité ne vise que les dispositifs composés de substances introduites dans le corps humain ; le dossier déclare que ce n'est pas le cas."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/c/t2
+    expected: non_applicable
+    evidence: *not_substance
+    rationale: *not_substance_reason
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/c/t3
+    expected: non_applicable
+    evidence: *not_substance
+    rationale: *not_substance_reason
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/c/t4
+    expected: non_applicable
+    evidence: *not_substance
+    rationale: *not_substance_reason
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/d
+    expected: non_applicable
+    evidence:
+      - "Le dispositif ne contient aucune substance cancérogène, mutagène ou toxique pour la reproduction, ni aucun perturbateur endocrinien."
+    rationale: "L'unité ne vise que les dispositifs contenant de telles substances ; le dossier déclare qu'il n'en contient pas."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/e
+    expected: non_applicable
+    evidence:
+      - "Le dispositif est mis sur le marché à l'état non stérile et sans condition microbiologique particulière."
+    rationale: "L'unité ne vise que les dispositifs stériles ou soumis à des conditions microbiologiques particulières."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/f
+    expected: conforme
+    evidence:
+      - "Le dispositif a une fonction de mesurage."
+      - "chaque capteur est étalonné en fin de fabrication sur deux points de température dans un bain thermostaté raccordé à un étalon national"
+    rationale: "La méthode garantissant l'exactitude annoncée est décrite."
+    injected_gap: false
+    review_status: non_relu
+
+  - unit: anx_II/6.2/g
+    expected: non_applicable
+    evidence:
+      - "Le capteur ne doit être raccordé à aucun autre dispositif pour fonctionner comme prévu"
+    rationale: "L'unité ne vise que les dispositifs devant être raccordés à d'autres dispositifs ; le dossier déclare que ce n'est pas le cas."
+    injected_gap: false
+    review_status: non_relu

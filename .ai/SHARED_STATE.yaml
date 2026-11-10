@@ -2,8 +2,8 @@ schema: 1
 project: OpenMedReg-AI
 remote: github.com/easymoneymoncler/OpenMedReg-AI (public, branche main)
 last_writer: CLAUDE
-current_goal: 'Phase 1 en cours : MDR ingéré et découpé (2026-11-10). Prochain chantier :
-  dossier technique fictif annoté face à l''Annexe II, puis banc d''évaluation.'
+current_goal: 'Phase 1 outillée (corpus MDR, cas fictif annoté, banc d''évaluation). Prochain
+  chantier : phase 2, premier moteur d''analyse d''écarts mesuré sur fictif-therm-t1.'
 decisions:
 - '2026-11-10 : normes ISO/IEC hors dépôt (copyright), mode exemplaire apporté par l''utilisateur
   ; corpus versionné limité aux textes librement réutilisables.'
@@ -19,10 +19,16 @@ decisions:
   JSONL régénéré dans build/.'
 - '2026-11-10 : identifiants d''unité indépendants de la langue (art_10/4, anx_II/1.1/a) ;
   ils servent de cible aux citations et à la vérité terrain.'
+- '2026-11-11 : cas fictif-therm-t1 = 44 unités feuilles de l''Annexe II ; la règle de citation
+  (verdict mal cité ramené à non_trouve) est appliquée par le banc avant tout calcul.'
+- '2026-11-11 : verdict non_applicable proposé par CLAUDE, pas encore confirmé par l''utilisateur.'
 authorizations:
 - Commit et push automatiques sur main en fin de session.
 awaiting_user:
-- Validation de la version consolidée et de la liste des actes modificatifs (corpus/public/mdr/SOURCE.yaml).
+- Relecture de eval/cases/fictif-therm-t1/ground_truth.yaml (44 annotations non_relu).
+- Confirmation du verdict non_applicable.
+- Validation de corpus/public/mdr/SOURCE.yaml (version consolidée, actes modificatifs).
+- Choix du modèle du premier moteur (local ou API).
 blockers: []
-next_action: Construire le dossier technique fictif avec écarts injectés face à l'Annexe II
-  (review_status non_relu), puis le banc d'évaluation.
+next_action: 'Phase 2 : moteur d''analyse d''écarts face à l''Annexe II, sortie au format
+  de prédiction de eval/README.md.'

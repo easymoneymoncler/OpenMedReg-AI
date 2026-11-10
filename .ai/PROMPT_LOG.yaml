@@ -26,3 +26,14 @@ entries:
     ; 43 tests passent.
   next_action: Dossier technique fictif annoté face à l'Annexe II, puis banc d'évaluation
     ; faire valider SOURCE.yaml par l'utilisateur.
+- id: 20261110T231525Z-CLAUDE-03767701
+  at: '2026-11-10T23:15:25.674751+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande de poursuivre avec le dossier technique fictif annoté
+    face à l'Annexe II.
+  authorization: Dossier fictif, vérité terrain, banc d'évaluation, commit et push
+    autorisés.
+  status: done
+  outcome: Cas fictif-therm-t1 créé (44 unités, 13 lacunes voulues, annotations non_relu)
+    ; vérification des citations et banc d'évaluation écrits ; 56 tests passent.
+  next_action: Phase 2 après relecture des annotations et choix du modèle par l'utilisateur.
