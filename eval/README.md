@@ -62,6 +62,7 @@ aucun passage du document, est ramené à `non_trouve`.
 | --- | --- |
 | `false_conforme_rate` | Part des lacunes réelles déclarées `conforme`. L'erreur la plus grave ; une hausse bloque un changement. |
 | `gap_recall` | Part des lacunes réelles signalées comme lacune. |
+| `false_conforme_ci95`, `accuracy_ci95` | Intervalles de confiance à 95 % (méthode de Wilson). |
 | `accuracy` | Part des verdicts exacts. |
 | `citation_validity` | Part des citations qui existent mot pour mot. |
 | `verdicts_downgraded_for_citation` | Verdicts ramenés à `non_trouve` par la règle de citation. |
@@ -72,6 +73,18 @@ n'a d'intérêt que s'il fait mieux en exactitude sans dégrader ce taux.
 
 ## Limites
 
-Un seul cas, en français, rédigé et annoté par le même agent : les lacunes
-sont plus nettes que dans un dossier réel et les annotations n'ont pas été
-relues par un expert. Les résultats mesurés ici ne se généralisent pas.
+- **Un seul cas, écrit et annoté par une IA.** Les lacunes sont plus nettes
+  que dans un dossier réel et les annotations n'ont pas été relues par un
+  expert.
+- **Avantage à la même famille de modèles.** Le dossier et sa vérité terrain
+  ont été produits par un modèle Claude : un juge Claude est jugé sur un
+  texte qui lui ressemble. Un écart entre un juge Claude et un autre modèle
+  mesuré sur ce seul cas surestime probablement l'avantage du premier.
+- **Trop peu d'unités pour départager finement.** Avec 13 lacunes, une seule
+  erreur déplace le taux de faux `conforme` de près de 8 points. Le banc
+  publie l'intervalle de confiance à 95 % : zéro faux `conforme` sur 13
+  reste compatible avec un taux réel allant jusqu'à 23 %. Deux moteurs dont
+  les intervalles se recouvrent ne sont pas départagés.
+
+Les résultats mesurés ici ne se généralisent pas. Pour y remédier :
+[NOUVEAU_CAS.md](NOUVEAU_CAS.md).

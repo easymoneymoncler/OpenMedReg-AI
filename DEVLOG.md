@@ -111,3 +111,32 @@ dossier de plusieurs centaines de pages.
 
 **En suspens.** L'utilisateur demande un avis externe sur le choix API ou
 modèle local avant d'aller plus loin.
+
+## 2026-11-11 — Avis externe sur le choix du modèle (CLAUDE)
+
+**Contexte.** L'utilisateur a soumis le choix « API Claude ou modèle local »
+à une autre IA et demandé d'en juger la pertinence.
+
+**Retenu.**
+- Risque de concevoir pour un grand modèle : fondé. Réponse : un juge local
+  écrit tout de suite, avec les mêmes consignes, pour mesurer les deux dès
+  la première fois.
+- Biais du cas écrit par une IA : fondé, et plus précis que ce qui était
+  noté : il avantage un juge de la même famille de modèles.
+- Échantillon trop petit : fondé. Le banc publie désormais les intervalles
+  de confiance.
+- Cas supplémentaires et validation humaine : fondé, inscrit à la feuille
+  de route, avec un guide pour les testeurs.
+
+**Non retenu.**
+- Consignes réécrites en mode directif avec exemples : pas avant d'avoir
+  mesuré un échec ; un exemple risque d'être recopié comme citation.
+- Modèle local de 32 ou 70 milliards de paramètres dès le premier jour :
+  impossible sur la machine de développement (8 Go de mémoire).
+- API européenne à poids ouverts comme premier choix : sans objet pour un
+  dossier fictif, et ne règle pas la confidentialité des utilisateurs
+  finaux ; possible plus tard grâce à l'interface de juge.
+- « Les modèles locaux ont comblé l'essentiel de l'écart » : affirmation non
+  vérifiée ; c'est ce que le banc doit mesurer.
+- Grammaires GBNF dans Ollama : Ollama s'utilise ici avec un schéma JSON
+  passé dans le champ `format`, ce qui remplit le même rôle.

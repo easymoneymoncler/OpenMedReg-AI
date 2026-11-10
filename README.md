@@ -15,8 +15,9 @@ Phase 1 terminée côté outillage. Le MDR consolidé (version du 9 novembre
 2026, français et anglais) est dans le corpus et se découpe en 2 445 unités
 citables. Un premier dossier technique fictif est annoté face à l'Annexe II
 (annotations non relues par un expert) et un banc d'évaluation mesure les
-verdicts. Un premier moteur d'analyse (API Claude) est écrit et testé sans
-appel réseau ; il n'a pas encore été mesuré sur le cas fictif. Périmètre et feuille de route :
+verdicts. Un moteur d'analyse est écrit avec deux juges interchangeables
+(API Claude, modèle local via Ollama) et testé sans appel réseau ; aucun des
+deux n'a encore été mesuré sur le cas fictif. Périmètre et feuille de route :
 [project.yaml](project.yaml).
 
 ## Principes
@@ -86,6 +87,17 @@ Copier `.env.example` en `.env`, y placer la clé d'API, puis :
 
 Une analyse de l'Annexe II fait 44 appels au modèle et est facturée par
 Anthropic.
+
+### Avec un modèle local (Ollama)
+
+Rien ne quitte la machine. Les consignes et le format de sortie sont les
+mêmes que pour l'API, ce qui rend les deux mesures comparables.
+
+```bash
+.venv/bin/python -m openmedreg.gap_analysis eval/cases/fictif-therm-t1/dossier.md --judge ollama --model <modèle> --out build/predictions-local.jsonl
+```
+
+Ce juge n'a pas encore été essayé avec un vrai modèle.
 
 ## Organisation
 

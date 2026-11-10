@@ -5,7 +5,9 @@ from types import SimpleNamespace
 
 import pytest
 
-from openmedreg.engines.claude import FALLBACK_BETA, ClaudeJudge, build_user_message
+from openmedreg.engines.claude import FALLBACK_BETA, ClaudeJudge
+from openmedreg.engines.ollama import OllamaJudge
+from openmedreg.engines.prompt import INSTRUCTIONS, OUTPUT_SCHEMA, build_user_message
 from openmedreg.evaluation import load_case, score
 from openmedreg.gap_analysis import analyse, load_units, requirements_in_scope, verify
 
@@ -175,3 +177,33 @@ def test_claude_judge_refusal_becomes_not_found(requirements):
 def test_user_message_separates_context_from_requirement(requirements):
     message = build_user_message(requirements[-1])
     assert message.index("<contexte>") < message.index("<exigence id=")
+
+
+# --- Juge Ollama : forme de la requête, sans réseau ----------------------------
+
+def test_ollama_judge_request_shape(requirements):
+    calls = []
+
+    def post(url, payload, timeout):
+        calls.append((url, payload))
+        return {"message": {"content": json.dumps(PAYLOAD)}, "prompt_eval_count": 900, "eval_count": 50}
+
+    judge = OllamaJudge(model="modele-local", host="localhost:11434", post=post)
+    assert judge.judge(requirements[0], "DOC") == PAYLOAD
+    url, payload = calls[0]
+    assert url == "http://localhost:11434/api/chat"
+    assert payload["format"] == OUTPUT_SCHEMA and payload["stream"] is False
+    assert payload["options"] == {"temperature": 0, "num_ctx": 16384}
+    system, user = payload["messages"]
+    # mêmes consignes que le juge Claude : les mesures restent comparables
+    assert system["content"].startswith(INSTRUCTIONS) and "DOC" in system["content"]
+    assert requirements[0]["unit"] in user["content"]
+    assert judge.usage == {"requests": 1, "input_tokens": 900, "output_tokens": 50}
+
+
+def test_ollama_judge_flags_truncated_context(requirements):
+    def post(url, payload, timeout):
+        return {"message": {"content": json.dumps(PAYLOAD)}, "prompt_eval_count": 2048}
+
+    out = OllamaJudge(model="m", num_ctx=2048, post=post).judge(requirements[0], "DOC")
+    assert out["verdict"] == "non_trouve" and "contexte" in out["rationale"]

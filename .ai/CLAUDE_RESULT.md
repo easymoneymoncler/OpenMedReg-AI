@@ -40,3 +40,12 @@
   répond la vérité terrain, la chaîne complète donne une exactitude de 1.
 - Non vérifié : aucun appel réel à l'API (pas de clé). Les performances du
   moteur sur le cas fictif sont inconnues.
+
+## 2026-11-11 — Suites de l'avis externe
+
+- Ajouté : `engines/ollama.py`, `engines/prompt.py` (consignes communes),
+  intervalles de Wilson dans `evaluation.py`, `eval/NOUVEAU_CAS.md`.
+- Mesuré : 71 tests passent. Repère « toujours non_trouve » : 0/13 faux
+  conforme, intervalle à 95 % de 0 à 23 %.
+- Constaté : machine de développement Apple M2, 8 Go de mémoire, Ollama non
+  installé. Le juge local n'a tourné que contre un faux serveur.

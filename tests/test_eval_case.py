@@ -4,7 +4,9 @@ from pathlib import Path
 import pytest
 
 from openmedreg.citations import contains_quote, normalize
-from openmedreg.evaluation import GAP_VERDICTS, VERDICTS, baseline, load_case, score
+from openmedreg.evaluation import (
+    GAP_VERDICTS, VERDICTS, baseline, load_case, score, wilson_interval,
+)
 
 CASE_DIR = Path(__file__).resolve().parents[1] / "eval" / "cases" / "fictif-therm-t1"
 
@@ -119,3 +121,18 @@ def test_quote_matching_is_exact_but_whitespace_tolerant():
     assert not contains_quote(source, "le dispositif relève")  # casse conservée
     assert not contains_quote(source, "")
     assert normalize("a b") == "a b"
+
+
+def test_wilson_interval_is_wide_on_small_samples():
+    assert wilson_interval(0, 0) is None
+    low, high = wilson_interval(0, 13)
+    assert low == 0.0 and 0.2 < high < 0.25  # 0 faux conforme sur 13 n'exclut pas 20 %
+    low, high = wilson_interval(1, 13)
+    assert low < 0.02 and high > 0.33
+
+
+def test_score_reports_counts_and_intervals(case):
+    result = score(case, baseline(case, "oracle"))
+    assert result["false_conforme_count"] == "0/13"
+    assert result["false_conforme_ci95"][0] == 0.0
+    assert result["accuracy_ci95"][1] == 1.0

@@ -36,6 +36,11 @@ l'utilisateur uniquement.
   de clé d'API sur la machine.
 - Dépôt public : `github.com/easymoneymoncler/OpenMedReg-AI`, branche `main`,
   licence Apache-2.0.
+- 2026-11-11 (après avis d'une autre IA) : second juge
+  `src/openmedreg/engines/ollama.py` (modèle local, mêmes consignes dans
+  `engines/prompt.py`) ; intervalles de confiance dans le banc ; guide
+  `eval/NOUVEAU_CAS.md`. 71 tests. **Aucun juge n'a tourné pour de vrai** :
+  pas de clé d'API, pas d'Ollama, et la machine n'a que 8 Go de mémoire.
 
 ## 4. Décisions en vigueur
 
@@ -47,12 +52,12 @@ l'utilisateur uniquement.
 
 ## 5. Prochaine tâche immédiate
 
-Mesurer le moteur sur `fictif-therm-t1` : il faut une clé d'API dans `.env`
-et l'accord de l'utilisateur sur le coût (44 appels à claude-opus-5-5).
+Première mesure sur `fictif-therm-t1`, avec les deux juges si possible.
 
 En attente de l'utilisateur :
-- il soumet le choix « API Claude ou modèle local » à une autre IA pour avis ;
-- clé d'API et accord sur le coût de la première mesure ;
+- clé d'API dans `.env` et accord sur le coût (44 appels à claude-opus-5-5) ;
+- une machine capable de faire tourner un modèle local (un testeur ?) ;
+- cas rédigés par des humains (`eval/NOUVEAU_CAS.md`) ;
 - relecture de `eval/cases/fictif-therm-t1/ground_truth.yaml` ;
 - confirmation du verdict `non_applicable` ;
 - validation de `corpus/public/mdr/SOURCE.yaml`.

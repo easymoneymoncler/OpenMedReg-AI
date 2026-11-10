@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -21,6 +22,17 @@ import yaml
 
 from openmedreg.citations import contains_quote
 from openmedreg.corpus.eurlex import parse
+
+def wilson_interval(successes: int, n: int, z: float = 1.96) -> list[float] | None:
+    """Intervalle de confiance à 95 % d'une proportion (méthode de Wilson)."""
+    if n == 0:
+        return None
+    p = successes / n
+    denom = 1 + z * z / n
+    centre = (p + z * z / (2 * n)) / denom
+    half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
+    return [round(max(0.0, centre - half), 4), round(min(1.0, centre + half), 4)]
+
 
 VERDICTS = ("conforme", "non_conforme", "non_trouve", "non_applicable")
 GAP_VERDICTS = ("non_conforme", "non_trouve")
@@ -111,6 +123,11 @@ def score(case: Case, predictions: list[dict]) -> dict:
         "accuracy": correct / n,
         # Part des écarts réels déclarés « conforme » : l'erreur la plus grave.
         "false_conforme_rate": false_conforme / gaps if gaps else None,
+        "false_conforme_count": f"{false_conforme}/{gaps}",
+        # Sur peu d'unités, l'intervalle est large : deux moteurs dont les
+        # intervalles se recouvrent ne sont pas départagés par ce cas.
+        "false_conforme_ci95": wilson_interval(false_conforme, gaps),
+        "accuracy_ci95": wilson_interval(correct, n),
         # Part des écarts réels signalés comme écart (non_conforme ou non_trouve).
         "gap_recall": gaps_flagged / gaps if gaps else None,
         "citation_validity": valid_quotes / total_quotes if total_quotes else None,

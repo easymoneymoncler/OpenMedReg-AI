@@ -8,6 +8,7 @@ qu'un verdict sans citation vérifiée mot pour mot devient ``non_trouve``.
 Usage :
     python -m openmedreg.gap_analysis eval/cases/fictif-therm-t1/dossier.md \\
         --scope anx_II --lang fr --out build/predictions.jsonl
+    python -m openmedreg.gap_analysis ... --judge ollama --model <modèle local>
 """
 from __future__ import annotations
 
@@ -141,20 +142,28 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--lang", default="fr")
     parser.add_argument("--celex", default=DEFAULT_CELEX)
     parser.add_argument("--out", type=Path, required=True, help="prédictions JSONL")
-    parser.add_argument("--model", default="claude-opus-5-5")
-    parser.add_argument("--effort", default="medium")
+    parser.add_argument("--judge", choices=["claude", "ollama"], default="claude")
+    parser.add_argument("--model", help="défaut : claude-opus-5-5 ; obligatoire avec --judge ollama")
+    parser.add_argument("--effort", default="medium", help="juge claude uniquement")
     parser.add_argument("--limit", type=int, help="ne traiter que les N premières unités")
     args = parser.parse_args(argv)
 
-    load_dotenv(REPO_ROOT / ".env")
-    from openmedreg.engines.claude import ClaudeJudge
+    if args.judge == "ollama":
+        if not args.model:
+            parser.error("--judge ollama demande --model (nom du modèle dans Ollama)")
+        from openmedreg.engines.ollama import OllamaJudge
+
+        judge = OllamaJudge(model=args.model)
+    else:
+        load_dotenv(REPO_ROOT / ".env")
+        from openmedreg.engines.claude import ClaudeJudge
+
+        judge = ClaudeJudge(model=args.model or "claude-opus-5-5", effort=args.effort)
 
     document = args.document.read_text(encoding="utf-8")
     requirements = requirements_in_scope(load_units(args.celex, args.lang), args.scope)
     if args.limit:
         requirements = requirements[: args.limit]
-    judge = ClaudeJudge(model=args.model, effort=args.effort)
-
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w", encoding="utf-8") as handle:
         def write(result: dict) -> None:

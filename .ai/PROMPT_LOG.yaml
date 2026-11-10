@@ -50,3 +50,17 @@ entries:
     d'avis fourni à l'utilisateur.
   next_action: Attendre le retour de l'avis externe, la clé d'API et l'accord sur
     le coût.
+- id: 20261110T235531Z-CLAUDE-003d83fb
+  at: '2026-11-10T23:55:31.526283+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur transmet l'avis critique d'une autre IA sur le choix API
+    Claude ou modèle local et demande d'en analyser la pertinence puis d'adapter le
+    projet ou non.
+  authorization: Analyse et adaptations du dépôt autorisées, commit et push compris.
+    Aucune installation d'Ollama ni téléchargement de modèle, aucun appel facturé.
+  status: done
+  outcome: Quatre points retenus (juge local écrit, biais de famille documenté, intervalles
+    de confiance, guide de cas humains), cinq écartés avec motif dans DEVLOG.md. 71
+    tests.
+  next_action: Première mesure des deux juges dès qu'une clé d'API et une machine
+    adaptée sont disponibles.

@@ -64,6 +64,8 @@ roadmap:
         status: "fait (2026-11-10) — version consolidée du 2026-11-09, FR et EN"
       - task: "Dossier technique fictif (dispositif inventé) avec écarts injectés et vérité terrain annotée"
         status: "fait (2026-11-11) — 1 cas, 44 unités de l'Annexe II, annotations non relues"
+      - "Deux cas supplémentaires rédigés et annotés par des humains : un dossier désordonné, un dossier piège (voir eval/NOUVEAU_CAS.md)"
+      - "Relecture experte de la vérité terrain de fictif-therm-t1"
       - task: "Banc d'évaluation : précision/rappel des verdicts, taux de citations valides, taux de faux « conforme »"
         status: "fait (2026-11-11)"
   phase_2:
@@ -73,6 +75,8 @@ roadmap:
         status: "écrit (2026-11-11), juge API Claude ; pas encore mesuré sur le cas fictif"
       - task: "Vérification mécanique des citations et verdict « non_trouve » par défaut"
         status: "fait (2026-11-11)"
+      - task: "Juge local (Ollama) mesuré sur le même banc que le juge API, dès la première mesure"
+        status: "écrit (2026-11-11), non mesuré : la machine de développement (8 Go de mémoire) ne peut pas faire tourner un modèle de taille utile"
       - "Rapport d'écarts lisible (Markdown / JSON)"
   phase_3:
     name: "Normes apportées par l'utilisateur et diffusion"
@@ -88,6 +92,10 @@ risks:
     mitigation: "Statut de relecture sur chaque élément réglementaire ; validation humaine avant passage à « relu »"
   - risk: "Fuite de norme sous copyright ou de document client dans le dépôt public"
     mitigation: "Dossiers privés ignorés par git et hook de blocage avant commit et avant push"
+  - risk: "Moteur conçu pour un modèle de pointe et inutilisable avec un modèle local"
+    mitigation: "Consignes et schéma de sortie communs aux deux juges ; toute évolution des consignes est mesurée sur les deux"
+  - risk: "Banc d'évaluation biaisé (cas écrit par une IA, trop peu d'unités)"
+    mitigation: "Cas rédigés par des humains, relecture experte, intervalles de confiance publiés avec chaque mesure"
   - risk: "Qualité insuffisante des modèles locaux"
     mitigation: "Moteur indépendant du modèle et résultats du banc d'évaluation publiés par modèle"
 
