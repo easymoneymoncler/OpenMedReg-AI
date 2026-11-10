@@ -1,0 +1,16 @@
+schema: 1
+entries:
+- id: 20261110-CLAUDE-socle
+  at: '2026-11-10T21:46:11.729967+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande si un assistant IA open source d'aide à la conformité
+    MDR est réalisable à partir d'un YAML initial, puis de poser le dépôt sur le modèle
+    de NeuroMetrics (CLAUDE.md, agents coordonnés, push automatique), puis de le publier.
+  authorization: Socle, création du dépôt GitHub public, premier commit et push autorisés
+    explicitement. Push automatique en fin de session autorisé.
+  status: done
+  outcome: Socle écrit ; 12 tests du garde-fou passent ; hook essayé (bloque un PDF
+    en dossier privé et une mention de copyright de norme) ; licence Apache-2.0 ajoutée
+    ; dépôt public créé et premier commit poussé.
+  next_action: 'Phase 1 : ingestion du MDR depuis EUR-Lex, puis jeu d''évaluation
+    fictif.'

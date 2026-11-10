@@ -1,0 +1,65 @@
+# === Contenus qui ne doivent JAMAIS être publiés ===
+# Normes sous copyright apportées par l'utilisateur, index et embeddings dérivés
+corpus/private/*
+!corpus/private/.gitkeep
+!corpus/private/README.md
+# Documents réels (clients, dossiers techniques non fictifs)
+data/client/*
+!data/client/.gitkeep
+!data/client/README.md
+# Index et bases vectorielles (peuvent contenir du texte privé)
+data/index/
+*.faiss
+*.sqlite
+*.db
+chroma/
+qdrant_storage/
+
+# === Coordination multi-agent ===
+.ai/LOCKDIR/
+.ai/*.tmp
+
+# === Secrets et configuration locale ===
+.env
+.env.*
+!.env.example
+*.local.yaml
+secrets.yaml
+secrets.yml
+.claude/settings.local.json
+.claude/worktrees/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# === Modèles et artefacts volumineux ===
+models/
+*.gguf
+*.safetensors
+*.pt
+*.bin
+*.pkl
+*.joblib
+
+# === Résultats régénérables ===
+results/*
+!results/.gitkeep
+*.log
+
+# === IDE / OS ===
+.vscode/*
+!.vscode/tasks.json
+.idea/
+.DS_Store
+Thumbs.db

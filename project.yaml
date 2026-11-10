@@ -1,0 +1,91 @@
+project:
+  name: "OpenMedReg-AI"  # nom de travail, à confirmer avant la création du dépôt GitHub
+  version: "0.0.1"
+  vision: >
+    Assistant open source d'aide à la relecture réglementaire pour les ingénieurs
+    de dispositifs médicaux : il confronte un document interne à une exigence
+    du MDR et rend un verdict accompagné de citations vérifiables.
+  license: "Apache-2.0"
+  positioning: >
+    Aide à la relecture, jamais avis de conformité. Chaque verdict doit être
+    relu par une personne compétente en affaires réglementaires.
+
+audience:
+  - "Ingénieurs QA/RA et R&D de start-ups MedTech"
+  - "Éditeurs de logiciels dispositifs médicaux (SaMD)"
+
+regulatory_scope:
+  # Seules les sources librement réutilisables entrent dans le dépôt.
+  versioned_in_repo:
+    - name: "Règlement (UE) 2017/745 (MDR)"
+      source: "EUR-Lex"
+    - name: "Guides MDCG"
+      source: "Commission européenne"
+    - name: "Règlement (UE) 2024/1689 (AI Act)"
+      source: "EUR-Lex"
+      phase: "ultérieure"
+  bring_your_own:
+    # Normes sous copyright : l'utilisateur ingère en local l'exemplaire qu'il
+    # a acheté. Ni le texte, ni des extraits, ni des embeddings dans le dépôt.
+    - "ISO 13485"
+    - "ISO 14971"
+    - "IEC 62304"
+  first_use_case: >
+    Analyse d'écarts d'une documentation technique face à l'Annexe II du MDR
+    (contenu de la documentation technique), puis l'Annexe I (exigences
+    générales en matière de sécurité et de performances).
+
+technical_principles:
+  architecture: "RAG avec citation obligatoire et vérification mécanique des citations"
+  verdicts: ["conforme", "non_conforme", "non_trouve"]
+  default_verdict: "non_trouve"  # sans preuve explicite citée, pas de verdict positif
+  citation_rule: >
+    Un verdict n'est émis que s'il cite (a) l'article ou le point de l'annexe
+    et (b) le passage exact du document analysé. Le pipeline vérifie que les
+    deux passages existent mot pour mot avant de rendre le résultat.
+  chunking: "Découpage structuré par article / point d'annexe, pas par taille fixe"
+  retrieval: "Recherche hybride (lexicale + vectorielle)"
+  llm: "Moteur indépendant du modèle : local (Ollama) ou API, au choix de l'utilisateur"
+  orchestration: "Pipeline Python simple et auditable ; pas de framework tant qu'il n'est pas nécessaire"
+  deployment: "Exécutable hors ligne (Docker) pour les documents confidentiels"
+
+roadmap:
+  phase_0:
+    name: "Socle du dépôt"
+    status: "fait"
+    tasks:
+      - "Protocole multi-agent (CLAUDE.md, AGENTS.md, .ai/)"
+      - "Garde-fous git : aucun texte de norme, document client ou secret dans le dépôt"
+  phase_1:
+    name: "Corpus public et jeu d'évaluation"
+    tasks:
+      - "Ingestion du MDR depuis EUR-Lex, découpé par article et point d'annexe, avec identifiants stables"
+      - "Dossier technique fictif (dispositif inventé) avec écarts injectés et vérité terrain annotée"
+      - "Banc d'évaluation : précision/rappel des verdicts, taux de citations valides, taux de faux « conforme »"
+  phase_2:
+    name: "Analyse d'écarts"
+    tasks:
+      - "Module d'analyse d'un document face à l'Annexe II du MDR"
+      - "Vérification mécanique des citations et verdict « non_trouve » par défaut"
+      - "Rapport d'écarts lisible (Markdown / JSON)"
+  phase_3:
+    name: "Normes apportées par l'utilisateur et diffusion"
+    tasks:
+      - "Ingestion locale des normes ISO/IEC fournies par l'utilisateur (jamais versionnées)"
+      - "Image Docker hors ligne et documentation de déploiement"
+      - "Guides MDCG, puis AI Act"
+
+risks:
+  - risk: "Faux verdict « conforme »"
+    mitigation: "Citation obligatoire vérifiée, défaut « non_trouve », métrique dédiée suivie à chaque changement"
+  - risk: "Contenu réglementaire erroné écrit par un agent"
+    mitigation: "Statut de relecture sur chaque élément réglementaire ; validation humaine avant passage à « relu »"
+  - risk: "Fuite de norme sous copyright ou de document client dans le dépôt public"
+    mitigation: "Dossiers privés ignorés par git et hook de blocage avant commit et avant push"
+  - risk: "Qualité insuffisante des modèles locaux"
+    mitigation: "Moteur indépendant du modèle et résultats du banc d'évaluation publiés par modèle"
+
+out_of_scope_for_now:
+  - "Modèle économique (open core, offres payantes)"
+  - "Interface graphique, intégrations Jira/GitHub"
+  - "Tout chiffre de gain de temps non mesuré"
