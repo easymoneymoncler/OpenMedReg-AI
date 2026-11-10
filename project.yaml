@@ -59,7 +59,8 @@ roadmap:
   phase_1:
     name: "Corpus public et jeu d'évaluation"
     tasks:
-      - "Ingestion du MDR depuis EUR-Lex, découpé par article et point d'annexe, avec identifiants stables"
+      - task: "Ingestion du MDR depuis EUR-Lex, découpé par article et point d'annexe, avec identifiants stables"
+        status: "fait (2026-11-10) — version consolidée du 2026-11-09, FR et EN"
       - "Dossier technique fictif (dispositif inventé) avec écarts injectés et vérité terrain annotée"
       - "Banc d'évaluation : précision/rappel des verdicts, taux de citations valides, taux de faux « conforme »"
   phase_2:

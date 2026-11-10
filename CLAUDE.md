@@ -77,5 +77,5 @@ maintenir une seconde version de ces règles ici.
 
 ## Environnement
 
-- Python via `.venv/` (`python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt`).
+- Python via `.venv/` (`python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt -e .`).
 - Hooks git : `./scripts/install_hooks.sh` après chaque clone.

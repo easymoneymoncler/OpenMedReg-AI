@@ -1,0 +1,41 @@
+title: "Règlement (UE) 2017/745 relatif aux dispositifs médicaux (MDR) — texte consolidé"
+celex: "02017R0745-20261109"
+consolidated_version: "2026-11-09"
+publisher: "Office des publications de l'Union européenne (EUR-Lex)"
+retrieved: "2026-11-10"
+retrieved_with: "scripts/fetch_eurlex.py 02017R0745-20261109 --lang fr en --out corpus/public/mdr"
+url: "http://publications.europa.eu/resource/celex/02017R0745-20261109"
+files:
+  - path: "02017R0745-20261109.fr.xhtml"
+    lang: "fr"
+    sha256: "2651e7c9b9a3c928309777aed7749014de100b1c9c27d5e77eff9dd5d5278b06"
+  - path: "02017R0745-20261109.en.xhtml"
+    lang: "en"
+    sha256: "bd269e0a44078ef7a03c81d4770c92958978b77b068801ca86a8b3d027441e24"
+
+# Actes intégrés, tels que listés dans l'en-tête du fichier consolidé.
+amended_by:
+  - "M1 : règlement (UE) 2020/561"
+  - "M2 : règlement délégué (UE) 2023/502"
+  - "M3 : règlement (UE) 2023/607"
+  - "M4 : règlement délégué (UE) 2023/2197"
+  - "M5 : règlement délégué (UE) 2025/788 (modifiant M4)"
+  - "M6 : règlement (UE) 2024/568"
+  - "M7 : règlement (UE) 2024/1860"
+  - "M8 : règlement (UE) 2025/2457"
+  - "M9 : règlement délégué (UE) 2026/1359"
+  - "M10 : règlement délégué (UE) 2026/1451"
+corrected_by:
+  - "C1 : JO L 117 du 3.5.2019, p. 9"
+  - "C2 : JO L 334 du 27.12.2019, p. 165"
+  - "C3 : JO L 241 du 8.7.2021, p. 7"
+
+limits:
+  - "Un texte consolidé est un outil de documentation sans effet juridique ; seules les versions publiées au Journal officiel font foi."
+  - "Les considérants ne figurent pas dans le texte consolidé."
+
+reuse: >
+  © Union européenne, https://eur-lex.europa.eu. Réutilisation autorisée
+  moyennant mention de la source, conformément à la décision 2011/833/UE de
+  la Commission relative à la réutilisation des documents de la Commission.
+review_status: "non_relu"  # version et liste des actes à confirmer par l'utilisateur

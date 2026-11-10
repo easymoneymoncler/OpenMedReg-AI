@@ -2,22 +2,27 @@ schema: 1
 project: OpenMedReg-AI
 remote: github.com/easymoneymoncler/OpenMedReg-AI (public, branche main)
 last_writer: CLAUDE
-current_goal: >
-  Socle du dépôt posé et publié le 2026-11-10. Prochain chantier : phase 1
-  (ingestion du MDR depuis EUR-Lex, jeu d'évaluation fictif annoté).
+current_goal: 'Phase 1 en cours : MDR ingéré et découpé (2026-11-10). Prochain chantier :
+  dossier technique fictif annoté face à l''Annexe II, puis banc d''évaluation.'
 decisions:
-- '2026-11-10 : normes ISO/IEC hors dépôt (copyright), mode exemplaire apporté par
-  l''utilisateur ; corpus versionné limité aux textes librement réutilisables.'
+- '2026-11-10 : normes ISO/IEC hors dépôt (copyright), mode exemplaire apporté par l''utilisateur
+  ; corpus versionné limité aux textes librement réutilisables.'
 - '2026-11-10 : premier cas d''usage = analyse d''écarts face à l''Annexe II du MDR.'
 - '2026-11-10 : jeu d''évaluation fictif construit en phase 1, avant le moteur.'
 - '2026-11-10 : verdict non_trouve par défaut ; citation vérifiée obligatoire.'
 - '2026-11-10 : push direct sur main en fin de session, protégé par .githooks/.'
-- '2026-11-10 : l''utilisateur a l''expertise RA et des testeurs ; lui seul passe
-  un élément réglementaire à review_status relu.'
-- '2026-11-10 : dépôt créé en public sur décision explicite de l''utilisateur ; commits
-  signés avec l''adresse noreply GitHub.'
+- '2026-11-10 : l''utilisateur a l''expertise RA et des testeurs ; lui seul passe un élément
+  réglementaire à review_status relu.'
+- '2026-11-10 : dépôt créé en public sur décision explicite de l''utilisateur ; commits signés
+  avec l''adresse noreply GitHub.'
+- '2026-11-10 : corpus MDR = texte consolidé 02017R0745-20261109 (FR et EN), XHTML versionné,
+  JSONL régénéré dans build/.'
+- '2026-11-10 : identifiants d''unité indépendants de la langue (art_10/4, anx_II/1.1/a) ;
+  ils servent de cible aux citations et à la vérité terrain.'
 authorizations:
-- 'Commit et push automatiques sur main en fin de session.'
-awaiting_user: []
+- Commit et push automatiques sur main en fin de session.
+awaiting_user:
+- Validation de la version consolidée et de la liste des actes modificatifs (corpus/public/mdr/SOURCE.yaml).
 blockers: []
-next_action: 'Phase 1 : ingestion du MDR (EUR-Lex) découpé par article et point d''annexe.'
+next_action: Construire le dossier technique fictif avec écarts injectés face à l'Annexe II
+  (review_status non_relu), puis le banc d'évaluation.

@@ -14,3 +14,15 @@ entries:
     ; dépôt public créé et premier commit poussé.
   next_action: 'Phase 1 : ingestion du MDR depuis EUR-Lex, puis jeu d''évaluation
     fictif.'
+- id: 20261110T222925Z-CLAUDE-54906372
+  at: '2026-11-10T22:29:25.278557+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande de démarrer la phase 1 par l'ingestion du MDR depuis
+    EUR-Lex.
+  authorization: Ingestion du MDR, découpage, tests, commit et push autorisés.
+  status: done
+  outcome: MDR consolidé du 2026-11-09 (FR, EN) ajouté au corpus public avec provenance
+    ; découpage en 2 445 unités aux identifiants identiques dans les deux langues
+    ; 43 tests passent.
+  next_action: Dossier technique fictif annoté face à l'Annexe II, puis banc d'évaluation
+    ; faire valider SOURCE.yaml par l'utilisateur.

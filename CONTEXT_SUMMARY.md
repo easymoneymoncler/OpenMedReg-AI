@@ -16,7 +16,13 @@ l'utilisateur uniquement.
 ## 3. État technique
 
 - 2026-11-10 : socle créé (protocole multi-agent, garde-fous git, tests du
-  garde-fou). Aucun code de pipeline.
+  garde-fou).
+- 2026-11-10 : MDR consolidé du 2026-11-09 (FR et EN) dans
+  `corpus/public/mdr/`, provenance dans `SOURCE.yaml`. Découpage dans
+  `src/openmedreg/corpus/eurlex.py` : 2 445 unités, identifiants identiques
+  dans les deux langues (`art_10/4`, `anx_II/1.1/a`), aucun texte perdu,
+  aucun avertissement. 43 tests. Sortie JSONL dans `build/` (non versionné).
+- Pas encore de recherche, de modèle ni d'analyse d'écarts.
 - Dépôt public : `github.com/easymoneymoncler/OpenMedReg-AI`, branche `main`,
   licence Apache-2.0.
 
@@ -30,5 +36,9 @@ l'utilisateur uniquement.
 
 ## 5. Prochaine tâche immédiate
 
-Phase 1 : ingestion du MDR depuis EUR-Lex, découpé par article et point
-d'annexe, puis dossier technique fictif annoté.
+Phase 1, suite : dossier technique fictif (dispositif inventé) avec écarts
+injectés face à l'Annexe II, vérité terrain annotée par identifiant d'unité
+(`anx_II/...`) et `review_status: non_relu`, puis banc d'évaluation.
+
+À faire valider par l'utilisateur : la version consolidée retenue et la
+liste des actes modificatifs (`corpus/public/mdr/SOURCE.yaml`).

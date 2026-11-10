@@ -9,7 +9,7 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 if [ ! -x ".venv/bin/python" ]; then
   echo "Environnement virtuel introuvable (.venv/bin/python) — lancer d'abord :"
-  echo "  python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt"
+  echo "  python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt -e ."
   exit 1
 fi
 

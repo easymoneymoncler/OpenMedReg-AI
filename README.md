@@ -11,8 +11,10 @@ vérifiables : `conforme`, `non_conforme` ou `non_trouve`.
 
 ## État
 
-Phase 0 : socle du dépôt. Aucun moteur d'analyse n'existe encore. Périmètre
-et feuille de route : [project.yaml](project.yaml).
+Phase 1 en cours. Le MDR consolidé (version du 9 novembre 2026, français et
+anglais) est dans le corpus et se découpe en 2 445 unités citables. Aucun
+moteur d'analyse n'existe encore. Périmètre et feuille de route :
+[project.yaml](project.yaml).
 
 ## Principes
 
@@ -29,7 +31,7 @@ et feuille de route : [project.yaml](project.yaml).
 ## Installation (développement)
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt -e .
 ```
 
 ```bash
@@ -40,6 +42,17 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 ./scripts/run_tests.sh
 ```
 
+## Découper le MDR en unités citables
+
+```bash
+.venv/bin/python -m openmedreg.corpus.eurlex corpus/public/mdr/02017R0745-20261109.fr.xhtml --out build/mdr.fr.jsonl
+```
+
+Chaque article, paragraphe, point d'annexe et élément de liste reçoit un
+identifiant stable, identique en français et en anglais : `art_10/4` pour
+l'article 10, paragraphe 4 ; `anx_II/1.1/a` pour l'annexe II, section 1.1,
+point a). Provenance et limites du texte : [SOURCE.yaml](corpus/public/mdr/SOURCE.yaml).
+
 ## Organisation
 
 | Chemin | Contenu |
@@ -48,6 +61,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 | `corpus/private/` | Vos normes achetées — ignoré par git |
 | `data/client/` | Vos documents réels — ignoré par git |
 | `eval/` | Dossiers fictifs et vérité terrain |
+| `src/openmedreg/` | Code du projet (découpage du corpus pour l'instant) |
 | `scripts/` | Tests, garde-fous git, coordination des agents |
 | `.ai/` | État partagé et journal des agents |
 
