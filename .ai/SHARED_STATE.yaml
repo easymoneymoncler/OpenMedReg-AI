@@ -2,8 +2,8 @@ schema: 1
 project: OpenMedReg-AI
 remote: github.com/easymoneymoncler/OpenMedReg-AI (public, branche main)
 last_writer: CLAUDE
-current_goal: 'Phase 1 outillée (corpus MDR, cas fictif annoté, banc d''évaluation). Prochain
-  chantier : phase 2, premier moteur d''analyse d''écarts mesuré sur fictif-therm-t1.'
+current_goal: 'Phase 2 : moteur d''analyse écrit (juge API Claude), non mesuré. L''utilisateur
+  prend un avis externe sur le choix API ou modèle local.'
 decisions:
 - '2026-11-10 : normes ISO/IEC hors dépôt (copyright), mode exemplaire apporté par l''utilisateur
   ; corpus versionné limité aux textes librement réutilisables.'
@@ -22,13 +22,17 @@ decisions:
 - '2026-11-11 : cas fictif-therm-t1 = 44 unités feuilles de l''Annexe II ; la règle de citation
   (verdict mal cité ramené à non_trouve) est appliquée par le banc avant tout calcul.'
 - '2026-11-11 : verdict non_applicable proposé par CLAUDE, pas encore confirmé par l''utilisateur.'
+- '2026-11-11 : l''utilisateur choisit l''API Claude pour le premier moteur, puis demande
+  un prompt pour soumettre ce choix à une autre IA ; le moteur reste indépendant du fournisseur
+  (interface Judge).'
 authorizations:
 - Commit et push automatiques sur main en fin de session.
 awaiting_user:
+- Retour de l'avis externe sur API Claude ou modèle local.
+- Clé d'API dans .env et accord sur le coût de la première mesure (44 appels).
 - Relecture de eval/cases/fictif-therm-t1/ground_truth.yaml (44 annotations non_relu).
 - Confirmation du verdict non_applicable.
 - Validation de corpus/public/mdr/SOURCE.yaml (version consolidée, actes modificatifs).
-- Choix du modèle du premier moteur (local ou API).
 blockers: []
-next_action: 'Phase 2 : moteur d''analyse d''écarts face à l''Annexe II, sortie au format
-  de prédiction de eval/README.md.'
+next_action: 'Après accord : lancer gap_analysis sur fictif-therm-t1, puis evaluation ; consigner
+  les mesures.'

@@ -37,3 +37,16 @@ entries:
   outcome: Cas fictif-therm-t1 créé (44 unités, 13 lacunes voulues, annotations non_relu)
     ; vérification des citations et banc d'évaluation écrits ; 56 tests passent.
   next_action: Phase 2 après relecture des annotations et choix du modèle par l'utilisateur.
+- id: 20261110T234627Z-CLAUDE-9f7dab6f
+  at: '2026-11-10T23:46:27.584308+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur choisit l'API Claude pour le premier moteur, puis demande
+    en cours de route un prompt présentant ce choix pour le soumettre à une autre
+    IA.
+  authorization: Écriture du moteur, commit et push autorisés. Aucun appel facturé
+    à l'API sans clé ni accord.
+  status: awaiting_user
+  outcome: Moteur et juge Claude écrits, 67 tests sans réseau ; prompt de demande
+    d'avis fourni à l'utilisateur.
+  next_action: Attendre le retour de l'avis externe, la clé d'API et l'accord sur
+    le coût.

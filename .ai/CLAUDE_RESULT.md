@@ -31,3 +31,12 @@
   exactitude 1, validité des citations 1.
 - Non vérifié par un humain : les 44 annotations (`non_relu`) et le verdict
   `non_applicable`, proposé par l'agent.
+
+## 2026-11-11 — Premier moteur d'analyse
+
+- Ajouté : `src/openmedreg/gap_analysis.py`, `src/openmedreg/engines/claude.py`,
+  `tests/test_gap_analysis.py`, `.env.example`.
+- Mesuré : 67 tests passent, aucun n'appelle le réseau. Avec un juge qui
+  répond la vérité terrain, la chaîne complète donne une exactitude de 1.
+- Non vérifié : aucun appel réel à l'API (pas de clé). Les performances du
+  moteur sur le cas fictif sont inconnues.

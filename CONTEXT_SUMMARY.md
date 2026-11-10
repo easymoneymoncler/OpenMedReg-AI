@@ -28,7 +28,12 @@ l'utilisateur uniquement.
   `src/openmedreg/citations.py` (citation mot pour mot) et
   `src/openmedreg/evaluation.py` (mesures, règle de citation appliquée avant
   calcul). 56 tests.
-- Pas encore de recherche, de modèle ni d'analyse d'écarts.
+- 2026-11-11 : moteur `src/openmedreg/gap_analysis.py` (choix des unités
+  feuilles et de leur contexte, règle de citation) et juge
+  `src/openmedreg/engines/claude.py` (un appel par unité, sortie JSON
+  contrainte, document dans le préfixe mis en cache, repli sur refus).
+  67 tests, tous sans réseau. **Jamais exécuté contre l'API réelle** : pas
+  de clé d'API sur la machine.
 - Dépôt public : `github.com/easymoneymoncler/OpenMedReg-AI`, branche `main`,
   licence Apache-2.0.
 
@@ -42,12 +47,12 @@ l'utilisateur uniquement.
 
 ## 5. Prochaine tâche immédiate
 
-Phase 2 : premier moteur d'analyse d'écarts face à l'Annexe II (recherche
-des passages du document par unité, appel à un modèle, sortie au format de
-prédiction de `eval/README.md`), mesuré sur `fictif-therm-t1`.
+Mesurer le moteur sur `fictif-therm-t1` : il faut une clé d'API dans `.env`
+et l'accord de l'utilisateur sur le coût (44 appels à claude-opus-5-5).
 
 En attente de l'utilisateur :
+- il soumet le choix « API Claude ou modèle local » à une autre IA pour avis ;
+- clé d'API et accord sur le coût de la première mesure ;
 - relecture de `eval/cases/fictif-therm-t1/ground_truth.yaml` ;
 - confirmation du verdict `non_applicable` ;
-- validation de `corpus/public/mdr/SOURCE.yaml` ;
-- choix du modèle pour le premier moteur (local ou API).
+- validation de `corpus/public/mdr/SOURCE.yaml`.

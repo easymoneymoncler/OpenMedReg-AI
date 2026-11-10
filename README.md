@@ -15,7 +15,8 @@ Phase 1 terminée côté outillage. Le MDR consolidé (version du 9 novembre
 2026, français et anglais) est dans le corpus et se découpe en 2 445 unités
 citables. Un premier dossier technique fictif est annoté face à l'Annexe II
 (annotations non relues par un expert) et un banc d'évaluation mesure les
-verdicts. Aucun moteur d'analyse n'existe encore. Périmètre et feuille de route :
+verdicts. Un premier moteur d'analyse (API Claude) est écrit et testé sans
+appel réseau ; il n'a pas encore été mesuré sur le cas fictif. Périmètre et feuille de route :
 [project.yaml](project.yaml).
 
 ## Principes
@@ -63,6 +64,29 @@ point a). Provenance et limites du texte : [SOURCE.yaml](corpus/public/mdr/SOURC
 
 Verdicts, format des prédictions et lecture des mesures : [eval/README.md](eval/README.md).
 
+## Analyser un document (API Claude)
+
+Le moteur envoie le document et le texte du règlement à l'API d'Anthropic :
+ne l'utilisez pas sur un document confidentiel sans l'accord de son
+propriétaire. Un juge local pourra remplacer celui-ci sans changer le reste.
+
+```bash
+.venv/bin/pip install -e ".[claude]"
+```
+
+Copier `.env.example` en `.env`, y placer la clé d'API, puis :
+
+```bash
+.venv/bin/python -m openmedreg.gap_analysis eval/cases/fictif-therm-t1/dossier.md --scope anx_II --out build/predictions.jsonl
+```
+
+```bash
+.venv/bin/python -m openmedreg.evaluation eval/cases/fictif-therm-t1 --predictions build/predictions.jsonl
+```
+
+Une analyse de l'Annexe II fait 44 appels au modèle et est facturée par
+Anthropic.
+
 ## Organisation
 
 | Chemin | Contenu |
@@ -71,7 +95,7 @@ Verdicts, format des prédictions et lecture des mesures : [eval/README.md](eval
 | `corpus/private/` | Vos normes achetées — ignoré par git |
 | `data/client/` | Vos documents réels — ignoré par git |
 | `eval/` | Dossiers fictifs et vérité terrain |
-| `src/openmedreg/` | Découpage du corpus, vérification des citations, banc d'évaluation |
+| `src/openmedreg/` | Découpage du corpus, vérification des citations, analyse d'écarts, banc d'évaluation |
 | `scripts/` | Tests, garde-fous git, coordination des agents |
 | `.ai/` | État partagé et journal des agents |
 

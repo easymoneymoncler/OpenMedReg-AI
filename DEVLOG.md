@@ -88,3 +88,26 @@ lacunes plus nettes que dans un dossier réel ; un seul cas, en français.
 
 **Prochaines étapes.** Relecture des annotations par l'utilisateur ; premier
 moteur d'analyse mesuré sur ce cas.
+
+## 2026-11-11 — Phase 2 : premier moteur d'analyse (CLAUDE)
+
+**Objectifs.** Écrire le moteur d'analyse d'écarts avec un juge API Claude,
+choisi par l'utilisateur pour ce premier moteur.
+
+**Fait.**
+- `gap_analysis.py` : indépendant du fournisseur. Sélectionne les unités
+  feuilles, joint le texte introductif de leurs parents, applique la règle
+  de citation et conserve le verdict brut du modèle à côté du verdict retenu.
+- `engines/claude.py` : un appel par unité, sortie JSON contrainte par
+  schéma, document placé dans le préfixe mis en cache, repli côté serveur en
+  cas de refus, compteur de jetons.
+- Tests avec un faux client : forme de la requête, refus, rejet des
+  citations inventées, panne d'un appel sans perte des autres verdicts.
+
+**Limites.** Aucun appel réel n'a été fait : la forme de la requête est
+vérifiée contre la signature du SDK (anthropic 2.8.0), pas contre l'API.
+Le document entier est envoyé à chaque appel, ce qui ne tiendra pas pour un
+dossier de plusieurs centaines de pages.
+
+**En suspens.** L'utilisateur demande un avis externe sur le choix API ou
+modèle local avant d'aller plus loin.

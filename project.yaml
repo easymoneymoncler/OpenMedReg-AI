@@ -69,8 +69,10 @@ roadmap:
   phase_2:
     name: "Analyse d'écarts"
     tasks:
-      - "Module d'analyse d'un document face à l'Annexe II du MDR"
-      - "Vérification mécanique des citations et verdict « non_trouve » par défaut"
+      - task: "Module d'analyse d'un document face à l'Annexe II du MDR"
+        status: "écrit (2026-11-11), juge API Claude ; pas encore mesuré sur le cas fictif"
+      - task: "Vérification mécanique des citations et verdict « non_trouve » par défaut"
+        status: "fait (2026-11-11)"
       - "Rapport d'écarts lisible (Markdown / JSON)"
   phase_3:
     name: "Normes apportées par l'utilisateur et diffusion"
