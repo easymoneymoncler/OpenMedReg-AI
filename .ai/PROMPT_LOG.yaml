@@ -271,3 +271,18 @@ entries:
     lisible que dans la console du fournisseur.'
   next_action: L'utilisateur vérifie le solde dans la console ; ensuite nouvelle tentative,
     ou file d'attente du fournisseur, ou autre fournisseur.
+- id: 20261111T153338Z-CLAUDE-f8e8d0ed
+  at: '2026-11-11T15:33:38.413698+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur indique disposer de crédit chez le fournisseur de GPU, puis
+    demande si tout est commité et un résumé du raisonnement à faire confronter par
+    un tiers.
+  authorization: Nouvelle tentative de lancement aux conditions déjà chiffrées (une
+    machine, 0,69 USD/h au plus, trois heures au plus). Résumé demandé.
+  status: open
+  outcome: 'Machine créée à la quatrième classe essayée (trois refus de capacité avant),
+    0,69 USD/h, 31 Go de mémoire vidéo allouée. Ollama installé en écoute locale,
+    téléchargement des deux modèles presque terminé. L''hypothèse du compte sans crédit
+    était fausse : les refus étaient bien des manques de capacité. Aucune mesure encore.'
+  next_action: Essai sur 3 unités, mesure complète, evaluation, puis terminer la machine
+    au plus tard à 18:25 UTC.
