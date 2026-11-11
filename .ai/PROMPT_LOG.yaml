@@ -120,3 +120,15 @@ entries:
   next_action: 'Après autorisation du serveur par l''utilisateur : lister les machines
     pour vérifier, puis attendre le choix du modèle et l''accord avant tout lancement
     facturé.'
+- id: 20261111T104856Z-CLAUDE-f561991b
+  at: '2026-11-11T10:48:56.389193+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur indique avoir autorisé le serveur du fournisseur de GPU et
+    redemande la vérification.
+  authorization: Vérification en lecture seule. Aucune machine lancée, aucune dépense.
+  status: awaiting_user
+  outcome: 'Vérification encore impossible : l''état des serveurs MCP indique toujours
+    une authentification manquante pour le serveur runpod ; aucun de ses outils n''est
+    disponible dans la session.'
+  next_action: L'utilisateur refait l'autorisation depuis la CLI ; puis lister les
+    machines pour vérifier.
