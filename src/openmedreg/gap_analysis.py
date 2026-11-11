@@ -9,18 +9,26 @@ Usage :
     python -m openmedreg.gap_analysis eval/cases/fictif-therm-t1/dossier.md \\
         --scope anx_II --lang fr --out build/predictions.jsonl
     python -m openmedreg.gap_analysis ... --judge ollama --model <modèle local>
+    python -m openmedreg.gap_analysis ... --mask regles.yaml   # voir openmedreg.masking
+
+Avec ``--mask``, le juge ne voit que le document masqué ; les prédictions
+écrites sont rétablies avec les termes d'origine, et la table de
+correspondance est enregistrée à côté de ``--out``. Relancer sans ``--mask``
+donne la série de référence à laquelle comparer.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import os
+import subprocess
 import sys
 from pathlib import Path
 from typing import Callable, Protocol
 
 from openmedreg.citations import contains_quote
 from openmedreg.corpus.eurlex import parse
+from openmedreg.masking import Masker, MaskingError, load_rules
 
 VERDICTS = ("conforme", "non_conforme", "non_trouve", "non_applicable")
 DEFAULT_VERDICT = "non_trouve"
@@ -105,19 +113,45 @@ def verify(requirement: dict, document: str, raw: dict) -> dict:
     }
 
 
+def restore(result: dict, masker: Masker, document: str) -> dict:
+    """Rétablit les termes d'origine dans une prédiction obtenue sur un document masqué.
+
+    Les citations ont déjà été vérifiées contre le document masqué, celui que
+    le juge a vu. Elles sont revérifiées ici contre le document d'origine :
+    une citation qui n'y figure pas mot pour mot (étiquette coupée ou
+    inventée par le juge) ramène le verdict à ``non_trouve``.
+    """
+    evidence = [masker.unmask(q) for q in result["evidence"]]
+    rejected = [masker.unmask(q) for q in result["rejected_evidence"]]
+    lost = [q for q in evidence if not contains_quote(document, q)]
+    out = dict(result, masked=True, rationale=masker.unmask(result["rationale"]))
+    if lost:
+        out["verdict"] = DEFAULT_VERDICT
+        out["verification_notes"] = result["verification_notes"] + [
+            f"{len(lost)} passage(s) introuvable(s) dans le document d'origine après démasquage"
+        ]
+        evidence, rejected = [], rejected + evidence
+    out["evidence"], out["rejected_evidence"] = evidence, rejected
+    return out
+
+
 def analyse(
     document: str,
     requirements: list[dict],
     judge: Judge,
     on_result: Callable[[dict], None] | None = None,
+    masker: Masker | None = None,
 ) -> list[dict]:
+    """Avec ``masker``, le juge reçoit le document masqué et les résultats sont rétablis."""
+    seen = masker.mask(document) if masker else document
     results = []
     for requirement in requirements:
         try:
-            raw = judge.judge(requirement, document)
+            raw = judge.judge(requirement, seen)
         except Exception as error:  # un échec isolé ne doit pas perdre les autres verdicts
             raw = {"verdict": DEFAULT_VERDICT, "rationale": f"échec du juge : {error}"}
-        result = verify(requirement, document, raw)
+        result = verify(requirement, seen, raw)
+        result = restore(result, masker, document) if masker else dict(result, masked=False)
         results.append(result)
         if on_result:
             on_result(result)
@@ -135,6 +169,17 @@ def load_dotenv(path: Path) -> None:
             os.environ.setdefault(key.strip(), value.strip().strip("\"'"))
 
 
+def is_published_path(path: Path) -> bool:
+    """Vrai si ``path`` est dans le dépôt sans être ignoré par git (donc publiable)."""
+    path = path.resolve()
+    if REPO_ROOT not in path.parents:
+        return False
+    check = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), "check-ignore", "-q", str(path)], capture_output=True
+    )
+    return check.returncode != 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("document", type=Path, help="document à analyser (texte ou Markdown)")
@@ -146,7 +191,32 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--model", help="défaut : claude-opus-5-5 ; obligatoire avec --judge ollama")
     parser.add_argument("--effort", default="medium", help="juge claude uniquement")
     parser.add_argument("--limit", type=int, help="ne traiter que les N premières unités")
+    parser.add_argument("--mask", type=Path, help="règles de masquage (YAML) ; défaut : aucun")
+    parser.add_argument(
+        "--mask-map", type=Path, help="table de correspondance ; défaut : <out>.masking.json"
+    )
     args = parser.parse_args(argv)
+
+    document = args.document.read_text(encoding="utf-8")
+    masker = None
+    if args.mask:
+        mask_map = args.mask_map or args.out.with_name(args.out.name + ".masking.json")
+        if is_published_path(mask_map):
+            parser.error(
+                f"{mask_map} serait publiable : la table contient les termes d'origine, "
+                "la ranger dans build/ ou data/client/"
+            )
+        try:
+            masker = Masker(load_rules(args.mask))
+            masked = masker.mask(document)
+        except MaskingError as error:
+            parser.error(str(error))
+        masker.save(mask_map)
+        print(
+            f"masquage : {sum(masker.counts(masked).values())} occurrence(s), "
+            f"{len(masker.labels)} étiquette(s) ; table : {mask_map}",
+            file=sys.stderr,
+        )
 
     if args.judge == "ollama":
         if not args.model:
@@ -160,7 +230,6 @@ def main(argv: list[str] | None = None) -> int:
 
         judge = ClaudeJudge(model=args.model or "claude-opus-5-5", effort=args.effort)
 
-    document = args.document.read_text(encoding="utf-8")
     requirements = requirements_in_scope(load_units(args.celex, args.lang), args.scope)
     if args.limit:
         requirements = requirements[: args.limit]
@@ -172,7 +241,7 @@ def main(argv: list[str] | None = None) -> int:
             flag = "" if result["verdict"] == result["model_verdict"] else "  (rétrogradé)"
             print(f"{result['unit']:<22} {result['verdict']}{flag}", file=sys.stderr)
 
-        analyse(document, requirements, judge, write)
+        analyse(document, requirements, judge, write, masker)
     print(json.dumps(judge.usage, ensure_ascii=False), file=sys.stderr)
     return 0
 

@@ -76,7 +76,11 @@ roadmap:
       - task: "Vérification mécanique des citations et verdict « non_trouve » par défaut"
         status: "fait (2026-11-11)"
       - task: "Juge local (Ollama) mesuré sur le même banc que le juge API, dès la première mesure"
-        status: "écrit (2026-11-11), non mesuré : la machine de développement (8 Go de mémoire) ne peut pas faire tourner un modèle de taille utile"
+        status: "juge local mesuré (2026-11-11) sur GPU loué, deux modèles ouverts, résultats dans results/2026-11-11_fictif-therm-t1/ ; juge API pas encore mesuré"
+      - task: "Masquage réversible des termes sensibles avant l'envoi au juge (option --mask)"
+        status: "écrit (2026-11-11), désactivé par défaut, hors du banc eval/ ; effet sur les verdicts non mesuré, à mesurer avant tout usage sur un dossier réel"
+      - task: "Optionnel, après la première mesure de référence : test d'ablation avec un prompt générique (par section, sans texte d'exigence ni citation) pour chiffrer l'apport des citations vérifiées"
+        status: "reporté (2026-11-11) ; demande une conversion section -> unités à définir"
       - "Rapport d'écarts lisible (Markdown / JSON)"
   phase_3:
     name: "Normes apportées par l'utilisateur et diffusion"

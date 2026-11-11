@@ -1,0 +1,224 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\setlist{nosep}
+
+\title{OpenMedReg-AI --- Première campagne de mesure\\
+\large Deux juges locaux sur le cas fictif \texttt{fictif-therm-t1}}
+\author{Rapport rédigé par un agent (CLAUDE), non relu par un humain}
+\date{11 novembre 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Avertissement}
+
+Ce rapport décrit une mesure, pas une validation. L'outil aide à la
+relecture ; il ne délivre pas d'avis de conformité. Le cas mesuré est un
+dossier \emph{fictif} rédigé par une IA, et sa vérité terrain (44
+annotations) porte le statut \texttt{non\_relu} : aucun humain compétent en
+affaires réglementaires ne l'a encore validée. Les chiffres ci-dessous
+mesurent donc l'accord entre un modèle et une annotation produite par une
+autre IA. Ils ne permettent ni de conclure à la fiabilité de l'outil, ni de
+classer les deux modèles entre eux.
+
+\section{Objet}
+
+Première exécution réelle du moteur d'analyse d'écarts. Jusqu'ici, aucun
+juge n'avait tourné ailleurs que contre des doublures de test. Deux modèles
+ouverts, servis par Ollama sur un GPU loué, ont jugé le même dossier avec
+les mêmes consignes. Le juge par API propriétaire, prévu comme point de
+comparaison haut, n'a pas encore été mesuré.
+
+\section{Protocole}
+
+\begin{description}[leftmargin=3.2cm,style=nextline]
+\item[Cas] \texttt{eval/cases/fictif-therm-t1} : un dossier technique
+  fictif en français et 44 unités feuilles du périmètre \texttt{anx\_II}
+  du corpus (texte consolidé du règlement, fichier
+  \texttt{corpus/public/mdr/}, provenance dans \texttt{SOURCE.yaml}).
+  Vérité terrain : 23 \texttt{conforme}, 6 \texttt{non\_conforme},
+  7 \texttt{non\_trouve}, 8 \texttt{non\_applicable} ; 13 lacunes voulues.
+\item[Empreintes] Début du SHA-256 de \texttt{dossier.md} :
+  \texttt{85fe3e1deb403d8e}.\\
+  Début du SHA-256 de \texttt{ground\_truth.yaml} :
+  \texttt{ea721ec6b4ca358c}.
+\item[Code] Commit \texttt{e2b1fc5} (moteur, consignes et juge inchangés
+  depuis \texttt{ee6aec1}). Le second modèle a été lancé depuis une copie
+  de ce commit, pour ne pas dépendre de modifications en cours dans le
+  dossier de travail. Aucun masquage.
+\item[Appels] Un appel par unité ; le dossier entier est fourni à chaque
+  appel ; température 0 ; fenêtre de contexte de 16\,384 jetons ; sortie
+  contrainte par un schéma JSON.
+\item[Règle de citation] Un verdict dont la citation du règlement ou du
+  dossier n'est pas retrouvée mot pour mot est ramené à
+  \texttt{non\_trouve} avant tout calcul.
+\item[Modèles] \texttt{qwen3.8:27b} (27,3 milliards de paramètres) et
+  \texttt{gemma4:31b} (30,7 milliards), quantification Q4\_K\_M,
+  Ollama 0.40.16. Mode de raisonnement laissé à sa valeur par défaut
+  (actif) pour les deux. Détail dans \texttt{modeles.txt}.
+\item[Matériel] Une tranche de carte graphique louée (24 Go annoncés,
+  23,6 Gio vus par Ollama), modèles entièrement chargés sur la carte.
+\end{description}
+
+\section{Résultats}
+
+Les intervalles sont des intervalles de Wilson à 95\,\%.
+
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & \texttt{qwen3.8:27b} & \texttt{gemma4:31b} & Repère « toujours \texttt{non\_trouve} » \\
+\midrule
+Exactitude & 33/44 (75\,\%) & 38/44 (86\,\%) & 7/44 (16\,\%) \\
+Intervalle & 61 à 85\,\% & 73 à 94\,\% & 8 à 29\,\% \\
+Faux \texttt{conforme} sur les lacunes & 0/13 & 0/13 & 0/13 \\
+Intervalle & 0 à 23\,\% & 0 à 23\,\% & 0 à 23\,\% \\
+Rappel des lacunes & 13/13 & 13/13 & 13/13 \\
+Validité des citations retenues & 100\,\% & 100\,\% & --- \\
+Verdicts ramenés à \texttt{non\_trouve} & 2 & 1 & --- \\
+Échecs techniques du juge & 0 & 0 & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Les deux intervalles d'exactitude se recouvrent largement : l'écart de
+cinq unités entre les modèles n'est pas significatif sur 44 unités. Les deux
+modèles rendent le même verdict final sur 35 unités sur 44.
+
+\subsection*{Par classe de verdict (précision / rappel)}
+
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Classe attendue & Effectif & \texttt{qwen3.8:27b} & \texttt{gemma4:31b} \\
+\midrule
+\texttt{conforme} & 23 & 1,00 / 0,78 & 1,00 / 0,83 \\
+\texttt{non\_conforme} & 6 & 0,40 / 1,00 & 0,55 / 1,00 \\
+\texttt{non\_trouve} & 7 & 0,60 / 0,43 & 0,83 / 0,71 \\
+\texttt{non\_applicable} & 8 & 1,00 / 0,75 & 1,00 / 1,00 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{Désaccords avec la vérité terrain}
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Unité (\texttt{anx\_II/\ldots}) & Attendu & \texttt{qwen3.8:27b} & \texttt{gemma4:31b} \\
+\midrule
+\texttt{4/d} & \texttt{non\_trouve} & \texttt{non\_conforme} & \texttt{non\_conforme} \\
+\texttt{5/a} & \texttt{non\_trouve} & \texttt{non\_conforme} & \texttt{non\_conforme} \\
+\texttt{6.1/a} & \texttt{conforme} & \texttt{non\_conforme} & \texttt{non\_conforme} \\
+\texttt{6.1/b/t2} & \texttt{conforme} & \texttt{non\_conforme} & \texttt{non\_conforme} \\
+\midrule
+\texttt{1.1/g} & \texttt{non\_trouve} & \texttt{non\_conforme} & juste \\
+\texttt{1.1/k} & \texttt{conforme} & \texttt{non\_conforme} & juste \\
+\texttt{1.2/b} & \texttt{non\_trouve} & \texttt{non\_conforme} & juste \\
+\texttt{3/b} & \texttt{conforme} & \texttt{non\_conforme} & juste \\
+\texttt{6.1/b/t1} & \texttt{conforme} & \texttt{non\_conforme} & juste \\
+\texttt{6.2/c/t2} & \texttt{non\_applicable} & \texttt{non\_trouve}$^{*}$ & juste \\
+\texttt{6.2/c/t4} & \texttt{non\_applicable} & \texttt{non\_trouve}$^{*}$ & juste \\
+\texttt{1.1/l} & \texttt{conforme} & juste & \texttt{non\_conforme} \\
+\texttt{6.1/b/t6} & \texttt{conforme} & juste & \texttt{non\_trouve}$^{*}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent$^{*}$ Verdict ramené à \texttt{non\_trouve} par la règle de
+citation. Pour \texttt{qwen3.8:27b}, le verdict du modèle était
+\texttt{non\_applicable} (celui attendu), mais le passage du règlement cité
+n'a pas été retrouvé dans l'unité. Pour \texttt{gemma4:31b}, le verdict du
+modèle était \texttt{non\_conforme} et deux passages du dossier n'ont pas
+été retrouvés.
+
+\section{Constats}
+
+\begin{enumerate}
+\item \textbf{La chaîne fonctionne de bout en bout avec un modèle local.}
+  88 appels, aucun échec technique, sortie JSON toujours valide avec le
+  mode de raisonnement actif, citations retenues toutes vérifiées.
+\item \textbf{Aucun faux \texttt{conforme}} sur les 13 lacunes, pour les
+  deux modèles. C'est le critère bloquant du projet. L'intervalle (0 à
+  23\,\%) rappelle que 13 lacunes ne suffisent pas à garantir un taux bas.
+\item \textbf{Toutes les erreurs vont vers la sévérité.} Aucun modèle n'a
+  été plus indulgent que l'annotation. L'erreur dominante est de rendre
+  \texttt{non\_conforme} là où l'annotation dit \texttt{conforme} ou
+  \texttt{non\_trouve}.
+\item \textbf{Quatre unités mettent les deux modèles en désaccord avec
+  l'annotation, dans le même sens.} Ce sont les premières à relire : soit
+  l'annotation est discutable, soit les consignes distinguent mal
+  \texttt{non\_trouve} de \texttt{non\_conforme}.
+\item \textbf{La règle de citation a un coût mesurable} : elle a annulé
+  deux verdicts justes de \texttt{qwen3.8:27b}. C'est le comportement
+  voulu, mais il faudra regarder si la citation du règlement échoue pour
+  une raison de fond ou de forme.
+\end{enumerate}
+
+\section{Limites}
+
+\begin{itemize}
+\item Un seul cas, fictif, rédigé et annoté par une IA, non relu. Un juge
+  de la même famille de modèles que l'auteur du cas pourrait être avantagé ;
+  les deux juges mesurés ici sont d'autres familles.
+\item 44 unités, dont 13 lacunes : intervalles larges, aucune hiérarchie
+  fiable entre modèles proches.
+\item Une seule série par modèle : la variation entre deux séries
+  identiques n'est pas mesurée.
+\item Le dossier fictif est propre et bien structuré ; ses lacunes sont
+  nettes. Un dossier réel, incomplet ou ambigu, est plus difficile.
+\item Quantification en 4 bits et mode de raisonnement par défaut : les
+  résultats valent pour ces réglages seulement.
+\item Le périmètre couvre la présence et la cohérence des éléments
+  attendus, pas la qualité technique de leur contenu.
+\item Licences des deux modèles non vérifiées.
+\end{itemize}
+
+\section{Coût et durée}
+
+\begin{center}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & \texttt{qwen3.8:27b} & \texttt{gemma4:31b} \\
+\midrule
+Durée de la série (44 appels) & 56 min & 48 min \\
+Jetons en entrée & 167\,526 & 167\,673 \\
+Jetons en sortie & 55\,137 & 37\,053 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Machine louée à 0,69 dollar l'heure. Installation et téléchargement des
+modèles : environ 15 minutes ; essai préalable sur 3 unités : 6 minutes.
+Du lancement à la fin de la seconde série : un peu plus de 2 heures, soit
+environ 1,45 dollar, disque compris. Obtenir la machine a demandé sept
+tentatives de création, les six premières refusées faute de capacité.
+
+\section{Suites proposées}
+
+\begin{enumerate}
+\item Relecture humaine des 13 unités en désaccord, en commençant par les
+  quatre communes aux deux modèles, puis des 44 annotations.
+\item Un second cas, moins propre, rédigé ou adapté par un humain.
+\item Mesure du juge par API sur le même cas, comme point de comparaison.
+\item Deux séries identiques d'un même modèle, pour connaître la variation
+  de fond avant de comparer des réglages (raisonnement, masquage).
+\end{enumerate}
+
+\section*{Fichiers de cette campagne}
+
+\begin{itemize}
+\item \texttt{fictif-therm-t1.<modèle>.jsonl} : les 44 prédictions, avec
+  citations, passages rejetés et justification du modèle.
+\item \texttt{fictif-therm-t1.<modèle>.eval.json} : sortie du banc.
+\item \texttt{modeles.txt} : version d'Ollama et fiche des deux modèles.
+\end{itemize}
+
+\end{document}

@@ -300,3 +300,50 @@ entries:
     tiers ; environ 18 jetons par seconde. Mesure complète du premier modèle en cours.'
   next_action: Fin de la mesure du premier modèle, mesure du second, evaluation, puis
     terminer la machine.
+- id: 20261111-CLAUDE-masquage
+  at: '2026-11-11T15:56:12.958483+00:00'
+  receiver: CLAUDE
+  summary: Dans une session annexe, l'utilisateur demande de mettre en place le masquage
+    des termes sensibles d'un document avant envoi au juge, et de le rendre réversible
+    pour pouvoir revenir en arrière en cas de doute sur la robustesse des résultats.
+  authorization: Écriture du module de masquage, branchement optionnel dans le moteur,
+    tests et documentation. Aucun appel facturé, aucun téléchargement. Commit et push
+    laissés à une demande explicite (session annexe).
+  status: done
+  outcome: Module masking.py, option --mask désactivée par défaut, double vérification
+    des citations, règles du cas fictif ; 83 tests passent. Aucun juge réel lancé
+    ; modifications non commitées.
+  next_action: Mesurer chaque juge avec et sans --mask lors de la première mesure,
+    puis comparer.
+- id: 20261111T162354Z-CLAUDE-d7d2ed86
+  at: '2026-11-11T16:23:54.054102+00:00'
+  receiver: CLAUDE
+  summary: 'Après un second avis externe sur trois décisions, l''utilisateur retient
+    la synthèse de CLAUDE : consignes du juge inchangées, test d''ablation reporté,
+    règles de masquage sorties du banc eval/.'
+  authorization: Déplacement du fichier de règles, mise à jour des tests et de la
+    documentation. Aucune modification de prompt.py, aucun appel facturé. Commit et
+    push sur demande explicite (session annexe).
+  status: done
+  outcome: Règles déplacées dans tests/fixtures/, condition de mesure écrite dans
+    le README, ablation inscrite à la feuille de route. Modifications non commitées.
+  next_action: Première mesure de référence sans masque dès qu'un juge est disponible.
+- id: 20261111T173103Z-CLAUDE-2f8ee7e6
+  at: '2026-11-11T17:31:03.178193+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande une synthèse à confronter à un tiers avant de fermer
+    le serveur, de vérifier qu'aucune donnée ne sera perdue, et un rapport LaTeX de
+    tous les résultats, versionné dans un dossier results et poussé. Il a aussi proposé
+    d'explorer ses travaux étudiants sur son poste.
+  authorization: Rapport LaTeX et résultats versionnés dans results/. Machine laissée
+    allumée jusqu'au feu vert de l'utilisateur. Lecture de ses travaux étudiants autorisée
+    ; rien copié dans le dépôt.
+  status: awaiting_user
+  outcome: 'Deux modèles locaux mesurés sur le cas fictif : 33/44 et 38/44, aucun
+    faux conforme sur 13 lacunes, erreurs toutes vers la sévérité, écart non significatif.
+    Résultats et fiche des modèles rapatriés ; rapport LaTeX écrit et compilé. Travaux
+    étudiants parcourus par noms de fichiers, deux ouverts : rapports de conception,
+    pas des dossiers techniques. Signalé à l''utilisateur qu''une machine allumée
+    facture même à l''arrêt.'
+  next_action: Terminer la machine sur feu vert de l'utilisateur ; relecture humaine
+    des désaccords ; juge API sur le même cas.

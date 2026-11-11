@@ -55,6 +55,15 @@ models/
 # === Résultats régénérables ===
 results/*
 !results/.gitkeep
+# Exception : campagnes de mesure datées (rapport et sorties brutes), versionnées
+# sur demande de l'utilisateur car une mesure sur GPU loué n'est pas gratuite à refaire.
+!results/[0-9]*/
+results/[0-9]*/*.pdf
+results/[0-9]*/*.aux
+results/[0-9]*/*.out
+results/[0-9]*/*.toc
+results/[0-9]*/*.fls
+results/[0-9]*/*.fdb_latexmk
 *.log
 
 # === IDE / OS ===
@@ -63,3 +72,6 @@ results/*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Tables de masquage (contiennent les termes d'origine)
+*.masking.json

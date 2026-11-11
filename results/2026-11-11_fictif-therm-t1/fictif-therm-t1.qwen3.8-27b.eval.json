@@ -1,0 +1,124 @@
+{
+  "case": "fictif-therm-t1",
+  "units": 44,
+  "accuracy": 0.75,
+  "false_conforme_rate": 0.0,
+  "false_conforme_count": "0/13",
+  "false_conforme_ci95": [
+    0.0,
+    0.2281
+  ],
+  "accuracy_ci95": [
+    0.6056,
+    0.8543
+  ],
+  "gap_recall": 1.0,
+  "citation_validity": 1.0,
+  "verdicts_downgraded_for_citation": 0,
+  "unknown_units_ignored": 0,
+  "per_verdict": {
+    "conforme": {
+      "precision": 1.0,
+      "recall": 0.782608695652174,
+      "support": 23
+    },
+    "non_conforme": {
+      "precision": 0.4,
+      "recall": 1.0,
+      "support": 6
+    },
+    "non_trouve": {
+      "precision": 0.6,
+      "recall": 0.42857142857142855,
+      "support": 7
+    },
+    "non_applicable": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "support": 8
+    }
+  },
+  "confusion": {
+    "conforme": {
+      "conforme": 18,
+      "non_conforme": 5,
+      "non_trouve": 0,
+      "non_applicable": 0
+    },
+    "non_conforme": {
+      "conforme": 0,
+      "non_conforme": 6,
+      "non_trouve": 0,
+      "non_applicable": 0
+    },
+    "non_trouve": {
+      "conforme": 0,
+      "non_conforme": 4,
+      "non_trouve": 3,
+      "non_applicable": 0
+    },
+    "non_applicable": {
+      "conforme": 0,
+      "non_conforme": 0,
+      "non_trouve": 2,
+      "non_applicable": 6
+    }
+  },
+  "errors": [
+    {
+      "unit": "anx_II/1.1/g",
+      "expected": "non_trouve",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/1.1/k",
+      "expected": "conforme",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/1.2/b",
+      "expected": "non_trouve",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/3/b",
+      "expected": "conforme",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/4/d",
+      "expected": "non_trouve",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/5/a",
+      "expected": "non_trouve",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/6.1/a",
+      "expected": "conforme",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/6.1/b/t1",
+      "expected": "conforme",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/6.1/b/t2",
+      "expected": "conforme",
+      "got": "non_conforme"
+    },
+    {
+      "unit": "anx_II/6.2/c/t2",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/c/t4",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    }
+  ]
+}

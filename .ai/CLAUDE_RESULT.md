@@ -66,3 +66,27 @@
   machine lancée, aucun modèle téléchargé.
 - Fait repris d'une session annexe, revérifié : `engines/ollama.py` lit
   `OLLAMA_HOST`, donc aucun changement de code pour un Ollama distant.
+
+## 2026-11-11 — Masquage réversible
+
+- Ajouté : `src/openmedreg/masking.py`, option `--mask` et `--mask-map` de
+  `gap_analysis.py`, `tests/test_masking.py`,
+  `tests/fixtures/masquage_fictif-therm-t1.yaml`, `*.masking.json` ignoré.
+- Mesuré : 83 tests passent. Sur le cas fictif, 10 occurrences masquées,
+  aller-retour identique au fichier d'origine ; avec un juge qui répond la
+  vérité terrain sur le document masqué, l'exactitude reste de 1.
+- Non vérifié : aucun juge réel ; l'effet du masquage sur les verdicts est
+  inconnu. Fait dans une session annexe, modifications non commitées.
+
+## 2026-11-11 — Première mesure : deux juges locaux
+
+- Ajouté : `results/2026-11-11_fictif-therm-t1/` (rapport LaTeX, 88
+  prédictions, sorties du banc, fiche des modèles) ; exception dans
+  `.gitignore` pour les campagnes datées.
+- Mesuré, code du commit `e2b1fc5`, sans masque : `qwen3.8:27b` 33/44,
+  `gemma4:31b` 38/44 ; 0/13 faux `conforme` et 13/13 lacunes repérées pour
+  les deux ; accord entre modèles sur 35 unités.
+- Non vérifié par un humain : la vérité terrain (`non_relu`). L'écart entre
+  les deux modèles n'est pas significatif sur 44 unités.
+- Hors dépôt : clé SSH dédiée, plugin du fournisseur, journal du serveur
+  (`build/runs/serveur/`).

@@ -99,6 +99,38 @@ mêmes que pour l'API, ce qui rend les deux mesures comparables.
 
 Ce juge n'a pas encore été essayé avec un vrai modèle.
 
+### Masquer les termes sensibles (option)
+
+Avant l'envoi à un juge, les noms listés dans un fichier de règles
+(fabricant, produit, personnes, adresses) peuvent être remplacés par des
+étiquettes neutres telles que `[FABRICANT_1]` :
+
+```bash
+.venv/bin/python -m openmedreg.gap_analysis data/client/dossier.md \
+    --out build/runs/dossier.jsonl --mask data/client/masquage.yaml
+```
+
+Le juge ne voit que le document masqué. Les prédictions écrites sont
+rétablies avec les termes d'origine, et chaque citation est revérifiée mot
+pour mot contre le document d'origine. La table de correspondance
+(`<out>.masking.json`) contient les termes d'origine : elle doit rester dans
+un dossier ignoré par git, et la commande refuse de l'écrire ailleurs.
+
+Le masquage est désactivé par défaut et entièrement réversible : relancer
+sans `--mask` donne la série de référence, et
+`python -m openmedreg.masking compare a.jsonl b.jsonl` liste les unités dont
+le verdict change.
+
+**Condition avant tout usage sur un dossier réel :** l'effet du masquage sur
+les verdicts n'a pas été mesuré. Il doit l'être sur un cas à vérité terrain
+connue, avec plusieurs séries par configuration pour le distinguer de la
+variation d'un appel à l'autre. Le banc `eval/` ne contient pas de série
+masquée : ses séries de référence tournent sur le texte d'origine.
+
+Limite : seuls les termes listés sont masqués. Ce n'est pas une
+anonymisation automatique ; un terme oublié dans les règles est transmis
+tel quel.
+
 ## Organisation
 
 | Chemin | Contenu |

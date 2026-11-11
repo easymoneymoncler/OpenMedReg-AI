@@ -1,0 +1,11 @@
+# Règles de masquage pour le dossier fictif FICTIF-Therm T1 : donnée de test
+# du module openmedreg.masking. Tous les noms sont inventés. Ce fichier ne
+# fait pas partie du banc eval/, dont les séries de référence tournent sans
+# masque. Format : voir src/openmedreg/masking.py.
+termes:
+  FABRICANT:
+    - [Exemplia Dispositifs SAS, Exemplia Dispositifs]
+  PRODUIT:
+    - [FICTIF-Therm T1, FICTIF-Therm]
+  ADRESSE:
+    - "12 rue des Exemples, 00000 Ville-Fictive"

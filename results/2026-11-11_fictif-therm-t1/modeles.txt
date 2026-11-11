@@ -1,0 +1,67 @@
+ollama version is 0.40.16
+=== qwen3.8:27b
+  Model
+    architecture        qwen35             
+    parameters          27.3B              
+    context length      262144             
+    embedding length    5120               
+    quantization        Q4_K_M             
+    requires            0.32.12            
+    renderer            qwen3.8            
+    parser              qwen3.5            
+    template source     renderer_parser    
+
+  Capabilities
+    completion     
+    vision         
+    tools          
+    thinking       
+        levels     false, low, medium, xhigh    
+        default    medium                       
+
+  Projector
+    architecture        clip       
+    parameters          460.73M    
+    embedding length    1152       
+    dimensions          5120       
+
+  Parameters
+    min_p                0       
+    presence_penalty     0       
+    repeat_penalty       1       
+    temperature          1       
+=== gemma4:31b
+  Model
+    architecture        gemma4             
+    parameters          30.7B              
+    context length      262144             
+    embedding length    5376               
+    quantization        Q4_K_M             
+    requires            0.30.9             
+    renderer            gemma4-large       
+    parser              gemma4             
+    template source     renderer_parser    
+
+  Capabilities
+    completion     
+    vision         
+    tools          
+    thinking       
+        levels     false, true    
+        default    true           
+
+  Projector
+    architecture        clip       
+    parameters          575.74M    
+    embedding length    1152       
+    dimensions          5376       
+
+  Parameters
+    draft_num_predict    3       
+    temperature          1       
+    top_k                64      
+    top_p                0.95    
+NAME           ID              SIZE     MODIFIED    
+gemma4:31b     17ba34c06c80    20 GB    2 hours ago    
+qwen3.8:27b    aaee06c39dcf    17 GB    2 hours ago    
+NVIDIA RTX PRO 6000 Blackwell Server Edition, 595.91.07

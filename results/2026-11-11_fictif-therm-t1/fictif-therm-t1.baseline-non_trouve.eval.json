@@ -1,0 +1,254 @@
+{
+  "case": "fictif-therm-t1",
+  "units": 44,
+  "accuracy": 0.1590909090909091,
+  "false_conforme_rate": 0.0,
+  "false_conforme_count": "0/13",
+  "false_conforme_ci95": [
+    0.0,
+    0.2281
+  ],
+  "accuracy_ci95": [
+    0.0793,
+    0.2937
+  ],
+  "gap_recall": 1.0,
+  "citation_validity": null,
+  "verdicts_downgraded_for_citation": 0,
+  "unknown_units_ignored": 0,
+  "per_verdict": {
+    "conforme": {
+      "precision": null,
+      "recall": 0.0,
+      "support": 23
+    },
+    "non_conforme": {
+      "precision": null,
+      "recall": 0.0,
+      "support": 6
+    },
+    "non_trouve": {
+      "precision": 0.1590909090909091,
+      "recall": 1.0,
+      "support": 7
+    },
+    "non_applicable": {
+      "precision": null,
+      "recall": 0.0,
+      "support": 8
+    }
+  },
+  "confusion": {
+    "conforme": {
+      "conforme": 0,
+      "non_conforme": 0,
+      "non_trouve": 23,
+      "non_applicable": 0
+    },
+    "non_conforme": {
+      "conforme": 0,
+      "non_conforme": 0,
+      "non_trouve": 6,
+      "non_applicable": 0
+    },
+    "non_trouve": {
+      "conforme": 0,
+      "non_conforme": 0,
+      "non_trouve": 7,
+      "non_applicable": 0
+    },
+    "non_applicable": {
+      "conforme": 0,
+      "non_conforme": 0,
+      "non_trouve": 8,
+      "non_applicable": 0
+    }
+  },
+  "errors": [
+    {
+      "unit": "anx_II/1.1/a",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/c",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/d",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/e",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/f",
+      "expected": "non_conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/h",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/i",
+      "expected": "non_conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/j",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/k",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.1/l",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/1.2/a",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/2/t1",
+      "expected": "non_conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/2/t2",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/3/a",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/3/b",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/3/c",
+      "expected": "non_conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/4/a",
+      "expected": "non_conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/4/b",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/4/c",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/5/b",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.1/a",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.1/b/t1",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.1/b/t2",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.1/b/t3",
+      "expected": "non_conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.1/b/t4",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.1/b/t6",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.1/c",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/a",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/b",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/c/t1",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/c/t2",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/c/t3",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/c/t4",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/d",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/e",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/f",
+      "expected": "conforme",
+      "got": "non_trouve"
+    },
+    {
+      "unit": "anx_II/6.2/g",
+      "expected": "non_applicable",
+      "got": "non_trouve"
+    }
+  ]
+}

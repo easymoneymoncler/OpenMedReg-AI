@@ -168,3 +168,94 @@ ne règle pas la confidentialité pour les utilisateurs finaux.
 
 **Prochaines étapes.** Connexion de l'utilisateur au fournisseur, choix du
 modèle, accord avant tout lancement facturé ; clé d'API pour le juge Claude.
+
+## 2026-11-11 — Masquage réversible des termes sensibles (CLAUDE)
+
+**Objectif.** Demande de l'utilisateur : pouvoir remplacer les termes
+sensibles d'un dossier par des étiquettes neutres avant l'envoi à un juge,
+de façon réversible, pour revenir en arrière si les résultats paraissent
+moins robustes.
+
+**Décisions.**
+- Masquage par liste déclarée (termes et motifs), sans détection
+  automatique : rien n'est deviné, et la limite est écrite dans le README.
+- Étiquettes stables par entité (`[FABRICANT_1]`), avec un suffixe pour
+  chaque forme exacte supplémentaire (`[FABRICANT_1~2]`) : le retour au
+  texte d'origine est exact, caractère pour caractère, et contrôlé à chaque
+  masquage.
+- Les citations sont vérifiées deux fois : contre le document masqué (celui
+  que le juge a vu), puis contre le document d'origine après démasquage. Un
+  échec ramène le verdict à `non_trouve`.
+- Option `--mask` désactivée par défaut ; chaque prédiction porte un champ
+  `masked`. La table de correspondance est refusée hors d'un chemin ignoré
+  par git, et `*.masking.json` est ajouté à `.gitignore`.
+- Règles de masquage du dossier fictif rangées dans `tests/fixtures/`
+  (voir l'entrée suivante).
+
+**Problèmes.** Aucun juge réel n'a tourné : l'effet du masquage sur les
+verdicts est inconnu. 83 tests passent, tous sans réseau.
+
+**Prochaines étapes.** Lors de la première mesure, lancer chaque juge avec
+et sans `--mask` et comparer les deux séries avant d'adopter le masquage
+pour des dossiers réels.
+
+## 2026-11-11 — Arbitrage après un second avis externe (CLAUDE)
+
+**Contexte.** L'utilisateur a soumis trois décisions à une autre IA, puis a
+retenu la synthèse proposée par CLAUDE.
+
+**Décisions de l'utilisateur.**
+- Consignes du juge (`prompt.py`) inchangées. La demande de lister chaque
+  élément manquant pour `non_conforme` est reportée après la mesure de
+  référence, conformément à la règle de ne pas retoucher les consignes avant
+  d'avoir mesuré.
+- Test d'ablation avec un prompt générique : reporté, inscrit comme tâche
+  optionnelle dans `project.yaml`.
+- Masquage : les règles du dossier fictif quittent `eval/` pour
+  `tests/fixtures/` ; le banc ne contient que des séries de référence sans
+  masque. Point de l'avis non suivi : renoncer à toute mesure du masquage.
+  Sa mesure sur un cas à vérité terrain connue reste une condition avant
+  usage sur un dossier réel, écrite dans le README.
+
+**Problèmes.** Sur 44 unités, l'effet du masquage se confondra avec la
+variation entre deux séries : il faudra plusieurs séries par configuration,
+ou davantage de cas.
+
+## 2026-11-11 — Première mesure réelle : deux juges locaux (CLAUDE)
+
+**Objectif.** Mesurer enfin un juge sur `fictif-therm-t1`.
+
+**Fait.** Machine GPU louée à l'heure (0,69 USD/h), obtenue à la septième
+tentative de création, les six premières refusées faute de capacité malgré
+un stock annoncé. Ollama en écoute locale sur la machine, joint par tunnel
+SSH. Essai sur 3 unités, puis 44 appels par modèle, code du commit
+`e2b1fc5`, sans masque.
+
+**Mesures.** `qwen3.8:27b` : 33/44. `gemma4:31b` : 38/44. Pour les deux :
+0/13 faux `conforme`, 13/13 lacunes repérées, citations retenues toutes
+valides, aucun échec technique. Toutes les erreurs vont vers la sévérité.
+Quatre unités mettent les deux modèles en désaccord avec la vérité terrain
+dans le même sens. Détail, limites et coût dans
+`results/2026-11-11_fictif-therm-t1/rapport.tex`.
+
+**Décisions.**
+- `results/` reste ignoré par défaut, sauf les campagnes datées, versionnées
+  sur demande de l'utilisateur (une mesure sur GPU loué coûte à refaire).
+  Le PDF n'est pas versionné : le garde-fou bloque les PDF hors corpus.
+- Plafond de durée assoupli par l'utilisateur : laisser une mesure finir,
+  sans aller vers 10 USD par test.
+- Mode de raisonnement laissé par défaut. Un avis externe prédisait qu'il
+  casserait la sortie JSON : l'essai a montré que non.
+
+**Problèmes.**
+- Le catalogue du fournisseur annonce du stock que la création refuse.
+- La règle de citation a annulé deux verdicts justes de `qwen3.8:27b`
+  (passage du règlement non retrouvé dans l'unité) : à examiner.
+- Hypothèse fausse de l'agent en cours de route : un compte sans crédit.
+
+**Limites.** Vérité terrain écrite par une IA et non relue ; un seul cas ;
+une seule série par modèle ; écart entre modèles non significatif.
+
+**Prochaines étapes.** Relecture humaine des 13 désaccords ; juge API sur le
+même cas ; second cas moins propre ; deux séries identiques pour connaître
+la variation de fond.

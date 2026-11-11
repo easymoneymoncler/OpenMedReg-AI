@@ -2,8 +2,8 @@ schema: 1
 project: OpenMedReg-AI
 remote: github.com/easymoneymoncler/OpenMedReg-AI (public, branche main)
 last_writer: CLAUDE
-current_goal: 'Phase 2 : première mesure du juge local en cours sur un GPU loué (qwen3.8:27b
-  puis gemma4:31b, cas fictif-therm-t1). Juge API Claude : accord donné, clé attendue dans .env.'
+current_goal: 'Phase 2 : deux juges locaux mesurés sur fictif-therm-t1 (results/2026-11-11_fictif-therm-t1/).
+  Prochaine étape : relecture humaine des désaccords, puis juge API sur le même cas.'
 decisions:
 - '2026-11-10 : normes ISO/IEC hors dépôt (copyright), mode exemplaire apporté par l''utilisateur
   ; corpus versionné limité aux textes librement réutilisables.'
@@ -34,6 +34,12 @@ decisions:
   mesure se terminer plutôt que la couper à heure fixe ; il accepte de payer davantage, mais
   pas de l''ordre de 10 USD par test. Interprétation de CLAUDE : prévenir avant de dépasser
   environ 3,50 USD pour une mesure.'
+- '2026-11-11 : masquage réversible en option (--mask), désactivé par défaut et hors du banc
+  eval/ ; son effet doit être mesuré avant tout usage sur un dossier réel.'
+- '2026-11-11 : prompt.py inchangé jusqu''à la mesure de référence ; test d''ablation avec un
+  prompt générique reporté (décisions de l''utilisateur après un second avis externe).'
+- '2026-11-11 : campagnes de mesure datées versionnées dans results/ (rapport LaTeX et sorties
+  brutes), sur demande de l''utilisateur ; PDF non versionné.'
 authorizations:
 - Commit et push automatiques sur main en fin de session.
 - '2026-11-11 : première mesure du juge API Claude sur fictif-therm-t1 (44 appels), dès qu''une
@@ -42,16 +48,19 @@ authorizations:
   0,69 USD/h au plus, trois heures au plus ; estimation du coût total exigée par l''utilisateur
   avant chaque lancement.'
 awaiting_user:
+- Feu vert pour terminer la machine GPU louée.
 - Clé d'API dans .env, posée par l'utilisateur (accord donné le 2026-11-11 pour la première
   mesure, 44 appels).
 - Cas d'évaluation rédigés par des humains (eval/NOUVEAU_CAS.md).
 - Relecture de eval/cases/fictif-therm-t1/ground_truth.yaml (44 annotations non_relu).
 - Confirmation du verdict non_applicable.
 - Validation de corpus/public/mdr/SOURCE.yaml.
+- Relecture en priorité des unités anx_II/4/d, 5/a, 6.1/a et 6.1/b/t2, où les deux modèles contredisent
+  la vérité terrain.
 blockers:
 - 'MACHINE FACTURÉE EN COURS : une machine GPU louée (nom openmedreg-bench, 0,69 USD/h) tourne
-  depuis le 2026-11-11 vers 15:25 UTC. Elle est terminée dès la fin de la mesure des deux modèles.
-  Tout agent qui reprend vérifie d''abord qu''elle est terminée, sinon le signale immédiatement
-  à l''utilisateur.'
-next_action: Essai du juge local sur 3 unités, mesure complète des deux modèles, evaluation,
-  puis terminer la machine et vérifier que le compte n'en a plus.
+  depuis le 2026-11-11 vers 15:25 UTC. Les mesures sont finies et rapatriées ; l''utilisateur
+  a demandé de ne pas la fermer avant d''avoir confronté le rapport à un tiers. Tout agent qui
+  reprend vérifie d''abord si elle tourne encore et le signale immédiatement à l''utilisateur.'
+next_action: Terminer la machine GPU sur feu vert de l'utilisateur et vérifier que le compte
+  n'en a plus ; puis relecture humaine des désaccords et mesure du juge API.

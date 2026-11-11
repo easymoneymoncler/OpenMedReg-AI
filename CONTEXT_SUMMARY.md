@@ -41,6 +41,21 @@ l'utilisateur uniquement.
   `engines/prompt.py`) ; intervalles de confiance dans le banc ; guide
   `eval/NOUVEAU_CAS.md`. 71 tests. **Aucun juge n'a tourné pour de vrai** :
   pas de clé d'API, pas d'Ollama, et la machine n'a que 8 Go de mémoire.
+- 2026-11-11 : masquage réversible `src/openmedreg/masking.py`, option
+  `--mask` de `gap_analysis` (désactivée par défaut), règles du dossier
+  fictif dans `tests/fixtures/` (hors du banc). Citations revérifiées
+  contre le document d'origine après démasquage. 83 tests. **Effet sur les
+  verdicts non mesuré.**
+
+- 2026-11-11 : **première mesure réelle**, deux juges locaux sur un GPU
+  loué (Ollama joint par tunnel SSH, `OLLAMA_HOST`), code du commit
+  `e2b1fc5`, sans masque. Sur `fictif-therm-t1` : `qwen3.8:27b` 33/44,
+  `gemma4:31b` 38/44 ; 0/13 faux `conforme` et 13/13 lacunes repérées pour
+  les deux ; toutes les erreurs vont vers la sévérité. Écart entre modèles
+  non significatif. Rapport et sorties brutes :
+  `results/2026-11-11_fictif-therm-t1/` (`rapport.tex`). Vérité terrain
+  toujours `non_relu` : ces chiffres mesurent un accord avec une annotation
+  écrite par une IA.
 
 ## 4. Décisions en vigueur
 
@@ -52,12 +67,21 @@ l'utilisateur uniquement.
 
 ## 5. Prochaine tâche immédiate
 
-Première mesure sur `fictif-therm-t1`, avec les deux juges si possible.
+Relecture par l'utilisateur des 13 unités où un modèle contredit la vérité
+terrain, en commençant par les quatre communes aux deux modèles
+(`anx_II/4/d`, `5/a`, `6.1/a`, `6.1/b/t2`). Puis mesure du juge API sur le
+même cas. `prompt.py` reste inchangé d'ici là ; l'effet du masquage se
+mesure à part, avec plusieurs séries par configuration.
+
+Vérifier d'abord dans `.ai/SHARED_STATE.yaml` que la machine GPU louée est
+bien terminée.
 
 En attente de l'utilisateur :
-- clé d'API dans `.env` et accord sur le coût (44 appels à claude-opus-5-5) ;
-- une machine capable de faire tourner un modèle local (un testeur ?) ;
-- cas rédigés par des humains (`eval/NOUVEAU_CAS.md`) ;
+- clé d'API dans `.env` (accord donné pour 44 appels) ;
 - relecture de `eval/cases/fictif-therm-t1/ground_truth.yaml` ;
+- cas rédigés par des humains (`eval/NOUVEAU_CAS.md`) ; les travaux
+  étudiants regardés le 2026-11-11 sont des rapports de conception, pas des
+  dossiers techniques ;
 - confirmation du verdict `non_applicable` ;
-- validation de `corpus/public/mdr/SOURCE.yaml`.
+- validation de `corpus/public/mdr/SOURCE.yaml` ;
+- corrections de robustesse du masquage, à lancer ou non.
