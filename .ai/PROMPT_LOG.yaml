@@ -78,3 +78,15 @@ entries:
     Tout le travail restant dépend d''une décision de l''utilisateur ; rien lancé.'
   next_action: 'Après accord : lancer gap_analysis sur fictif-therm-t1, puis evaluation
     ; consigner les mesures.'
+- id: 20261111T101926Z-CLAUDE-3adfc6fd
+  at: '2026-11-11T10:19:26.615271+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur choisit de débloquer la première mesure avec le juge API
+    Claude sur fictif-therm-t1.
+  authorization: Première mesure du juge API Claude (44 appels) autorisée. La clé
+    d'API est posée par l'utilisateur dans .env ; l'agent ne la saisit ni ne la lit.
+  status: awaiting_user
+  outcome: 'Mesure non lancée : pas de .env ni de clé dans l''environnement. Rien
+    d''autre modifié.'
+  next_action: 'Dès que .env contient la clé : gap_analysis puis evaluation sur fictif-therm-t1
+    ; consigner les mesures.'

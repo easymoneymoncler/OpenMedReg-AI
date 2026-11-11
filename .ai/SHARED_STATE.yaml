@@ -2,8 +2,8 @@ schema: 1
 project: OpenMedReg-AI
 remote: github.com/easymoneymoncler/OpenMedReg-AI (public, branche main)
 last_writer: CLAUDE
-current_goal: 'Phase 2 : moteur écrit avec deux juges (API Claude, Ollama), aucun mesuré.
-  Prochaine étape : première mesure des deux sur fictif-therm-t1.'
+current_goal: 'Phase 2 : moteur écrit avec deux juges (API Claude, Ollama), aucun mesuré. Prochaine
+  étape : première mesure des deux sur fictif-therm-t1.'
 decisions:
 - '2026-11-10 : normes ISO/IEC hors dépôt (copyright), mode exemplaire apporté par l''utilisateur
   ; corpus versionné limité aux textes librement réutilisables.'
@@ -17,23 +17,26 @@ decisions:
   avec l''adresse noreply GitHub.'
 - '2026-11-10 : corpus MDR = texte consolidé 02017R0745-20261109 (FR et EN), XHTML versionné,
   JSONL régénéré dans build/.'
-- '2026-11-10 : identifiants d''unité indépendants de la langue (art_10/4, anx_II/1.1/a) ;
-  ils servent de cible aux citations et à la vérité terrain.'
+- '2026-11-10 : identifiants d''unité indépendants de la langue (art_10/4, anx_II/1.1/a) ; ils
+  servent de cible aux citations et à la vérité terrain.'
 - '2026-11-11 : cas fictif-therm-t1 = 44 unités feuilles de l''Annexe II ; la règle de citation
   (verdict mal cité ramené à non_trouve) est appliquée par le banc avant tout calcul.'
 - '2026-11-11 : verdict non_applicable proposé par CLAUDE, pas encore confirmé par l''utilisateur.'
-- '2026-11-11 : après avis externe, les deux juges (API Claude et modèle local) partagent
-  les mêmes consignes et sont mesurés sur le même banc ; l''API sert de plafond, pas de cible
-  de conception. Détail des points retenus et écartés dans DEVLOG.md.'
+- '2026-11-11 : après avis externe, les deux juges (API Claude et modèle local) partagent les
+  mêmes consignes et sont mesurés sur le même banc ; l''API sert de plafond, pas de cible de
+  conception. Détail des points retenus et écartés dans DEVLOG.md.'
 authorizations:
 - Commit et push automatiques sur main en fin de session.
+- '2026-11-11 : première mesure du juge API Claude sur fictif-therm-t1 (44 appels), dès qu''une
+  clé est dans .env.'
 awaiting_user:
-- Clé d'API dans .env et accord sur le coût de la première mesure (44 appels).
+- Clé d'API dans .env, posée par l'utilisateur (accord donné le 2026-11-11 pour la première
+  mesure, 44 appels).
 - Machine capable de faire tourner un modèle local (la machine de développement a 8 Go).
 - Cas d'évaluation rédigés par des humains (eval/NOUVEAU_CAS.md).
 - Relecture de eval/cases/fictif-therm-t1/ground_truth.yaml (44 annotations non_relu).
 - Confirmation du verdict non_applicable.
 - Validation de corpus/public/mdr/SOURCE.yaml.
 blockers: []
-next_action: 'Après accord : lancer gap_analysis sur fictif-therm-t1, puis evaluation ; consigner
-  les mesures.'
+next_action: 'Dès que .env contient la clé : gap_analysis sur fictif-therm-t1 avec le juge claude,
+  puis evaluation ; consigner les mesures.'
