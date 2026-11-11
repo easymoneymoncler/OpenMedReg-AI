@@ -132,3 +132,16 @@ entries:
     disponible dans la session.'
   next_action: L'utilisateur refait l'autorisation depuis la CLI ; puis lister les
     machines pour vérifier.
+- id: 20261111T104947Z-CLAUDE-bea13ee4
+  at: '2026-11-11T10:49:47.794806+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur indique avoir refait l'autorisation du serveur du fournisseur
+    de GPU depuis un terminal et redemande la vérification.
+  authorization: Vérification en lecture seule. Aucune machine lancée, aucune dépense.
+  status: awaiting_user
+  outcome: 'Toujours non authentifié d''après l''état des serveurs MCP ; aucun outil
+    du serveur disponible. Proposé à l''utilisateur de se passer de ce serveur : machine
+    lancée depuis la console web du fournisseur, puis accès SSH, comme prévu par la
+    procédure initiale.'
+  next_action: 'Selon le choix de l''utilisateur : nouvelle tentative d''autorisation,
+    ou commande SSH d''une machine lancée par lui.'
