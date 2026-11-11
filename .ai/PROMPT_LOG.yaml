@@ -286,3 +286,17 @@ entries:
     était fausse : les refus étaient bien des manques de capacité. Aucune mesure encore.'
   next_action: Essai sur 3 unités, mesure complète, evaluation, puis terminer la machine
     au plus tard à 18:25 UTC.
+- id: 20261111T154908Z-CLAUDE-9effd85b
+  at: '2026-11-11T15:49:08.620187+00:00'
+  receiver: CLAUDE
+  summary: 'L''utilisateur transmet l''avis d''un tiers sur le raisonnement du jour,
+    puis demande d''être moins strict sur l''heure de coupure de la machine louée
+    : il peut payer plus, mais pas de l''ordre de 10 USD par test.'
+  authorization: La mesure peut dépasser le plafond de trois heures pour se terminer.
+    Dépense de l'ordre de 10 USD par test refusée.
+  status: open
+  outcome: 'Essai sur 3 unités réussi avec le premier modèle local : sortie JSON valide
+    avec le mode de raisonnement actif, contrairement à ce que prédisait l''avis du
+    tiers ; environ 18 jetons par seconde. Mesure complète du premier modèle en cours.'
+  next_action: Fin de la mesure du premier modèle, mesure du second, evaluation, puis
+    terminer la machine.
