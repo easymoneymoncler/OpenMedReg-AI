@@ -56,3 +56,13 @@
   Ollama absent, aucun verrou, dépôt à jour avec `origin/main`.
 - Rien lancé : toutes les suites sont dans `awaiting_user` de
   `.ai/SHARED_STATE.yaml`.
+
+## 2026-11-11 — Outillage pour le juge local sur GPU loué
+
+- Fait : plugin  2.0.0 installé pour Claude Code (portée
+  utilisateur, rien dans le dépôt), après vérification de l'origine du
+  dépôt de plugins.
+- Non fait : compte, crédit, connexion OAuth (à l'utilisateur) ; aucune
+  machine lancée, aucun modèle téléchargé.
+- Fait repris d'une session annexe, revérifié :  lit
+  , donc aucun changement de code pour un Ollama distant.

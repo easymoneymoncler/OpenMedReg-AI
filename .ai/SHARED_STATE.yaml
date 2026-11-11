@@ -25,6 +25,9 @@ decisions:
 - '2026-11-11 : après avis externe, les deux juges (API Claude et modèle local) partagent les
   mêmes consignes et sont mesurés sur le même banc ; l''API sert de plafond, pas de cible de
   conception. Détail des points retenus et écartés dans DEVLOG.md.'
+- '2026-11-11 : pas de réécriture en Rust (la mémoire manquante est celle des poids du modèle)
+  ; juge local prévu sur GPU loué, sans changement de code (OLLAMA_HOST). Plugin runpod installé
+  en portée utilisateur sur la machine de développement, hors dépôt.'
 authorizations:
 - Commit et push automatiques sur main en fin de session.
 - '2026-11-11 : première mesure du juge API Claude sur fictif-therm-t1 (44 appels), dès qu''une
@@ -32,7 +35,9 @@ authorizations:
 awaiting_user:
 - Clé d'API dans .env, posée par l'utilisateur (accord donné le 2026-11-11 pour la première
   mesure, 44 appels).
-- Machine capable de faire tourner un modèle local (la machine de développement a 8 Go).
+- 'Juge local : location d''un GPU à l''heure envisagée (OLLAMA_HOST distant par tunnel SSH).
+  Attendus de l''utilisateur : compte et crédit chez le fournisseur, connexion OAuth au serveur
+  MCP runpod, choix du modèle, accord avant tout lancement de machine facturée.'
 - Cas d'évaluation rédigés par des humains (eval/NOUVEAU_CAS.md).
 - Relecture de eval/cases/fictif-therm-t1/ground_truth.yaml (44 annotations non_relu).
 - Confirmation du verdict non_applicable.

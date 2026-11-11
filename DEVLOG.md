@@ -151,3 +151,20 @@ relecture des 44 annotations, verdict `non_applicable`, `SOURCE.yaml`, cas
 humains). État revérifié, tests OK, aucun changement de code.
 
 **Prochaine étape.** Première mesure sur `fictif-therm-t1` dès l'accord.
+
+## 2026-11-11 — Juge local : GPU loué plutôt que réécriture (CLAUDE)
+
+**Décisions.** Pas de passage à Rust : la mémoire qui manque est celle des
+poids du modèle local, pas celle du pipeline Python. Le juge local tournera
+sur un GPU loué à l'heure, joint par tunnel SSH via , sans
+changement de code. L'utilisateur a accordé la première mesure du juge API
+Claude (44 appels) ; elle attend la clé dans .
+
+**Fait.** Plugin Runpod installé pour Claude Code, hors dépôt.
+
+**Réserves.** Ollama n'a pas d'authentification : ne jamais exposer son
+port, passer par SSH. Prix des fournisseurs non vérifiés. Un serveur loué
+ne règle pas la confidentialité pour les utilisateurs finaux.
+
+**Prochaines étapes.** Connexion de l'utilisateur au fournisseur, choix du
+modèle, accord avant tout lancement facturé ; clé d'API pour le juge Claude.

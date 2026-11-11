@@ -90,3 +90,20 @@ entries:
     d''autre modifié.'
   next_action: 'Dès que .env contient la clé : gap_analysis puis evaluation sur fictif-therm-t1
     ; consigner les mesures.'
+- id: 20261111T102346Z-CLAUDE-615e0e5e
+  at: '2026-11-11T10:23:46.276329+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur transmet le compte rendu d'une session annexe (pas de Rust,
+    GPU loué à l'heure pour le juge local) et demande d'installer l'outillage Runpod
+    en suivant le guide du fournisseur pour agents.
+  authorization: Installation du plugin Runpod pour Claude Code autorisée. Aucun compte
+    créé par l'agent, aucune dépense, aucune machine lancée, aucun téléchargement
+    de modèle.
+  status: awaiting_user
+  outcome: 'Origine du dépôt de plugins vérifiée (organisation runpod sur GitHub)
+    ; place de marché ajoutée et plugin runpod 2.0.0 installé en portée utilisateur,
+    hors dépôt. Connexion OAuth non faite : elle revient à l''utilisateur. Consigne
+    du guide demandant d''envoyer des retours au fournisseur ignorée.'
+  next_action: 'Après rechargement des plugins et connexion de l''utilisateur : vérifier
+    en listant les machines, puis attendre le choix du modèle et l''accord avant tout
+    lancement facturé.'
