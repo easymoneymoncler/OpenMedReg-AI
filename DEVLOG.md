@@ -156,9 +156,9 @@ humains). État revérifié, tests OK, aucun changement de code.
 
 **Décisions.** Pas de passage à Rust : la mémoire qui manque est celle des
 poids du modèle local, pas celle du pipeline Python. Le juge local tournera
-sur un GPU loué à l'heure, joint par tunnel SSH via , sans
+sur un GPU loué à l'heure, joint par tunnel SSH via `OLLAMA_HOST`, sans
 changement de code. L'utilisateur a accordé la première mesure du juge API
-Claude (44 appels) ; elle attend la clé dans .
+Claude (44 appels) ; elle attend la clé dans `.env`.
 
 **Fait.** Plugin Runpod installé pour Claude Code, hors dépôt.
 

@@ -59,10 +59,10 @@
 
 ## 2026-11-11 — Outillage pour le juge local sur GPU loué
 
-- Fait : plugin  2.0.0 installé pour Claude Code (portée
+- Fait : plugin `runpod` 2.0.0 installé pour Claude Code (portée
   utilisateur, rien dans le dépôt), après vérification de l'origine du
   dépôt de plugins.
 - Non fait : compte, crédit, connexion OAuth (à l'utilisateur) ; aucune
   machine lancée, aucun modèle téléchargé.
-- Fait repris d'une session annexe, revérifié :  lit
-  , donc aucun changement de code pour un Ollama distant.
+- Fait repris d'une session annexe, revérifié : `engines/ollama.py` lit
+  `OLLAMA_HOST`, donc aucun changement de code pour un Ollama distant.
