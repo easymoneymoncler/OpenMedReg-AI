@@ -194,3 +194,18 @@ entries:
     la session en cours.'
   next_action: Attendre le choix du modèle local et l'accord explicite avant de lancer
     une machine facturée ; clé d'API pour le juge Claude toujours attendue.
+- id: 20261111T143053Z-CLAUDE-9e3ab8b0
+  at: '2026-11-11T14:30:53.051121+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande une proposition de modèle local à mesurer en premier
+    sur le GPU loué.
+  authorization: Proposition seulement. Aucune machine lancée, aucun téléchargement,
+    aucune dépense.
+  status: awaiting_user
+  outcome: 'Catalogue Ollama consulté le 2026-11-11. Proposé : qwen3.8:27b en premier
+    (18 Go en 4 bits, carte 24 Go), gemma4:31b en second sur la même machine pour
+    comparer deux familles. Réserve signalée : ces modèles ont un mode de raisonnement
+    dont l''interaction avec la sortie JSON contrainte du juge n''a pas été essayée.
+    Qualité non mesurée : c''est l''objet du banc.'
+  next_action: Attendre le choix de l'utilisateur, le crédit sur le compte et l'accord
+    explicite avant de lancer une machine facturée.
