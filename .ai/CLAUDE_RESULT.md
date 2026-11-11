@@ -49,3 +49,10 @@
   conforme, intervalle à 95 % de 0 à 23 %.
 - Constaté : machine de développement Apple M2, 8 Go de mémoire, Ollama non
   installé. Le juge local n'a tourné que contre un faux serveur.
+
+## 2026-11-11 — Reprise après clear
+
+- Revérifié : tests et contrôle des fichiers interdits OK ; pas de `.env`,
+  Ollama absent, aucun verrou, dépôt à jour avec `origin/main`.
+- Rien lancé : toutes les suites sont dans `awaiting_user` de
+  `.ai/SHARED_STATE.yaml`.

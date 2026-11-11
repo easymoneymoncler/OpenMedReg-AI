@@ -140,3 +140,14 @@ modèle local avant d'aller plus loin.
   vérifiée ; c'est ce que le banc doit mesurer.
 - Grammaires GBNF dans Ollama : Ollama s'utilise ici avec un schéma JSON
   passé dans le champ `format`, ce qui remplit le même rôle.
+
+## 2026-11-11 — Reprise après clear (CLAUDE)
+
+**Objectif.** Poursuivre le travail autorisé restant.
+
+**Constat.** Aucun : chaque suite attend une décision ou une ressource de
+l'utilisateur (clé d'API et accord de coût, machine pour le modèle local,
+relecture des 44 annotations, verdict `non_applicable`, `SOURCE.yaml`, cas
+humains). État revérifié, tests OK, aucun changement de code.
+
+**Prochaine étape.** Première mesure sur `fictif-therm-t1` dès l'accord.

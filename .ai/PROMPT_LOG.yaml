@@ -64,3 +64,17 @@ entries:
     tests.
   next_action: Première mesure des deux juges dès qu'une clé d'API et une machine
     adaptée sont disponibles.
+- id: 20261111T004039Z-CLAUDE-7735a75a
+  at: '2026-11-11T00:40:39.482218+00:00'
+  receiver: CLAUDE
+  summary: 'Reprise après clear : l''utilisateur demande de relire l''état partagé,
+    le journal, les fichiers de résultats et le résumé de contexte, puis de poursuivre
+    seulement le travail autorisé restant.'
+  authorization: Travail déjà autorisé uniquement. Aucun appel facturé, aucune installation,
+    aucun téléchargement de modèle.
+  status: awaiting_user
+  outcome: 'État relu et revérifié : 71 tests et contrôle des fichiers interdits OK,
+    pas de .env, Ollama absent, aucun verrou, dépôt propre et à jour avec origin/main.
+    Tout le travail restant dépend d''une décision de l''utilisateur ; rien lancé.'
+  next_action: 'Après accord : lancer gap_analysis sur fictif-therm-t1, puis evaluation
+    ; consigner les mesures.'
