@@ -255,3 +255,19 @@ entries:
     plus chères à l''heure.'
   next_action: 'Sur accord chiffré de l''utilisateur : essayer les autres classes
     en stock sous un plafond de prix, ou attendre le retour du stock.'
+- id: 20261111T152327Z-CLAUDE-11d06ee4
+  at: '2026-11-11T15:23:27.112620+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande d'utiliser l'option la moins chère pour le lancement
+    du GPU loué.
+  authorization: Lancement d'une seule machine sur la carte de 24 Go ou plus la moins
+    chère en stock, au tarif horaire le plus bas déjà chiffré comme maximum, plafond
+    de trois heures.
+  status: awaiting_user
+  outcome: 'Trois classes de carte essayées dans trois centres différents, toutes
+    annoncées en stock faible : trois refus pour manque de capacité (erreur 400).
+    Aucune machine créée, aucune dépense. Hypothèse de l''agent, non vérifiable par
+    ses lectures : un compte sans crédit pourrait produire ces refus ; le solde n''est
+    lisible que dans la console du fournisseur.'
+  next_action: L'utilisateur vérifie le solde dans la console ; ensuite nouvelle tentative,
+    ou file d'attente du fournisseur, ou autre fournisseur.
