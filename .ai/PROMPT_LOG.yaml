@@ -240,3 +240,18 @@ entries:
     même tarif horaire.'
   next_action: 'Sur accord après estimation du coût total : lancer la carte équivalente,
     essai sur 3 unités, mesure des deux modèles, puis terminer la machine.'
+- id: 20261111T151537Z-CLAUDE-8c3f2660
+  at: '2026-11-11T15:15:37.111488+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur accepte l'estimation et autorise le lancement de la carte
+    équivalente de 48 Go, plafonné à trois heures.
+  authorization: Lancement de cette carte à ce tarif, plafond de trois heures. Aucune
+    autre classe de carte sans nouvel accord chiffré.
+  status: awaiting_user
+  outcome: 'Création refusée deux fois par le fournisseur pour manque de capacité
+    (erreur 400 ; une tentative avec plancher de version CUDA, une sans). Diagnostic
+    en lecture seule : un solde insuffisant donnerait une erreur 402, donc cause =
+    capacité. Aucune machine créée, aucune dépense. Autres classes en stock relevées,
+    plus chères à l''heure.'
+  next_action: 'Sur accord chiffré de l''utilisateur : essayer les autres classes
+    en stock sous un plafond de prix, ou attendre le retour du stock.'
