@@ -259,3 +259,7 @@ une seule série par modèle ; écart entre modèles non significatif.
 **Prochaines étapes.** Relecture humaine des 13 désaccords ; juge API sur le
 même cas ; second cas moins propre ; deux séries identiques pour connaître
 la variation de fond.
+
+**Clôture (18:11 UTC).** Machine terminée sur demande de l'utilisateur, après
+rapatriement des résultats ; relecture : aucune machine ni volume sur le
+compte. Durée totale d'environ 2 h 45.

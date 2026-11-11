@@ -347,3 +347,15 @@ entries:
     facture même à l''arrêt.'
   next_action: Terminer la machine sur feu vert de l'utilisateur ; relecture humaine
     des désaccords ; juge API sur le même cas.
+- id: 20261111T181132Z-CLAUDE-291818f2
+  at: '2026-11-11T18:11:32.412624+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande de fermer le serveur GPU loué.
+  authorization: Terminer la machine louée.
+  status: done
+  outcome: 'Tunnel fermé, machine terminée vers 18:11 UTC ; relecture : aucune machine
+    ni volume sur le compte. Durée totale d''environ 2 h 45 à 0,69 USD/h ; le relevé
+    de facturation du fournisseur n''avait pas encore tout comptabilisé au moment
+    de la lecture.'
+  next_action: Relecture humaine des désaccords ; juge API sur le même cas dès que
+    la clé est dans .env.

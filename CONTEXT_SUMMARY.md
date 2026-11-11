@@ -73,8 +73,8 @@ terrain, en commençant par les quatre communes aux deux modèles
 même cas. `prompt.py` reste inchangé d'ici là ; l'effet du masquage se
 mesure à part, avec plusieurs séries par configuration.
 
-Vérifier d'abord dans `.ai/SHARED_STATE.yaml` que la machine GPU louée est
-bien terminée.
+La machine GPU louée a été terminée le 2026-11-11 vers 18:11 UTC ; le compte
+du fournisseur n'a plus ni machine ni volume.
 
 En attente de l'utilisateur :
 - clé d'API dans `.env` (accord donné pour 44 appels) ;
