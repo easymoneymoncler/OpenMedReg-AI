@@ -224,3 +224,19 @@ entries:
   next_action: 'Sur accord explicite : créer la clé SSH, la déposer sur le compte,
     lancer la machine, essai sur 3 unités, mesure des deux modèles, puis faire terminer
     la machine.'
+- id: 20261111T145644Z-CLAUDE-572cd8d7
+  at: '2026-11-11T14:56:44.598018+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur donne son accord pour créer la clé SSH, la déposer chez le
+    fournisseur et lancer la carte de 48 Go proposée ; il demande ensuite une estimation
+    du coût total avant chaque lancement.
+  authorization: 'Clé SSH et lancement de la carte proposée autorisés. Nouvelle règle
+    de l''utilisateur : estimer le coût total avant chaque lancement de machine.'
+  status: awaiting_user
+  outcome: 'Clé SSH dédiée créée sur la machine de développement, hors dépôt, et partie
+    publique déposée sur le compte (relue : une clé). Création de la machine refusée
+    par le fournisseur faute de stock ; une seule tentative, aucune machine créée,
+    aucune dépense. Stock relu : une carte équivalente de 48 Go est disponible au
+    même tarif horaire.'
+  next_action: 'Sur accord après estimation du coût total : lancer la carte équivalente,
+    essai sur 3 unités, mesure des deux modèles, puis terminer la machine.'
