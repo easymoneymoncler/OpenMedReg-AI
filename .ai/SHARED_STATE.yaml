@@ -28,6 +28,8 @@ decisions:
 - '2026-11-11 : pas de réécriture en Rust (la mémoire manquante est celle des poids du modèle)
   ; juge local prévu sur GPU loué, sans changement de code (OLLAMA_HOST). Plugin runpod installé
   en portée utilisateur sur la machine de développement, hors dépôt.'
+- '2026-11-11 : modèles locaux retenus par l''utilisateur pour la première mesure : qwen3.8:27b
+  puis gemma4:31b, même machine, essai sur 3 unités avant la mesure complète.'
 authorizations:
 - Commit et push automatiques sur main en fin de session.
 - '2026-11-11 : première mesure du juge API Claude sur fictif-therm-t1 (44 appels), dès qu''une
@@ -35,9 +37,9 @@ authorizations:
 awaiting_user:
 - Clé d'API dans .env, posée par l'utilisateur (accord donné le 2026-11-11 pour la première
   mesure, 44 appels).
-- 'Juge local sur GPU loué (OLLAMA_HOST distant par tunnel SSH) : compte du fournisseur connecté
-  et vérifié le 2026-11-11 (aucune machine). Attendus de l''utilisateur : choix du modèle local,
-  crédit sur le compte, accord explicite avant tout lancement de machine facturée.'
+- 'Juge local sur GPU loué : accord explicite attendu sur la création d''une clé SSH, son dépôt
+  sur le compte du fournisseur et le lancement d''une machine facturée ; crédit sur le compte
+  à la charge de l''utilisateur.'
 - Cas d'évaluation rédigés par des humains (eval/NOUVEAU_CAS.md).
 - Relecture de eval/cases/fictif-therm-t1/ground_truth.yaml (44 annotations non_relu).
 - Confirmation du verdict non_applicable.

@@ -209,3 +209,18 @@ entries:
     Qualité non mesurée : c''est l''objet du banc.'
   next_action: Attendre le choix de l'utilisateur, le crédit sur le compte et l'accord
     explicite avant de lancer une machine facturée.
+- id: 20261111T143359Z-CLAUDE-1dc1253f
+  at: '2026-11-11T14:33:59.073105+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur retient les deux modèles locaux proposés pour la première
+    mesure.
+  authorization: Choix des modèles acquis. Lecture du catalogue du fournisseur. Aucune
+    machine lancée, aucune clé créée, aucune dépense sans accord explicite.
+  status: awaiting_user
+  outcome: 'Catalogue lu en lecture seule : cartes de 24 Go en stock faible ou nul,
+    carte de 48 Go disponible en Europe à un tarif horaire voisin. Aucune clé SSH
+    sur la machine de développement ni sur le compte ; aucune machine existante. Plan
+    de lancement chiffré présenté à l''utilisateur.'
+  next_action: 'Sur accord explicite : créer la clé SSH, la déposer sur le compte,
+    lancer la machine, essai sur 3 unités, mesure des deux modèles, puis faire terminer
+    la machine.'
