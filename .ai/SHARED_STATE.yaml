@@ -35,9 +35,9 @@ authorizations:
 awaiting_user:
 - Clé d'API dans .env, posée par l'utilisateur (accord donné le 2026-11-11 pour la première
   mesure, 44 appels).
-- 'Juge local : location d''un GPU à l''heure envisagée (OLLAMA_HOST distant par tunnel SSH).
-  Attendus de l''utilisateur : compte et crédit chez le fournisseur, connexion OAuth au serveur
-  MCP runpod, choix du modèle, accord avant tout lancement de machine facturée.'
+- 'Juge local sur GPU loué (OLLAMA_HOST distant par tunnel SSH) : compte du fournisseur connecté
+  et vérifié le 2026-11-11 (aucune machine). Attendus de l''utilisateur : choix du modèle local,
+  crédit sur le compte, accord explicite avant tout lancement de machine facturée.'
 - Cas d'évaluation rédigés par des humains (eval/NOUVEAU_CAS.md).
 - Relecture de eval/cases/fictif-therm-t1/ground_truth.yaml (44 annotations non_relu).
 - Confirmation du verdict non_applicable.
