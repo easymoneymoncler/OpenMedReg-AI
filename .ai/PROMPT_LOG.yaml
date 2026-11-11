@@ -168,3 +168,16 @@ entries:
     affiche réellement.'
   next_action: 'Selon le retour de l''utilisateur : repli par clé d''API posée par
     lui, ou voie SSH sans serveur MCP.'
+- id: 20261111T105344Z-CLAUDE-8c41ce30
+  at: '2026-11-11T10:53:44.837156+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur redemande la mise en place de l'outillage du fournisseur
+    de GPU en suivant le guide pour agents.
+  authorization: Installation selon le guide, déjà autorisée. Aucun compte créé par
+    l'agent, aucune dépense, aucune machine lancée.
+  status: awaiting_user
+  outcome: 'Rien de plus à faire côté agent : plugin 2.0.0 installé et activé, comme
+    le guide le demande. Le serveur MCP reste sans authentification et la variable
+    de clé de repli est absente ; ces deux étapes reviennent à l''utilisateur.'
+  next_action: Connexion par l'utilisateur dans le dialogue des serveurs MCP, ou clé
+    de repli posée par lui, ou voie SSH.
