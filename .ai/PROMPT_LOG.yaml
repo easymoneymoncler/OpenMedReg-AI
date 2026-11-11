@@ -145,3 +145,14 @@ entries:
     procédure initiale.'
   next_action: 'Selon le choix de l''utilisateur : nouvelle tentative d''autorisation,
     ou commande SSH d''une machine lancée par lui.'
+- id: 20261111T105033Z-CLAUDE-5898027f
+  at: '2026-11-11T10:50:33.471236+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur fait relancer les deux commandes d'installation du plugin
+    du fournisseur de GPU, puis la commande de vérification du guide.
+  authorization: Exécution de ces trois commandes. Aucune machine lancée, aucune dépense.
+  status: awaiting_user
+  outcome: 'Place de marché et plugin déjà présents (version 2.0.0, portée utilisateur,
+    activé) : l''installation est conforme au guide. Seule l''authentification du
+    serveur MCP reste manquante.'
+  next_action: Autorisation OAuth par l'utilisateur, ou voie SSH sans serveur MCP.
