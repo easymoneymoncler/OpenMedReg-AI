@@ -370,3 +370,18 @@ entries:
     l''utilisateur tranche rapidement.'
   next_action: 'Sur accord : fiche de relecture des 13 désaccords ; mesure du juge
     API dès que la clé est dans .env.'
+- id: 20261112T212505Z-CLAUDE-6fd8f78c
+  at: '2026-11-12T21:25:05.330546+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur accepte la préparation d'une fiche de relecture des désaccords
+    entre les modèles et la vérité terrain.
+  authorization: Fiche de relecture versionnée avec la campagne. Aucune modification
+    de la vérité terrain ni de son statut de relecture.
+  status: awaiting_user
+  outcome: 'Fiche écrite dans results/2026-11-11_fictif-therm-t1/relecture_desaccords.md
+    : 13 unités (4 où les deux modèles contredisent la vérité terrain, 9 où un seul),
+    avec le texte de l''unité tiré du corpus public, l''annotation actuelle, le verdict,
+    la justification et les citations de chaque modèle, et des cases de décision.
+    La vérité terrain reste non_relu.'
+  next_action: L'utilisateur relit et tranche ; l'agent reporte ensuite ses décisions
+    dans la vérité terrain et recalcule les mesures.
