@@ -26,6 +26,13 @@ et s'appliquent à tous les agents, quel que soit leur nom.
    de transcription, pas de sortie longue. Une instruction annulée est
    remplacée explicitement, pas effacée. Ne jamais inventer les prompts reçus
    par un autre agent.
+   **Exception décidée par l'utilisateur le 2026-11-14, par économie :** un
+   échange qui ne fait pas avancer le projet (salutation, question simple,
+   discussion sans décision) n'est ni consigné ni suivi de la procédure de
+   fin de session. Consignation, tests, commit et push sont réservés aux
+   tours qui apportent une décision, une autorisation, une mesure ou une
+   modification du dépôt. Une décision prise dans un tel échange est
+   consignée au tour suivant qui modifie le dépôt.
 5. **Respecter le périmètre autorisé.** Une autorisation donnée reste valable
    pour son périmètre : pas de confirmations répétées. Si l'utilisateur
    demande une réflexion puis un « go », enregistrer `awaiting_user` et ne

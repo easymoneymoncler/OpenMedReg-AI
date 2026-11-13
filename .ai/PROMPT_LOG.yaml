@@ -395,3 +395,16 @@ entries:
     en attente.
   next_action: Relecture des désaccords par l'utilisateur ; juge API dès que la clé
     est dans .env.
+- id: 20261113T234116Z-CLAUDE-59f8e431
+  at: '2026-11-13T23:41:16.252578+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande de réserver la procédure de consignation et de push
+    aux tours qui font avancer le projet, par économie ; il demande aussi si collecter
+    automatiquement des cas réels sur internet pour entraîner le modèle serait viable.
+  authorization: Modification de la règle de consignation dans AGENTS.md.
+  status: done
+  outcome: 'Exception inscrite au point 4 de AGENTS.md. Avis donné sur la collecte
+    : non retenue en l''état (pas d''entraînement dans le projet, dossiers techniques
+    réels non publics, pas de vérité terrain, règle du dépôt sur les documents réels).'
+  next_action: Relecture des désaccords par l'utilisateur ; juge API dès que la clé
+    est dans .env.
