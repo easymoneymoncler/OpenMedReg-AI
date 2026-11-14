@@ -1,0 +1,590 @@
+\pdfobjcompresslevel=0
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\setlist{nosep,leftmargin=1.4em}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}
+\lhead{\small OpenMedReg-AI --- relecture des désaccords}\rhead{\small dossier FICTIF}\cfoot{\small\thepage}
+\definecolor{gris}{gray}{0.35}
+\newcommand{\rub}[1]{\par\medskip{\bfseries\color{gris}#1}\par}
+\begin{document}
+\begin{Form}
+\begin{center}
+{\LARGE\bfseries Dossier de relecture}\\[4pt]
+{\large 13 exigences où un modèle contredit le corrigé}\\[4pt]
+{\small Cas \texttt{fictif-therm-t1} --- campagne du 11 novembre 2026 --- tout est dans ce PDF, aucune connexion nécessaire}
+\end{center}
+
+\rub{À quoi ça sert}
+Deux modèles d'IA ont jugé un dossier technique \textbf{fictif} face à 44 exigences de l'Annexe II.
+Sur 13 d'entre elles, au moins un modèle n'est pas d'accord avec le corrigé. Ce corrigé a été écrit
+par une IA et jamais relu : sur chacune de ces 13 exigences, il faut votre avis pour savoir qui a raison.
+Vous ne jugez pas un vrai dispositif, et rien ici n'est un avis de conformité.
+
+\rub{Comment remplir}
+\begin{itemize}
+\item Une page par exigence. Lisez l'exigence, les passages du dossier, puis les avis.
+\item Cochez \textbf{le verdict qui vous paraît juste}. Si les cases ne se cochent pas dans votre lecteur de PDF,
+  notez simplement « numéro de page : verdict » dans vos notes.
+\item La case « ambigu » sert quand le problème vient de l'exigence ou de la définition des verdicts, pas du dossier.
+\item Les 4 premières pages sont les plus importantes : les deux modèles y contredisent le corrigé, dans le même sens.
+\item Le dossier fictif complet est en annexe, à la fin, si un passage vous manque.
+\item Pensez à \textbf{enregistrer} le PDF après l'avoir rempli.
+\end{itemize}
+
+\rub{Les quatre verdicts (définitions données aux modèles)}
+\begin{description}[leftmargin=3.3cm,style=sameline,nosep]
+\item[conforme] Le dossier contient un passage qui couvre tout ce que l'exigence demande.
+\item[non conforme] Le dossier aborde le sujet, mais il manque une partie de ce que l'exigence demande, ou deux passages se contredisent.
+\item[non trouvé] Rien dans le dossier n'aborde le sujet.
+\item[non applicable] L'exigence ne vise qu'un cas particulier, et le dossier déclare explicitement que ce cas ne le concerne pas.
+  Si le dossier ne dit rien, c'est « non trouvé ».
+\end{description}
+On juge seulement si ce que l'exigence demande est \emph{présent et cohérent} dans le dossier, pas si le contenu est exact sur le fond.
+
+\rub{Vue d'ensemble}
+\begin{center}\small
+\begin{tabular}{cllll}
+\hline
+Page & Exigence & Corrigé & qwen3.8\string:27b & gemma4\string:31b \\
+\hline
+2 & \texttt{4/d} & non trouvé & non conforme & non conforme \\
+3 & \texttt{5/a} & non trouvé & non conforme & non conforme \\
+4 & \texttt{6.1/a} & conforme & non conforme & non conforme \\
+5 & \texttt{6.1/b/t2} & conforme & non conforme & non conforme \\
+\hline
+6 & \texttt{1.1/g} & non trouvé & non conforme & d'accord \\
+7 & \texttt{1.1/k} & conforme & non conforme & d'accord \\
+8 & \texttt{1.1/l} & conforme & d'accord & non conforme \\
+9 & \texttt{1.2/b} & non trouvé & non conforme & d'accord \\
+10 & \texttt{3/b} & conforme & non conforme & d'accord \\
+11 & \texttt{6.1/b/t1} & conforme & non conforme & d'accord \\
+12 & \texttt{6.1/b/t6} & conforme & d'accord & non trouvé \\
+13 & \texttt{6.2/c/t2} & non applicable & non trouvé & d'accord \\
+14 & \texttt{6.2/c/t4} & non applicable & non trouvé & d'accord \\
+\hline
+\end{tabular}
+\end{center}
+Texte des exigences : corpus public du projet (\texttt{corpus/public/mdr/}, texte consolidé, CELEX 02017R0745-20261109),
+identifiants \texttt{anx\_II/\ldots}.
+
+\newpage
+{\Large\bfseries 1 / 13 \quad \texttt{anx\_II/4/d}}\hfill{\small\color{gris} les deux modèles contredisent le corrigé}\par
+{\small\color{gris} Rubrique : EXIGENCES GÉNÉRALES EN MATIÈRE DE SÉCURITÉ ET DE PERFORMANCES}\par
+\rub{L'exigence}
+\begin{quote}\itshape la référence précise des documents contrôlés fournissant la preuve du respect de chaque norme harmonisée, spécification commune ou autre méthode appliquée pour démontrer la conformité avec les exigences générales en matière de sécurité et de performances. Les informations visées au présent point indiquent où trouver cette preuve dans la documentation technique complète et, le cas échéant, dans le résumé de la documentation technique.\end{quote}
+{\small\color{gris} Elle complète : « La documentation contient des informations permettant de démontrer la conformité avec les exigences générales en matière de sécurité et de performances établies à l'annexe I qui sont applicables au dispositif compte tenu de sa destination, y compris une justification, une validation et une vérification des solutions retenues pou\ldots »}\par
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Les référentiels appliqués sont : EN ISO 14971 (gestion des risques), EN ISO 10993-1 (évaluation biologique), EN 60601-1 (sécurité de base des appareils électromédicaux), EN 62304 (cycle de vie du logiciel), EN 62366-1 (aptitude à l'utilisation), EN ISO 80601-2-56 (thermomètres médicaux) et EN ISO 15223-1 (symboles). » {\footnotesize\color{gris}(qwen3.8\string:27b)}
+\item « Pour chaque exigence retenue, le tableau indique la méthode de démonstration : essai en laboratoire, analyse de conception, évaluation clinique ou revue de l'étiquetage. » {\footnotesize\color{gris}(qwen3.8\string:27b, gemma4\string:31b)}
+\item « Le tableau EG-T1 liste les exigences générales de l'annexe I retenues comme applicables au dispositif » {\footnotesize\color{gris}(gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : non trouvé.} La section sur les exigences générales ne renvoie à aucun document contrôlé apportant la preuve du respect de chaque norme ou méthode.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document énumère les normes appliquées et mentionne un tableau (EG-T1) indiquant la méthode de démonstration pour chaque exigence, mais il ne fournit pas la référence précise du document contrôlé qui constitue la preuve de conformité pour chacune des normes (par ex. « EN 60601-1 $\rightarrow$ rapport SEC-04 »), ni ne précise où trouver cette preuve dans la documentation technique complète ou dans un éventuel résumé.
+\item \textbf{gemma4\string:31b : non conforme.} Le document mentionne un tableau indiquant la méthode de démonstration, mais il n'est pas précisé que ce tableau contient la référence précise aux documents contrôlés prouvant le respect des normes harmonisées citées.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u1_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u1_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u1_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u1_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u1_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u1_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 2 / 13 \quad \texttt{anx\_II/5/a}}\hfill{\small\color{gris} les deux modèles contredisent le corrigé}\par
+{\small\color{gris} Rubrique : ANALYSE BÉNÉFICE/RISQUE ET GESTION DES RISQUES}\par
+\rub{L'exigence}
+\begin{quote}\itshape l'analyse bénéfice/risque visée à l'annexe I, sections 1 et 8; et\end{quote}
+{\small\color{gris} Elle complète : « La documentation contient des informations sur: »}\par
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Le dossier de gestion des risques DGR-T1 recense 46 situations dangereuses. Les mesures de maîtrise retenues sont, par ordre de priorité : la conception (limitation de l'énergie de la pile, double lecture de la thermistance), les protections (alarme de perte de liaison radio) et l'information de l'utilisateur. » {\footnotesize\color{gris}(qwen3.8\string:27b, gemma4\string:31b)}
+\item « Le rapport d'évaluation clinique REC-T1, révision B, mis à jour après l'étude de concordance EC-T1-01 menée sur 60 patients, conclut que le dispositif détecte une élévation de température avec une concordance satisfaisante par rapport à la mesure tympanique de référence. » {\footnotesize\color{gris}(qwen3.8\string:27b)}
+\item « le rapport de gestion des risques RGR-T1 conclut que toutes les mesures ont été mises en œuvre et vérifiées. » {\footnotesize\color{gris}(gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : non trouvé.} Le dossier présente la gestion des risques mais ne contient aucune analyse mettant en balance les bénéfices et les risques.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document présente séparément la gestion des risques (section 5) et l'évaluation clinique (section 6.7), mais ne contient aucun passage explicite constituant une analyse bénéfice/risque intégrée qui met en balance les bénéfices cliniques attendus et les risques résiduels, comme l'exige la référence à l'annexe I, sections 1 et 8.
+\item \textbf{gemma4\string:31b : non conforme.} Le document décrit la gestion des risques (identification et maîtrise) et les performances cliniques, mais il ne contient pas d'analyse pesant explicitement les bénéfices attendus face aux risques résiduels.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u2_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u2_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u2_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u2_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u2_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u2_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 3 / 13 \quad \texttt{anx\_II/6.1/a}}\hfill{\small\color{gris} les deux modèles contredisent le corrigé}\par
+{\small\color{gris} Rubrique : VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape Les résultats d'essais, tels que des essais d'ingénierie, en laboratoire, des simulations d'utilisation, et des essais sur des animaux, et d'évaluations contenus dans la littérature publiée qui sont applicables au dispositif, compte tenu de sa destination, ou à des dispositifs similaires, concernant la sécurité préclinique du dispositif et le respect des spécifications.\end{quote}
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Le rapport ESS-LAB-07 présente les essais d'ingénierie réalisés en laboratoire » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\item « Une simulation d'utilisation par douze infirmiers (rapport APT-02) a confirmé que la pose, l'appairage et le retrait sont réalisés sans erreur critique. » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : conforme.} Résultats d'essais d'ingénierie, de laboratoire et de simulation d'utilisation.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document couvre les essais d'ingénierie en laboratoire et une simulation d'utilisation, mais ne mentionne aucune évaluation issue de la littérature publiée applicable au dispositif ou à des dispositifs similaires, élément expressément requis par le point a) ; il ne déclare pas non plus que de telles évaluations ne seraient pas applicables.
+\item \textbf{gemma4\string:31b : non conforme.} Le document fournit des résultats d'essais d'ingénierie, de laboratoire et de simulations d'utilisation, mais il manque les évaluations contenues dans la littérature publiée.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u3_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u3_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u3_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u3_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u3_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u3_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 4 / 13 \quad \texttt{anx\_II/6.1/b/t2}}\hfill{\small\color{gris} les deux modèles contredisent le corrigé}\par
+{\small\color{gris} Rubrique : VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape la caractérisation physico-chimique et microbiologique,\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier:
+Le cas échéant, il convient de démontrer la conformité avec les dispositions de la directive\ldots »}\par
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Le rapport CAR-03 décrit la caractérisation chimique de l'adhésif par analyse des substances extractibles selon le protocole CAR-P-03, ainsi que le dénombrement microbien sur produit fini » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : conforme.} Caractérisation chimique et microbiologique avec protocole et conclusion.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document mentionne la caractérisation physico-chimique et microbiologique et référence un protocole (CAR-P-03), mais il ne fournit ni les informations détaillées sur la conception des essais, ni le protocole complet, ni les méthodes d'analyse des données, ni les synthèses de données que l'exigence requiert ; seule une phrase de conclusion est donnée.
+\item \textbf{gemma4\string:31b : non conforme.} Le document mentionne le protocole et les conclusions, mais il manque des informations détaillées sur la conception des essais, les méthodes d'analyse des données et les synthèses de données.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u4_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u4_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u4_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u4_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u4_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u4_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 5 / 13 \quad \texttt{anx\_II/1.1/g}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape Une explication de toute nouvelle caractéristique.\end{quote}
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Ce principe de mesure par thermistance est établi de longue date pour la thermométrie de contact et ne nécessite pas de démonstration scientifique nouvelle. » {\footnotesize\color{gris}(qwen3.8\string:27b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : non trouvé.} Le dossier ne dit rien des nouvelles caractéristiques, ni qu'il n'y en a pas.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document indique que le principe de mesure par thermistance est établi et ne nécessite pas de démonstration scientifique nouvelle, mais il ne déclare pas explicitement qu'il n'existe pas de nouvelle caractéristique du dispositif (par exemple l'intégration de l'application mobile, la liaison radio, la surveillance continue) ni n'en fournit l'explication que l'exigence requiert.
+\item \textbf{gemma4\string:31b :} d'accord avec le corrigé.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u5_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u5_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u5_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u5_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u5_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u5_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 6 / 13 \quad \texttt{anx\_II/1.1/k}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape Une description des matières premières intégrées dans les éléments fonctionnels clés et les éléments en contact direct avec le corps humain ou en contact indirect, par exemple, lors de la circulation extracorporelle des liquides corporels.\end{quote}
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Le boîtier est en élastomère de silicone de qualité médicale ; la couche adhésive, seul élément en contact direct avec la peau, est un adhésif acrylique sur support en polyuréthane » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\item « Le dispositif comprend quatre éléments fonctionnels : (1) un boîtier souple contenant la thermistance, le microcontrôleur, l'émetteur radio et une pile bouton » {\footnotesize\color{gris}(qwen3.8\string:27b)}
+\item « le film protecteur est en polyester siliconé » {\footnotesize\color{gris}(gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : conforme.} Les matières des éléments clés et de l'élément en contact direct sont décrites.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document décrit les matériaux du boîtier, de la couche adhésive et du film protecteur, mais ne fournit aucune description des matières premières des éléments fonctionnels clés internes (thermistance, microcontrôleur, émetteur radio, pile bouton), qui sont pourtant explicitement listés comme composants du dispositif.
+\item \textbf{gemma4\string:31b :} d'accord avec le corrigé.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u6_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u6_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u6_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u6_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u6_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u6_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 7 / 13 \quad \texttt{anx\_II/1.1/l}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape Les spécifications techniques, telles que caractéristiques, dimensions et caractéristiques de performance, du dispositif et de toute variante/configuration ou de tout accessoire qui figurent habituellement dans les spécifications du produit mises à disposition de l'utilisateur, par exemple dans des brochures, des catalogues et des publications similaires.\end{quote}
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Plage de mesure : 30,0 \textdegree{}C à 43,0 \textdegree{}C. Exactitude annoncée : $\pm$ 0,1 \textdegree{}C entre 35,0 \textdegree{}C et 42,0 \textdegree{}C. » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b)}
+\item « Dimensions du capteur : 48 mm $\times$ 30 mm $\times$ 5 mm. » {\footnotesize\color{gris}(corrigé, gemma4\string:31b)}
+\item « Le dispositif n'a pas d'accessoire. » {\footnotesize\color{gris}(qwen3.8\string:27b)}
+\item « Le capteur est disponible en plusieurs tailles. » {\footnotesize\color{gris}(qwen3.8\string:27b, gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : conforme.} Caractéristiques, dimensions et performances sont spécifiées.
+\item \textbf{qwen3.8\string:27b :} d'accord avec le corrigé.
+\item \textbf{gemma4\string:31b : non conforme.} Le document indique que le capteur existe en plusieurs tailles, mais ne fournit les dimensions et spécifications techniques que pour une seule configuration.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u7_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u7_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u7_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u7_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u7_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u7_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 8 / 13 \quad \texttt{anx\_II/1.2/b}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape Une présentation générale des dispositifs similaires identifiés disponibles sur le marché de l'Union ou le marché international, s'il en existe.\end{quote}
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « FICTIF-Therm T1 est le premier dispositif de ce type conçu par Exemplia Dispositifs ; il n'existe pas de génération précédente. » {\footnotesize\color{gris}(qwen3.8\string:27b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : non trouvé.} Aucune présentation de dispositifs similaires, ni déclaration qu'il n'en existe pas.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document indique qu'il n'existe pas de génération précédente du dispositif (section 1.11), mais ne fournit aucune présentation générale de dispositifs similaires disponibles sur le marché de l'Union ou international, ni ne déclare explicitement qu'aucun tel dispositif similaire n'existe sur ces marchés.
+\item \textbf{gemma4\string:31b :} d'accord avec le corrigé.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u8_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u8_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u8_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u8_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u8_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u8_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 9 / 13 \quad \texttt{anx\_II/3/b}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : INFORMATIONS SUR LA CONCEPTION ET LA FABRICATION}\par
+\rub{L'exigence}
+\begin{quote}\itshape Informations et spécifications complètes, y compris concernant les processus de fabrication et leur validation, les adjuvants, le contrôle continu et les essais sur le produit final. Les données figurent intégralement dans la documentation technique.\end{quote}
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « La fabrication comprend l'assemblage de la carte électronique, le surmoulage du boîtier, la pose de la couche adhésive, la programmation du micrologiciel, l'étalonnage et le conditionnement en sachet unitaire. » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\item « leur validation est consignée dans les rapports VAL-SM-02 et VAL-AD-01 » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\item « Le surmoulage utilise un agent de démoulage, éliminé par un nettoyage dont l'efficacité est vérifiée dans le rapport VAL-NET-01. » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\item « Chaque lot fait l'objet de contrôles en cours de fabrication » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\item « Plage de mesure : 30,0 \textdegree{}C à 43,0 \textdegree{}C. Exactitude annoncée : $\pm$ 0,1 \textdegree{}C entre 35,0 \textdegree{}C et 42,0 \textdegree{}C. Résolution d'affichage : 0,1 \textdegree{}C. Autonomie : 72 heures. Portée radio : 10 mètres en champ libre. Dimensions du capteur : 48 mm $\times$ 30 mm $\times$ 5 mm. Masse : 7 g. » {\footnotesize\color{gris}(gemma4\string:31b)}
+\item « et d'un essai final unitaire de fonctionnement et d'exactitude selon la procédure CTL-FIN-03. » {\footnotesize\color{gris}(gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : conforme.} Procédés, validation, adjuvant, contrôles en cours et essai final sont couverts.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document mentionne l'adjuvant (agent de démoulage) sans en fournir les spécifications (composition, quantité utilisée), et renvoie l'intégralité des données de validation des procédés spéciaux ainsi que les détails des essais sur produit final à des rapports et procédures externes (VAL-SM-02, VAL-AD-01, VAL-NET-01, CTL-FIN-03) dont le contenu n'est pas reproduit dans la documentation technique présentée, alors que l'exigence demande que les données figurent intégralement dans celle-ci.
+\item \textbf{gemma4\string:31b :} d'accord avec le corrigé.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u9_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u9_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u9_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u9_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u9_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u9_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 10 / 13 \quad \texttt{anx\_II/6.1/b/t1}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape la biocompatibilité du dispositif, y compris le recensement de tous les matériaux en contact direct ou indirect avec le patient ou l'utilisateur,\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier:
+Le cas échéant, il convient de démontrer la conformité avec les dispositions de la directive\ldots »}\par
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Les matériaux en contact avec le patient ou l'utilisateur sont recensés dans le rapport BIO-01 » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b, gemma4\string:31b)}
+\item « Le protocole BIO-P-01 prévoit des essais de cytotoxicité, de sensibilisation et d'irritation cutanée » {\footnotesize\color{gris}(corrigé)}
+\item « les résultats, analysés dans le rapport BIO-01, ne montrent aucun effet cytotoxique, sensibilisant ou irritant. » {\footnotesize\color{gris}(gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : conforme.} Recensement des matériaux en contact, protocole et conclusions de biocompatibilité.
+\item \textbf{qwen3.8\string:27b : non conforme.} Le document recense les matériaux en contact direct (adhésif, silicone) et décrit les essais de biocompatibilité, mais ne mentionne pas explicitement les matériaux en contact indirect (par exemple les composants internes encapsulés dans le boîtier) ni ne justifie leur absence du recensement, alors que l'exigence vise « tous les matériaux en contact direct ou indirect ».
+\item \textbf{gemma4\string:31b :} d'accord avec le corrigé.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u10_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u10_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u10_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u10_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u10_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u10_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 11 / 13 \quad \texttt{anx\_II/6.1/b/t6}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape les performances et la sécurité.\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier:
+Le cas échéant, il convient de démontrer la conformité avec les dispositions de la directive\ldots »}\par
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Le protocole PERF-P-05 compare les mesures du capteur à celles d'un thermomètre de référence étalonné, sur 30 points de température » {\footnotesize\color{gris}(corrigé, qwen3.8\string:27b)}
+\item « Les essais de sécurité électrique ont été réalisés par un laboratoire externe selon le protocole SEC-P-04 ; le rapport SEC-04 conclut à la conformité pour les courants de fuite, l'échauffement de surface et la protection contre le court-circuit de la pile. » {\footnotesize\color{gris}(qwen3.8\string:27b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : conforme.} Protocole, méthode d'analyse et conclusion des essais de performance.
+\item \textbf{qwen3.8\string:27b :} d'accord avec le corrigé.
+\item \textbf{gemma4\string:31b : non trouvé.} Le document fournit des synthèses et des conclusions concernant les performances et la sécurité, mais il ne contient pas les informations détaillées sur la conception des essais, les protocoles complets, ni les méthodes d'analyse des données demandées. {\small (Le modèle avait répondu « non conforme » ; le programme a retiré ce verdict car une citation n'a pas été retrouvée mot pour mot.)}
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u11_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u11_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u11_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u11_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u11_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u11_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 12 / 13 \quad \texttt{anx\_II/6.2/c/t2}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape d'éventuelles interactions de ces substances ou de leurs produits de métabolisme dans le corps humain, avec d'autres dispositifs, médicaments ou substances, eu égard à la population cible et à son état de santé,\end{quote}
+{\small\color{gris} Elle complète : « Dans le cas des dispositifs qui sont composés de substances ou de combinaisons de substances qui sont destinées à être introduites dans le corps humain et qui sont absorbées par le corps humain ou dispersées localement dans celui-ci, des informations détaillées relatives notamment à la conception des essais, aux protocoles d'ess\ldots »}\par
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau. » {\footnotesize\color{gris}(corrigé, gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : non applicable.} L'unité ne vise que les dispositifs composés de substances introduites dans le corps humain ; le dossier déclare que ce n'est pas le cas.
+\item \textbf{qwen3.8\string:27b : non trouvé.} L'exigence ne vise que les dispositifs composés de substances destinées à être introduites dans le corps humain ; le document déclare explicitement que ce cas ne concerne pas le dispositif, qui reste à la surface de la peau. {\small (Le modèle avait répondu « non applicable » ; le programme a retiré ce verdict car une citation n'a pas été retrouvée mot pour mot.)}
+\item \textbf{gemma4\string:31b :} d'accord avec le corrigé.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u12_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u12_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u12_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u12_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u12_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u12_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 13 / 13 \quad \texttt{anx\_II/6.2/c/t4}}\hfill{\small\color{gris} un seul modèle contredit le corrigé}\par
+{\small\color{gris} Rubrique : VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape la toxicité, y compris la toxicité résultant d'une dose unique et de doses répétées, la génotoxicité, la carcinogénicité et la toxicité pour la reproduction ou le développement, selon le cas, en fonction du niveau et de la nature de l'exposition au dispositif.\end{quote}
+{\small\color{gris} Elle complète : « Dans le cas des dispositifs qui sont composés de substances ou de combinaisons de substances qui sont destinées à être introduites dans le corps humain et qui sont absorbées par le corps humain ou dispersées localement dans celui-ci, des informations détaillées relatives notamment à la conception des essais, aux protocoles d'ess\ldots »}\par
+\rub{Passages du dossier mis en avant}
+\begin{itemize}
+\item « Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau. » {\footnotesize\color{gris}(corrigé, gemma4\string:31b)}
+\end{itemize}
+\rub{Les avis}
+\begin{itemize}
+\item \textbf{Corrigé : non applicable.} L'unité ne vise que les dispositifs composés de substances introduites dans le corps humain ; le dossier déclare que ce n'est pas le cas.
+\item \textbf{qwen3.8\string:27b : non trouvé.} L'exigence 6.2.c) ne vise que les dispositifs composés de substances destinées à être introduites dans le corps humain ; le document déclare explicitement dans la section 7 que ce cas ne le concerne pas, le dispositif restant à la surface de la peau. {\small (Le modèle avait répondu « non applicable » ; le programme a retiré ce verdict car une citation n'a pas été retrouvée mot pour mot.)}
+\item \textbf{gemma4\string:31b :} d'accord avec le corrigé.
+\end{itemize}
+\rub{Votre avis : le bon verdict est}
+\begin{tabular}{@{}llll@{}}
+\CheckBox[name=u13_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme & \CheckBox[name=u13_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme & \CheckBox[name=u13_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé & \CheckBox[name=u13_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable \\[6pt]
+\multicolumn{4}{@{}l}{\CheckBox[name=u13_ambigu,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~ambigu : l'exigence ou la définition des verdicts ne permet pas de trancher} \\
+\end{tabular}\par\smallskip
+Remarque (facultatif) :\par
+\TextField[name=u13_note,multiline=true,width=\linewidth,height=1.9cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries Trois questions générales}
+
+\rub{1. Absent ou insuffisant ?}
+Dans plusieurs pages, le corrigé dit « non trouvé » alors que les modèles disent « non conforme » :
+le dossier parle du sujet de loin, sans fournir ce que l'exigence demande. Quelle règle préférez-vous ?
+
+\CheckBox[name=g1_a,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~Dès que le dossier aborde le sujet, même de loin, c'est « non conforme ».\par
+\CheckBox[name=g1_b,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~« Non conforme » seulement si l'élément demandé est là mais incomplet ; sinon « non trouvé ».\par
+\CheckBox[name=g1_c,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~Autre règle (à préciser ci-dessous).\par
+\TextField[name=g1_note,multiline=true,width=\linewidth,height=2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+
+\rub{2. Le verdict « non applicable »}
+Il a été proposé par un agent et attend votre confirmation. Sa définition (page 1) vous convient-elle ?
+
+\CheckBox[name=g2_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~Oui, telle quelle. \qquad \CheckBox[name=g2_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~Non (à préciser ci-dessous).\par
+\TextField[name=g2_note,multiline=true,width=\linewidth,height=2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+
+\rub{3. Impression d'ensemble}
+Le dossier fictif ressemble-t-il à ce que vous avez vu en vrai ? Qu'est-ce qui manque le plus pour qu'il soit réaliste ?\par
+\TextField[name=g3_note,multiline=true,width=\linewidth,height=4cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+
+\rub{Et ensuite}
+Renvoyez le PDF rempli, ou dictez simplement vos réponses (« page 2 : non conforme », etc.).
+Vos décisions seront reportées dans le corrigé, qui ne passera à « relu » que sur votre validation,
+et les notes des deux modèles seront recalculées sans rien relancer de payant.
+\end{Form}
+
+\newpage
+{\Large\bfseries Annexe --- le dossier fictif complet}\par
+{\small\color{gris} Fichier \texttt{eval/cases/fictif-therm-t1/dossier.md}. Dispositif, fabricant et résultats inventés ; lacunes volontaires.}\par\medskip
+
+\par\medskip{\large\bfseries Documentation technique — FICTIF-Therm T1}\par
+
+{\small\itshape DOCUMENT FICTIF. Le dispositif, le fabricant, les sites, les rapports et les résultats cités ici sont inventés pour servir de jeu d'essai. Ce document contient des lacunes volontaires. Il ne constitue ni un modèle de documentation technique ni un avis réglementaire.}\par
+
+{\small Fabricant : Exemplia Dispositifs SAS (société fictive)}\par
+{\small Référence du document : DT-T1, révision C}\par
+
+\par\medskip{\normalsize\bfseries 1. Présentation du dispositif}\par
+
+\par\medskip{\small\bfseries 1.1 Identification et destination}\par
+
+{\small FICTIF-Therm T1 est un capteur de température cutané adhésif, à usage unique, associé à une application mobile de suivi.}\par
+
+{\small Le dispositif est destiné à la mesure continue de la température cutanée axillaire de patients hospitalisés, afin de signaler au personnel soignant une élévation de température.}\par
+
+{\small Les utilisateurs prévus sont les infirmiers et les médecins des services d'hospitalisation ; le dispositif n'est pas destiné à être posé par le patient lui-même.}\par
+
+\par\medskip{\small\bfseries 1.2 Patients et conditions d'emploi}\par
+
+{\small La population visée est constituée des patients adultes hospitalisés en service de médecine ou de chirurgie, nécessitant une surveillance de la température pendant une durée maximale de 72 heures.}\par
+
+{\small L'affection surveillée est la fièvre, notamment post-opératoire ou d'origine infectieuse.}\par
+
+{\small Contre-indications : ne pas utiliser sur une peau lésée, chez un patient présentant une allergie connue aux adhésifs acryliques, ni chez l'enfant de moins de 18 ans.}\par
+
+{\small Mise en garde : le dispositif ne remplace pas une mesure de température centrale lorsque celle-ci est cliniquement requise.}\par
+
+\par\medskip{\small\bfseries 1.3 Principe de fonctionnement}\par
+
+{\small Une thermistance placée au contact de la peau voit sa résistance varier avec la température ; un microcontrôleur convertit cette résistance en température toutes les 60 secondes et transmet la valeur à l'application par liaison radio à basse consommation.}\par
+
+{\small Ce principe de mesure par thermistance est établi de longue date pour la thermométrie de contact et ne nécessite pas de démonstration scientifique nouvelle.}\par
+
+\par\medskip{\small\bfseries 1.4 Qualification en tant que dispositif médical}\par
+
+{\small Le produit est un dispositif médical car il est destiné par le fabricant à être utilisé chez l'homme à des fins de surveillance d'une maladie, et son action principale n'est obtenue ni par des moyens pharmacologiques ou immunologiques ni par métabolisme.}\par
+
+\par\medskip{\small\bfseries 1.5 Classification}\par
+
+{\small Le dispositif relève de la classe IIa.}\par
+
+\par\medskip{\small\bfseries 1.6 Accessoires et produits associés}\par
+
+{\small Le dispositif n'a pas d'accessoire. Il est utilisé avec un téléphone ou une tablette du commerce, fourni par l'établissement, sur lequel l'application FICTIF-Therm est installée ; ce téléphone n'est pas un dispositif médical.}\par
+
+\par\medskip{\small\bfseries 1.7 Présentation commerciale}\par
+
+{\small Le capteur est disponible en plusieurs tailles.}\par
+
+\par\medskip{\small\bfseries 1.8 Constitution}\par
+
+{\small Le dispositif comprend quatre éléments fonctionnels : (1) un boîtier souple contenant la thermistance, le microcontrôleur, l'émetteur radio et une pile bouton ; (2) une couche adhésive de fixation ; (3) un film protecteur à retirer avant la pose ; (4) le logiciel, composé du micrologiciel du capteur (version 1.4) et de l'application mobile FICTIF-Therm (version 2.1).}\par
+
+{\small La figure 1 du plan PL-T1-001 représente une vue éclatée légendée du capteur et repère chacun de ces éléments.}\par
+
+\par\medskip{\small\bfseries 1.9 Matériaux}\par
+
+{\small Le boîtier est en élastomère de silicone de qualité médicale ; la couche adhésive, seul élément en contact direct avec la peau, est un adhésif acrylique sur support en polyuréthane ; le film protecteur est en polyester siliconé et n'entre pas en contact avec le patient.}\par
+
+\par\medskip{\small\bfseries 1.10 Spécifications techniques}\par
+
+{\small Plage de mesure : 30,0 \textdegree{}C à 43,0 \textdegree{}C. Exactitude annoncée : $\pm$ 0,1 \textdegree{}C entre 35,0 \textdegree{}C et 42,0 \textdegree{}C. Résolution d'affichage : 0,1 \textdegree{}C. Autonomie : 72 heures. Portée radio : 10 mètres en champ libre. Dimensions du capteur : 48 mm $\times$ 30 mm $\times$ 5 mm. Masse : 7 g.}\par
+
+\par\medskip{\small\bfseries 1.11 Historique}\par
+
+{\small FICTIF-Therm T1 est le premier dispositif de ce type conçu par Exemplia Dispositifs ; il n'existe pas de génération précédente.}\par
+
+\par\medskip{\normalsize\bfseries 2. Étiquetage et notice}\par
+
+{\small Le dispositif est destiné à être mis sur le marché en France, en Belgique et en Allemagne.}\par
+
+{\small L'annexe ETQ-T1 reproduit l'étiquette du sachet unitaire et l'étiquette de la boîte de vente de 20 capteurs. Ces étiquettes sont établies en français uniquement.}\par
+
+{\small L'annexe NOT-T1 contient la notice d'utilisation en français, en néerlandais et en allemand.}\par
+
+\par\medskip{\normalsize\bfseries 3. Conception et fabrication}\par
+
+\par\medskip{\small\bfseries 3.1 Étapes de conception}\par
+
+{\small La conception a suivi cinq étapes, chacune close par une revue documentée : recueil des besoins utilisateurs (revue RC-01), spécification des exigences (RC-02), conception détaillée du matériel et du logiciel (RC-03), vérification (RC-04), validation et transfert en production (RC-05).}\par
+
+\par\medskip{\small\bfseries 3.2 Procédé de fabrication}\par
+
+{\small La fabrication comprend l'assemblage de la carte électronique, le surmoulage du boîtier, la pose de la couche adhésive, la programmation du micrologiciel, l'étalonnage et le conditionnement en sachet unitaire.}\par
+
+{\small Le surmoulage et la pose de l'adhésif sont des procédés spéciaux ; leur validation est consignée dans les rapports VAL-SM-02 et VAL-AD-01.}\par
+
+{\small Le surmoulage utilise un agent de démoulage, éliminé par un nettoyage dont l'efficacité est vérifiée dans le rapport VAL-NET-01.}\par
+
+{\small Chaque lot fait l'objet de contrôles en cours de fabrication (inspection visuelle de la carte, contrôle dimensionnel du boîtier) et d'un essai final unitaire de fonctionnement et d'exactitude selon la procédure CTL-FIN-03.}\par
+
+\par\medskip{\small\bfseries 3.3 Sites}\par
+
+{\small La conception et le conditionnement sont réalisés sur le site d'Exemplia Dispositifs SAS, 12 rue des Exemples, 00000 Ville-Fictive, France.}\par
+
+{\small L'assemblage de la carte électronique est confié à un sous-traitant.}\par
+
+\par\medskip{\normalsize\bfseries 4. Exigences générales en matière de sécurité et de performances}\par
+
+{\small Le tableau EG-T1 liste les exigences générales de l'annexe I retenues comme applicables au dispositif : sections 1 à 9, 10.1, 10.2, 10.4, 11.1, 14.1, 14.2, 15.1, 17.1 à 17.4, 18.1, 18.2, 18.5 à 18.8, 21.1, 21.2 et 23.}\par
+
+{\small Pour chaque exigence retenue, le tableau indique la méthode de démonstration : essai en laboratoire, analyse de conception, évaluation clinique ou revue de l'étiquetage.}\par
+
+{\small Les référentiels appliqués sont : EN ISO 14971 (gestion des risques), EN ISO 10993-1 (évaluation biologique), EN 60601-1 (sécurité de base des appareils électromédicaux), EN 62304 (cycle de vie du logiciel), EN 62366-1 (aptitude à l'utilisation), EN ISO 80601-2-56 (thermomètres médicaux) et EN ISO 15223-1 (symboles).}\par
+
+\par\medskip{\normalsize\bfseries 5. Gestion des risques}\par
+
+{\small Le dossier de gestion des risques DGR-T1 recense 46 situations dangereuses. Les mesures de maîtrise retenues sont, par ordre de priorité : la conception (limitation de l'énergie de la pile, double lecture de la thermistance), les protections (alarme de perte de liaison radio) et l'information de l'utilisateur.}\par
+
+{\small Après application de ces mesures, 43 risques sont classés acceptables et 3 risques résiduels sont signalés dans la notice ; le rapport de gestion des risques RGR-T1 conclut que toutes les mesures ont été mises en œuvre et vérifiées.}\par
+
+\par\medskip{\normalsize\bfseries 6. Vérification et validation}\par
+
+\par\medskip{\small\bfseries 6.1 Essais précliniques}\par
+
+{\small Le rapport ESS-LAB-07 présente les essais d'ingénierie réalisés en laboratoire : exactitude en bain thermostaté, autonomie, tenue de l'adhésif pendant 72 heures sur bras artificiel, résistance aux projections d'eau. Tous les critères d'acceptation des spécifications sont atteints.}\par
+
+{\small Une simulation d'utilisation par douze infirmiers (rapport APT-02) a confirmé que la pose, l'appairage et le retrait sont réalisés sans erreur critique.}\par
+
+\par\medskip{\small\bfseries 6.2 Biocompatibilité}\par
+
+{\small Les matériaux en contact avec le patient ou l'utilisateur sont recensés dans le rapport BIO-01 : adhésif acrylique sur polyuréthane (contact cutané direct avec le patient, jusqu'à 72 heures) et silicone du boîtier (contact cutané avec le soignant lors de la pose).}\par
+
+{\small Le protocole BIO-P-01 prévoit des essais de cytotoxicité, de sensibilisation et d'irritation cutanée ; les résultats, analysés dans le rapport BIO-01, ne montrent aucun effet cytotoxique, sensibilisant ou irritant.}\par
+
+\par\medskip{\small\bfseries 6.3 Caractérisation physico-chimique et microbiologique}\par
+
+{\small Le rapport CAR-03 décrit la caractérisation chimique de l'adhésif par analyse des substances extractibles selon le protocole CAR-P-03, ainsi que le dénombrement microbien sur produit fini ; les teneurs mesurées sont inférieures aux seuils fixés dans l'évaluation toxicologique et la charge microbienne est conforme à la spécification interne.}\par
+
+\par\medskip{\small\bfseries 6.4 Sécurité électrique}\par
+
+{\small Les essais de sécurité électrique ont été réalisés par un laboratoire externe selon le protocole SEC-P-04 ; le rapport SEC-04 conclut à la conformité pour les courants de fuite, l'échauffement de surface et la protection contre le court-circuit de la pile.}\par
+
+\par\medskip{\small\bfseries 6.5 Logiciel}\par
+
+{\small Le logiciel a été développé selon un cycle en V décrit dans le plan de développement PDL-T1 : exigences, architecture, conception détaillée, codage, tests unitaires, tests d'intégration et tests système.}\par
+
+{\small Le rapport de validation logicielle RVL-T1 résume les résultats : 412 tests unitaires, 88 tests d'intégration et 57 tests système exécutés en interne, tous passés, complétés par une validation en environnement d'utilisation simulé dans un service hospitalier de démonstration avant la libération de la version 2.1.}\par
+
+{\small Les essais ont couvert les deux systèmes d'exploitation mobiles pris en charge et les six modèles de téléphone et de tablette listés dans la notice.}\par
+
+\par\medskip{\small\bfseries 6.6 Performances et sécurité}\par
+
+{\small Le protocole PERF-P-05 compare les mesures du capteur à celles d'un thermomètre de référence étalonné, sur 30 points de température ; l'analyse des écarts (rapport PERF-05) donne un écart maximal de 0,08 \textdegree{}C sur la plage de 35,0 \textdegree{}C à 42,0 \textdegree{}C.}\par
+
+\par\medskip{\small\bfseries 6.7 Évaluation clinique}\par
+
+{\small Le plan d'évaluation clinique PEC-T1 définit la destination, les critères de performance clinique et les sources de données retenues.}\par
+
+{\small Le rapport d'évaluation clinique REC-T1, révision B, mis à jour après l'étude de concordance EC-T1-01 menée sur 60 patients, conclut que le dispositif détecte une élévation de température avec une concordance satisfaisante par rapport à la mesure tympanique de référence.}\par
+
+\par\medskip{\normalsize\bfseries 7. Cas particuliers}\par
+
+{\small Le dispositif n'incorpore aucune substance qui, utilisée séparément, pourrait être considérée comme un médicament.}\par
+
+{\small Le dispositif n'est fabriqué à partir d'aucun tissu ni d'aucune cellule d'origine humaine ou animale, ni de leurs dérivés, et n'en incorpore pas.}\par
+
+{\small Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau.}\par
+
+{\small Le dispositif ne contient aucune substance cancérogène, mutagène ou toxique pour la reproduction, ni aucun perturbateur endocrinien.}\par
+
+{\small Le dispositif est mis sur le marché à l'état non stérile et sans condition microbiologique particulière.}\par
+
+{\small Le dispositif a une fonction de mesurage. Pour garantir l'exactitude annoncée, chaque capteur est étalonné en fin de fabrication sur deux points de température dans un bain thermostaté raccordé à un étalon national, puis contrôlé sur un troisième point ; les capteurs dont l'écart dépasse 0,05 \textdegree{}C sont rebutés (procédure ETA-02).}\par
+
+{\small Le capteur ne doit être raccordé à aucun autre dispositif pour fonctionner comme prévu : il communique uniquement avec l'application FICTIF-Therm, qui fait partie du dispositif.}\par
+\end{document}

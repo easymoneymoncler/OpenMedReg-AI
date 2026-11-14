@@ -408,3 +408,18 @@ entries:
     réels non publics, pas de vérité terrain, règle du dépôt sur les documents réels).'
   next_action: Relecture des désaccords par l'utilisateur ; juge API dès que la clé
     est dans .env.
+- id: 20261114T122208Z-CLAUDE-dc634352
+  at: '2026-11-14T12:22:08.608266+00:00'
+  receiver: CLAUDE
+  summary: L'utilisateur demande un dossier de relecture synthétique, simple à remplir,
+    en PDF, utilisable hors connexion.
+  authorization: Dossier de relecture généré à partir de la campagne ; source versionnée,
+    PDF local. Vérité terrain inchangée.
+  status: awaiting_user
+  outcome: 'Dossier de 19 pages : mode d''emploi et définitions des verdicts, une
+    page par unité en désaccord (13) avec cases à cocher et champ de remarque, trois
+    questions générales (frontière non_trouve / non_conforme, confirmation de non_applicable,
+    réalisme du cas), dossier fictif complet en annexe. Formulaire vérifié : 70 cases,
+    16 champs. Source dans results/2026-11-11_fictif-therm-t1/dossier_relecture.tex.'
+  next_action: L'utilisateur remplit le dossier ; l'agent reporte ses décisions dans
+    la vérité terrain sur validation et recalcule les mesures.
