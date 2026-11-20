@@ -5,59 +5,61 @@ last_writer: CLAUDE
 current_goal: 'Phase 2 : deux juges locaux mesurés sur fictif-therm-t1 (results/2026-11-11_fictif-therm-t1/).
   Prochaine étape : relecture humaine des désaccords, puis juge API sur le même cas.'
 decisions:
-- '2026-11-10 : normes ISO/IEC hors dépôt (copyright), mode exemplaire apporté par l''utilisateur
-  ; corpus versionné limité aux textes librement réutilisables.'
+- '2026-11-10 : normes ISO/IEC hors dépôt (copyright), mode exemplaire apporté par l''utilisateur ; corpus
+  versionné limité aux textes librement réutilisables.'
 - '2026-11-10 : premier cas d''usage = analyse d''écarts face à l''Annexe II du MDR.'
 - '2026-11-10 : jeu d''évaluation fictif construit en phase 1, avant le moteur.'
 - '2026-11-10 : verdict non_trouve par défaut ; citation vérifiée obligatoire.'
 - '2026-11-10 : push direct sur main en fin de session, protégé par .githooks/.'
-- '2026-11-10 : l''utilisateur a l''expertise RA et des testeurs ; lui seul passe un élément
-  réglementaire à review_status relu.'
-- '2026-11-10 : dépôt créé en public sur décision explicite de l''utilisateur ; commits signés
-  avec l''adresse noreply GitHub.'
-- '2026-11-10 : corpus MDR = texte consolidé 02017R0745-20261109 (FR et EN), XHTML versionné,
-  JSONL régénéré dans build/.'
-- '2026-11-10 : identifiants d''unité indépendants de la langue (art_10/4, anx_II/1.1/a) ; ils
-  servent de cible aux citations et à la vérité terrain.'
-- '2026-11-11 : cas fictif-therm-t1 = 44 unités feuilles de l''Annexe II ; la règle de citation
-  (verdict mal cité ramené à non_trouve) est appliquée par le banc avant tout calcul.'
+- '2026-11-10 : l''utilisateur a l''expertise RA et des testeurs ; lui seul passe un élément réglementaire
+  à review_status relu.'
+- '2026-11-10 : dépôt créé en public sur décision explicite de l''utilisateur ; commits signés avec l''adresse
+  noreply GitHub.'
+- '2026-11-10 : corpus MDR = texte consolidé 02017R0745-20261109 (FR et EN), XHTML versionné, JSONL régénéré
+  dans build/.'
+- '2026-11-10 : identifiants d''unité indépendants de la langue (art_10/4, anx_II/1.1/a) ; ils servent
+  de cible aux citations et à la vérité terrain.'
+- '2026-11-11 : cas fictif-therm-t1 = 44 unités feuilles de l''Annexe II ; la règle de citation (verdict
+  mal cité ramené à non_trouve) est appliquée par le banc avant tout calcul.'
 - '2026-11-11 : verdict non_applicable proposé par CLAUDE, pas encore confirmé par l''utilisateur.'
-- '2026-11-11 : après avis externe, les deux juges (API Claude et modèle local) partagent les
-  mêmes consignes et sont mesurés sur le même banc ; l''API sert de plafond, pas de cible de
-  conception. Détail des points retenus et écartés dans DEVLOG.md.'
-- '2026-11-11 : pas de réécriture en Rust (la mémoire manquante est celle des poids du modèle)
-  ; juge local prévu sur GPU loué, sans changement de code (OLLAMA_HOST). Plugin runpod installé
-  en portée utilisateur sur la machine de développement, hors dépôt.'
-- '2026-11-11 : modèles locaux retenus par l''utilisateur pour la première mesure : qwen3.8:27b
-  puis gemma4:31b, même machine, essai sur 3 unités avant la mesure complète.'
-- '2026-11-11 : l''utilisateur assouplit le plafond de durée des machines louées : laisser une
-  mesure se terminer plutôt que la couper à heure fixe ; il accepte de payer davantage, mais
-  pas de l''ordre de 10 USD par test. Interprétation de CLAUDE : prévenir avant de dépasser
-  environ 3,50 USD pour une mesure.'
-- '2026-11-11 : masquage réversible en option (--mask), désactivé par défaut et hors du banc
-  eval/ ; son effet doit être mesuré avant tout usage sur un dossier réel.'
-- '2026-11-11 : prompt.py inchangé jusqu''à la mesure de référence ; test d''ablation avec un
-  prompt générique reporté (décisions de l''utilisateur après un second avis externe).'
-- '2026-11-11 : campagnes de mesure datées versionnées dans results/ (rapport LaTeX et sorties
-  brutes), sur demande de l''utilisateur ; PDF non versionné.'
-- '2026-11-11 : machine GPU louée terminée vers 18:11 UTC sur demande de l''utilisateur, après
-  rapatriement des résultats ; relecture vérifiée : aucune machine ni volume sur le compte.'
+- '2026-11-11 : après avis externe, les deux juges (API Claude et modèle local) partagent les mêmes consignes
+  et sont mesurés sur le même banc ; l''API sert de plafond, pas de cible de conception. Détail des points
+  retenus et écartés dans DEVLOG.md.'
+- '2026-11-11 : pas de réécriture en Rust (la mémoire manquante est celle des poids du modèle) ; juge
+  local prévu sur GPU loué, sans changement de code (OLLAMA_HOST). Plugin runpod installé en portée utilisateur
+  sur la machine de développement, hors dépôt.'
+- '2026-11-11 : modèles locaux retenus par l''utilisateur pour la première mesure : qwen3.8:27b puis gemma4:31b,
+  même machine, essai sur 3 unités avant la mesure complète.'
+- '2026-11-11 : l''utilisateur assouplit le plafond de durée des machines louées : laisser une mesure
+  se terminer plutôt que la couper à heure fixe ; il accepte de payer davantage, mais pas de l''ordre
+  de 10 USD par test. Interprétation de CLAUDE : prévenir avant de dépasser environ 3,50 USD pour une
+  mesure.'
+- '2026-11-11 : masquage réversible en option (--mask), désactivé par défaut et hors du banc eval/ ; son
+  effet doit être mesuré avant tout usage sur un dossier réel.'
+- '2026-11-11 : prompt.py inchangé jusqu''à la mesure de référence ; test d''ablation avec un prompt générique
+  reporté (décisions de l''utilisateur après un second avis externe).'
+- '2026-11-11 : campagnes de mesure datées versionnées dans results/ (rapport LaTeX et sorties brutes),
+  sur demande de l''utilisateur ; PDF non versionné.'
+- '2026-11-11 : machine GPU louée terminée vers 18:11 UTC sur demande de l''utilisateur, après rapatriement
+  des résultats ; relecture vérifiée : aucune machine ni volume sur le compte.'
 authorizations:
 - Commit et push automatiques sur main en fin de session.
-- '2026-11-11 : première mesure du juge API Claude sur fictif-therm-t1 (44 appels), dès qu''une
-  clé est dans .env.'
-- '2026-11-11 : une seule machine GPU louée, carte de 24 Go ou plus la moins chère en stock,
-  0,69 USD/h au plus, trois heures au plus ; estimation du coût total exigée par l''utilisateur
-  avant chaque lancement.'
+- '2026-11-11 : première mesure du juge API Claude sur fictif-therm-t1 (44 appels), dès qu''une clé est
+  dans .env.'
+- '2026-11-11 : une seule machine GPU louée, carte de 24 Go ou plus la moins chère en stock, 0,69 USD/h
+  au plus, trois heures au plus ; estimation du coût total exigée par l''utilisateur avant chaque lancement.'
 awaiting_user:
-- Clé d'API dans .env, posée par l'utilisateur (accord donné le 2026-11-11 pour la première
-  mesure, 44 appels).
+- Clé d'API dans .env, posée par l'utilisateur (accord donné le 2026-11-11 pour la première mesure, 44
+  appels).
 - Cas d'évaluation rédigés par des humains (eval/NOUVEAU_CAS.md).
 - Relecture de eval/cases/fictif-therm-t1/ground_truth.yaml (44 annotations non_relu).
 - Confirmation du verdict non_applicable.
 - Validation de corpus/public/mdr/SOURCE.yaml.
 - Relecture en priorité des unités anx_II/4/d, 5/a, 6.1/a et 6.1/b/t2, où les deux modèles contredisent
   la vérité terrain.
+- Retour du formulaire_relecteur.pdf rempli par la relectrice externe (envoyé par l'utilisateur), puis
+  validation de ses réponses.
 blockers: []
-next_action: Relecture humaine des désaccords (anx_II/4/d, 5/a, 6.1/a, 6.1/b/t2 d'abord) ; puis
-  mesure du juge API sur le même cas, dès que la clé est dans .env.
+next_action: Retour du formulaire de relecture à l'aveugle (44 verdicts, relectrice externe) ou de la
+  fiche des 13 désaccords ; report dans ground_truth.yaml et recalcul des scores. Puis mesure du juge
+  API dès que la clé est dans .env.

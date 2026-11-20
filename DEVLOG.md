@@ -263,3 +263,27 @@ la variation de fond.
 **Clôture (18:11 UTC).** Machine terminée sur demande de l'utilisateur, après
 rapatriement des résultats ; relecture : aucune machine ni volume sur le
 compte. Durée totale d'environ 2 h 45.
+
+## 2026-11-20 — Formulaire de relecture à l'aveugle (CLAUDE)
+
+**Objectifs.** Permettre à une relectrice externe, du métier, de juger
+l'outil sur le cas fictif sans rien installer.
+
+**Décisions.**
+- L'utilisateur choisit la version complète : 44 exigences, pas seulement
+  les 13 désaccords.
+- Relecture à l'aveugle : le formulaire montre le verdict de `gemma4:31b`,
+  ses citations et sa justification, jamais le corrigé.
+- Trois questions par exigence : bon verdict (ou « je ne peux pas
+  trancher »), pertinence des citations, confiance ; plus une remarque.
+- Ses réponses pourront devenir le corrigé de référence, à `relu`
+  seulement après validation de l'utilisateur.
+- Les documents réels de la relectrice restent hors du dépôt ; une page
+  web pour les analyser attend son retour et l'accord de son employeur.
+
+**Fait.** `scripts/formulaire_relecture.py` (générateur réutilisable pour les
+cas suivants) ; `results/2026-11-11_fictif-therm-t1/formulaire_relecteur.tex`.
+PDF de 50 pages, 52 champs texte, compilé en local (non versionné).
+
+**Prochaines étapes.** Retour du formulaire, report des réponses dans
+`ground_truth.yaml`, recalcul des scores sans relance payante.

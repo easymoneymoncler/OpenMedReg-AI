@@ -1,0 +1,1206 @@
+\pdfobjcompresslevel=0
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\setlist{nosep,leftmargin=1.4em}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}
+\lhead{\small OpenMedReg-AI --- relecture à l'aveugle}\rhead{\small dossier FICTIF}\cfoot{\small\thepage}
+\definecolor{gris}{gray}{0.35}
+\newcommand{\rub}[1]{\par\medskip{\bfseries\color{gris}#1}\par}
+\begin{document}
+\begin{Form}
+
+
+\begin{center}
+{\LARGE\bfseries Formulaire de relecture}\\[4pt]
+{\large Un outil d'IA face à l'Annexe II du MDR : a-t-il raison ?}\\[4pt]
+{\small Cas \texttt{fictif-therm-t1} --- 44 exigences --- tout est dans ce PDF, aucune connexion nécessaire}
+\end{center}
+
+\rub{Le contexte}
+OpenMedReg-AI est un projet open source d'aide à la relecture réglementaire. Pour chaque exigence
+de l'Annexe II du règlement (UE) 2017/745 (documentation technique), l'outil cherche dans un dossier
+technique le passage qui y répond, le cite mot pour mot et propose un verdict. Ici, il a analysé un
+dossier \textbf{entièrement fictif} (un capteur de température cutané inventé), qui contient des lacunes
+volontaires. L'outil aide à la relecture ; il ne délivre pas d'avis de conformité, et ce formulaire non plus.
+
+\rub{Ce qu'on vous demande}
+Dire, pour chacune des 44 exigences, quel est selon vous le bon verdict, et si le passage cité par l'outil
+le justifie. Vous ne voyez pas le corrigé préparé de notre côté, pour que votre avis reste indépendant :
+c'est lui qui servira de référence. Il n'y a pas de piège, et « je ne peux pas trancher » est une réponse utile.
+
+\rub{Comment remplir}
+\begin{enumerate}
+\item Lisez d'abord le dossier fictif (pages suivantes, environ 15 minutes).
+\item Puis une page par exigence : l'exigence, la réponse de l'outil, et trois questions à cocher.
+  Cochez une seule case par question. La remarque est facultative.
+\item Si les cases ne se cochent pas dans votre lecteur de PDF (certains lecteurs de téléphone), notez
+  vos réponses à part sous la forme « 12 : Q1 non conforme, Q2 non, Q3 sûre ».
+\item \textbf{Enregistrez} le PDF de temps en temps. Durée estimée : 1 h 15 à 1 h 45, en plusieurs fois si besoin.
+\end{enumerate}
+
+\rub{Les quatre verdicts (définitions données à l'outil)}
+\begin{description}[leftmargin=3.3cm,style=sameline,nosep]
+\item[conforme] Le dossier contient un passage qui couvre tout ce que l'exigence demande.
+\item[non conforme] Le dossier aborde le sujet, mais il manque une partie de ce que l'exigence demande, ou deux passages se contredisent.
+\item[non trouvé] Rien dans le dossier n'aborde le sujet.
+\item[non applicable] L'exigence ne vise qu'un cas particulier, et le dossier déclare explicitement que ce cas ne le concerne pas.
+  Si le dossier ne dit rien, c'est « non trouvé ».
+\end{description}
+On juge seulement si ce que l'exigence demande est \emph{présent et cohérent} dans le dossier, pas si le
+contenu technique est exact sur le fond. Si ces définitions vous paraissent mal posées, dites-le à la dernière page.
+
+\rub{Votre profil (facultatif, pour interpréter vos réponses)}
+Domaine (dispositifs médicaux, DIV, pharmaceutique\ldots) : \TextField[name=profil_domaine,width=6.5cm,height=1.3em,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}\par
+Années d'expérience en affaires réglementaires : \TextField[name=profil_annees,width=3cm,height=1.3em,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}\par
+Avez-vous déjà rédigé ou relu une documentation technique selon l'Annexe II ? \quad
+\CheckBox[name=profil_annexe2_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=profil_annexe2_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non\par
+
+{\small\color{gris} Texte des exigences : corpus public du projet (\texttt{corpus/public/mdr/}, texte consolidé
+publié sur EUR-Lex, CELEX 02017R0745-20261109). Outil évalué : modèle ouvert \texttt{gemma4\string:31b}, campagne du
+11 novembre 2026. Aucun nom de personne n'est demandé : ne mettez pas de donnée personnelle dans les remarques.}
+
+\newpage
+{\Large\bfseries Le dossier fictif à relire}\par
+{\small\color{gris} Dispositif, fabricant et résultats inventés ; lacunes volontaires.}\par\medskip
+\par\medskip{\large\bfseries Documentation technique — FICTIF-Therm T1}\par
+
+{\small\itshape DOCUMENT FICTIF. Le dispositif, le fabricant, les sites, les rapports et les résultats cités ici sont inventés pour servir de jeu d'essai. Ce document contient des lacunes volontaires. Il ne constitue ni un modèle de documentation technique ni un avis réglementaire.}\par
+
+{\small Fabricant : Exemplia Dispositifs SAS (société fictive)}\par
+{\small Référence du document : DT-T1, révision C}\par
+
+\par\medskip{\normalsize\bfseries 1. Présentation du dispositif}\par
+
+\par\medskip{\small\bfseries 1.1 Identification et destination}\par
+
+{\small FICTIF-Therm T1 est un capteur de température cutané adhésif, à usage unique, associé à une application mobile de suivi.}\par
+
+{\small Le dispositif est destiné à la mesure continue de la température cutanée axillaire de patients hospitalisés, afin de signaler au personnel soignant une élévation de température.}\par
+
+{\small Les utilisateurs prévus sont les infirmiers et les médecins des services d'hospitalisation ; le dispositif n'est pas destiné à être posé par le patient lui-même.}\par
+
+\par\medskip{\small\bfseries 1.2 Patients et conditions d'emploi}\par
+
+{\small La population visée est constituée des patients adultes hospitalisés en service de médecine ou de chirurgie, nécessitant une surveillance de la température pendant une durée maximale de 72 heures.}\par
+
+{\small L'affection surveillée est la fièvre, notamment post-opératoire ou d'origine infectieuse.}\par
+
+{\small Contre-indications : ne pas utiliser sur une peau lésée, chez un patient présentant une allergie connue aux adhésifs acryliques, ni chez l'enfant de moins de 18 ans.}\par
+
+{\small Mise en garde : le dispositif ne remplace pas une mesure de température centrale lorsque celle-ci est cliniquement requise.}\par
+
+\par\medskip{\small\bfseries 1.3 Principe de fonctionnement}\par
+
+{\small Une thermistance placée au contact de la peau voit sa résistance varier avec la température ; un microcontrôleur convertit cette résistance en température toutes les 60 secondes et transmet la valeur à l'application par liaison radio à basse consommation.}\par
+
+{\small Ce principe de mesure par thermistance est établi de longue date pour la thermométrie de contact et ne nécessite pas de démonstration scientifique nouvelle.}\par
+
+\par\medskip{\small\bfseries 1.4 Qualification en tant que dispositif médical}\par
+
+{\small Le produit est un dispositif médical car il est destiné par le fabricant à être utilisé chez l'homme à des fins de surveillance d'une maladie, et son action principale n'est obtenue ni par des moyens pharmacologiques ou immunologiques ni par métabolisme.}\par
+
+\par\medskip{\small\bfseries 1.5 Classification}\par
+
+{\small Le dispositif relève de la classe IIa.}\par
+
+\par\medskip{\small\bfseries 1.6 Accessoires et produits associés}\par
+
+{\small Le dispositif n'a pas d'accessoire. Il est utilisé avec un téléphone ou une tablette du commerce, fourni par l'établissement, sur lequel l'application FICTIF-Therm est installée ; ce téléphone n'est pas un dispositif médical.}\par
+
+\par\medskip{\small\bfseries 1.7 Présentation commerciale}\par
+
+{\small Le capteur est disponible en plusieurs tailles.}\par
+
+\par\medskip{\small\bfseries 1.8 Constitution}\par
+
+{\small Le dispositif comprend quatre éléments fonctionnels : (1) un boîtier souple contenant la thermistance, le microcontrôleur, l'émetteur radio et une pile bouton ; (2) une couche adhésive de fixation ; (3) un film protecteur à retirer avant la pose ; (4) le logiciel, composé du micrologiciel du capteur (version 1.4) et de l'application mobile FICTIF-Therm (version 2.1).}\par
+
+{\small La figure 1 du plan PL-T1-001 représente une vue éclatée légendée du capteur et repère chacun de ces éléments.}\par
+
+\par\medskip{\small\bfseries 1.9 Matériaux}\par
+
+{\small Le boîtier est en élastomère de silicone de qualité médicale ; la couche adhésive, seul élément en contact direct avec la peau, est un adhésif acrylique sur support en polyuréthane ; le film protecteur est en polyester siliconé et n'entre pas en contact avec le patient.}\par
+
+\par\medskip{\small\bfseries 1.10 Spécifications techniques}\par
+
+{\small Plage de mesure : 30,0 \textdegree{}C à 43,0 \textdegree{}C. Exactitude annoncée : $\pm$ 0,1 \textdegree{}C entre 35,0 \textdegree{}C et 42,0 \textdegree{}C. Résolution d'affichage : 0,1 \textdegree{}C. Autonomie : 72 heures. Portée radio : 10 mètres en champ libre. Dimensions du capteur : 48 mm $\times$ 30 mm $\times$ 5 mm. Masse : 7 g.}\par
+
+\par\medskip{\small\bfseries 1.11 Historique}\par
+
+{\small FICTIF-Therm T1 est le premier dispositif de ce type conçu par Exemplia Dispositifs ; il n'existe pas de génération précédente.}\par
+
+\par\medskip{\normalsize\bfseries 2. Étiquetage et notice}\par
+
+{\small Le dispositif est destiné à être mis sur le marché en France, en Belgique et en Allemagne.}\par
+
+{\small L'annexe ETQ-T1 reproduit l'étiquette du sachet unitaire et l'étiquette de la boîte de vente de 20 capteurs. Ces étiquettes sont établies en français uniquement.}\par
+
+{\small L'annexe NOT-T1 contient la notice d'utilisation en français, en néerlandais et en allemand.}\par
+
+\par\medskip{\normalsize\bfseries 3. Conception et fabrication}\par
+
+\par\medskip{\small\bfseries 3.1 Étapes de conception}\par
+
+{\small La conception a suivi cinq étapes, chacune close par une revue documentée : recueil des besoins utilisateurs (revue RC-01), spécification des exigences (RC-02), conception détaillée du matériel et du logiciel (RC-03), vérification (RC-04), validation et transfert en production (RC-05).}\par
+
+\par\medskip{\small\bfseries 3.2 Procédé de fabrication}\par
+
+{\small La fabrication comprend l'assemblage de la carte électronique, le surmoulage du boîtier, la pose de la couche adhésive, la programmation du micrologiciel, l'étalonnage et le conditionnement en sachet unitaire.}\par
+
+{\small Le surmoulage et la pose de l'adhésif sont des procédés spéciaux ; leur validation est consignée dans les rapports VAL-SM-02 et VAL-AD-01.}\par
+
+{\small Le surmoulage utilise un agent de démoulage, éliminé par un nettoyage dont l'efficacité est vérifiée dans le rapport VAL-NET-01.}\par
+
+{\small Chaque lot fait l'objet de contrôles en cours de fabrication (inspection visuelle de la carte, contrôle dimensionnel du boîtier) et d'un essai final unitaire de fonctionnement et d'exactitude selon la procédure CTL-FIN-03.}\par
+
+\par\medskip{\small\bfseries 3.3 Sites}\par
+
+{\small La conception et le conditionnement sont réalisés sur le site d'Exemplia Dispositifs SAS, 12 rue des Exemples, 00000 Ville-Fictive, France.}\par
+
+{\small L'assemblage de la carte électronique est confié à un sous-traitant.}\par
+
+\par\medskip{\normalsize\bfseries 4. Exigences générales en matière de sécurité et de performances}\par
+
+{\small Le tableau EG-T1 liste les exigences générales de l'annexe I retenues comme applicables au dispositif : sections 1 à 9, 10.1, 10.2, 10.4, 11.1, 14.1, 14.2, 15.1, 17.1 à 17.4, 18.1, 18.2, 18.5 à 18.8, 21.1, 21.2 et 23.}\par
+
+{\small Pour chaque exigence retenue, le tableau indique la méthode de démonstration : essai en laboratoire, analyse de conception, évaluation clinique ou revue de l'étiquetage.}\par
+
+{\small Les référentiels appliqués sont : EN ISO 14971 (gestion des risques), EN ISO 10993-1 (évaluation biologique), EN 60601-1 (sécurité de base des appareils électromédicaux), EN 62304 (cycle de vie du logiciel), EN 62366-1 (aptitude à l'utilisation), EN ISO 80601-2-56 (thermomètres médicaux) et EN ISO 15223-1 (symboles).}\par
+
+\par\medskip{\normalsize\bfseries 5. Gestion des risques}\par
+
+{\small Le dossier de gestion des risques DGR-T1 recense 46 situations dangereuses. Les mesures de maîtrise retenues sont, par ordre de priorité : la conception (limitation de l'énergie de la pile, double lecture de la thermistance), les protections (alarme de perte de liaison radio) et l'information de l'utilisateur.}\par
+
+{\small Après application de ces mesures, 43 risques sont classés acceptables et 3 risques résiduels sont signalés dans la notice ; le rapport de gestion des risques RGR-T1 conclut que toutes les mesures ont été mises en œuvre et vérifiées.}\par
+
+\par\medskip{\normalsize\bfseries 6. Vérification et validation}\par
+
+\par\medskip{\small\bfseries 6.1 Essais précliniques}\par
+
+{\small Le rapport ESS-LAB-07 présente les essais d'ingénierie réalisés en laboratoire : exactitude en bain thermostaté, autonomie, tenue de l'adhésif pendant 72 heures sur bras artificiel, résistance aux projections d'eau. Tous les critères d'acceptation des spécifications sont atteints.}\par
+
+{\small Une simulation d'utilisation par douze infirmiers (rapport APT-02) a confirmé que la pose, l'appairage et le retrait sont réalisés sans erreur critique.}\par
+
+\par\medskip{\small\bfseries 6.2 Biocompatibilité}\par
+
+{\small Les matériaux en contact avec le patient ou l'utilisateur sont recensés dans le rapport BIO-01 : adhésif acrylique sur polyuréthane (contact cutané direct avec le patient, jusqu'à 72 heures) et silicone du boîtier (contact cutané avec le soignant lors de la pose).}\par
+
+{\small Le protocole BIO-P-01 prévoit des essais de cytotoxicité, de sensibilisation et d'irritation cutanée ; les résultats, analysés dans le rapport BIO-01, ne montrent aucun effet cytotoxique, sensibilisant ou irritant.}\par
+
+\par\medskip{\small\bfseries 6.3 Caractérisation physico-chimique et microbiologique}\par
+
+{\small Le rapport CAR-03 décrit la caractérisation chimique de l'adhésif par analyse des substances extractibles selon le protocole CAR-P-03, ainsi que le dénombrement microbien sur produit fini ; les teneurs mesurées sont inférieures aux seuils fixés dans l'évaluation toxicologique et la charge microbienne est conforme à la spécification interne.}\par
+
+\par\medskip{\small\bfseries 6.4 Sécurité électrique}\par
+
+{\small Les essais de sécurité électrique ont été réalisés par un laboratoire externe selon le protocole SEC-P-04 ; le rapport SEC-04 conclut à la conformité pour les courants de fuite, l'échauffement de surface et la protection contre le court-circuit de la pile.}\par
+
+\par\medskip{\small\bfseries 6.5 Logiciel}\par
+
+{\small Le logiciel a été développé selon un cycle en V décrit dans le plan de développement PDL-T1 : exigences, architecture, conception détaillée, codage, tests unitaires, tests d'intégration et tests système.}\par
+
+{\small Le rapport de validation logicielle RVL-T1 résume les résultats : 412 tests unitaires, 88 tests d'intégration et 57 tests système exécutés en interne, tous passés, complétés par une validation en environnement d'utilisation simulé dans un service hospitalier de démonstration avant la libération de la version 2.1.}\par
+
+{\small Les essais ont couvert les deux systèmes d'exploitation mobiles pris en charge et les six modèles de téléphone et de tablette listés dans la notice.}\par
+
+\par\medskip{\small\bfseries 6.6 Performances et sécurité}\par
+
+{\small Le protocole PERF-P-05 compare les mesures du capteur à celles d'un thermomètre de référence étalonné, sur 30 points de température ; l'analyse des écarts (rapport PERF-05) donne un écart maximal de 0,08 \textdegree{}C sur la plage de 35,0 \textdegree{}C à 42,0 \textdegree{}C.}\par
+
+\par\medskip{\small\bfseries 6.7 Évaluation clinique}\par
+
+{\small Le plan d'évaluation clinique PEC-T1 définit la destination, les critères de performance clinique et les sources de données retenues.}\par
+
+{\small Le rapport d'évaluation clinique REC-T1, révision B, mis à jour après l'étude de concordance EC-T1-01 menée sur 60 patients, conclut que le dispositif détecte une élévation de température avec une concordance satisfaisante par rapport à la mesure tympanique de référence.}\par
+
+\par\medskip{\normalsize\bfseries 7. Cas particuliers}\par
+
+{\small Le dispositif n'incorpore aucune substance qui, utilisée séparément, pourrait être considérée comme un médicament.}\par
+
+{\small Le dispositif n'est fabriqué à partir d'aucun tissu ni d'aucune cellule d'origine humaine ou animale, ni de leurs dérivés, et n'en incorpore pas.}\par
+
+{\small Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau.}\par
+
+{\small Le dispositif ne contient aucune substance cancérogène, mutagène ou toxique pour la reproduction, ni aucun perturbateur endocrinien.}\par
+
+{\small Le dispositif est mis sur le marché à l'état non stérile et sans condition microbiologique particulière.}\par
+
+{\small Le dispositif a une fonction de mesurage. Pour garantir l'exactitude annoncée, chaque capteur est étalonné en fin de fabrication sur deux points de température dans un bain thermostaté raccordé à un étalon national, puis contrôlé sur un troisième point ; les capteurs dont l'écart dépasse 0,05 \textdegree{}C sont rebutés (procédure ETA-02).}\par
+
+{\small Le capteur ne doit être raccordé à aucun autre dispositif pour fonctionner comme prévu : il communique uniquement avec l'application FICTIF-Therm, qui fait partie du dispositif.}\par
+\newpage
+{\Large\bfseries 1 / 44 \quad \texttt{anx\_II/1.1/a}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape a) Le nom ou la dénomination commerciale du produit et une description générale du dispositif, y compris sa destination, et les utilisateurs auxquels il est destiné.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document précise le nom commercial, la description générale, la destination et les utilisateurs prévus.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « FICTIF-Therm T1 est un capteur de température cutané adhésif, à usage unique, associé à une application mobile de suivi. »
+\item « Le dispositif est destiné à la mesure continue de la température cutanée axillaire de patients hospitalisés, afin de signaler au personnel soignant une élévation de température. »
+\item « Les utilisateurs prévus sont les infirmiers et les médecins des services d'hospitalisation »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u1_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u1_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u1_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u1_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u1_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u1_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u1_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u1_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u1_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u1_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u1_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u1_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u1_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 2 / 44 \quad \texttt{anx\_II/1.1/b}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape b) L’IUD-ID de base visé à l’annexe VI, partie C, attribué par le fabricant au dispositif en question, dès lors que l’identification du dispositif est basée sur un système IUD, ou une autre identification claire au moyen d'un code de produit, d'un numéro dans le catalogue ou d'une autre référence non équivoque permettant la traçabilité.\end{quote}
+\rub{La réponse de l'outil : non trouvé}
+\textbf{Justification :} Le document mentionne le nom commercial du dispositif (FICTIF-Therm T1), mais ne fournit aucun code produit, numéro de catalogue, IUD-ID de base ou autre référence unique permettant la traçabilité.\par
+\textbf{Passages du dossier cités :} aucun.\par
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u2_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u2_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u2_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u2_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u2_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u2_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u2_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u2_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u2_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u2_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u2_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u2_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u2_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 3 / 44 \quad \texttt{anx\_II/1.1/c}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape c) La population de patients visée, l’affection à diagnostiquer, à traiter et/ou à surveiller et d’autres considérations telles que les critères de sélection applicables aux patients, les indications, les contre-indications et les mises en garde.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document précise la population visée, l'affection surveillée, les critères de sélection, les contre-indications et les mises en garde.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « La population visée est constituée des patients adultes hospitalisés en service de médecine ou de chirurgie, nécessitant une surveillance de la température pendant une durée maximale de 72 heures. »
+\item « L'affection surveillée est la fièvre, notamment post-opératoire ou d'origine infectieuse. »
+\item « Contre-indications : ne pas utiliser sur une peau lésée, chez un patient présentant une allergie connue aux adhésifs acryliques, ni chez l'enfant de moins de 18 ans. »
+\item « Mise en garde : le dispositif ne remplace pas une mesure de température centrale lorsque celle-ci est cliniquement requise. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u3_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u3_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u3_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u3_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u3_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u3_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u3_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u3_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u3_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u3_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u3_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u3_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u3_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 4 / 44 \quad \texttt{anx\_II/1.1/d}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape d) Les principes de fonctionnement du dispositif et son mode d'action, démontré scientifiquement si nécessaire.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document décrit le principe de fonctionnement et justifie l'absence de démonstration scientifique nouvelle.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Une thermistance placée au contact de la peau voit sa résistance varier avec la température ; un microcontrôleur convertit cette résistance en température toutes les 60 secondes et transmet la valeur à l'application par liaison radio à basse consommation. »
+\item « Ce principe de mesure par thermistance est établi de longue date pour la thermométrie de contact et ne nécessite pas de démonstration scientifique nouvelle. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u4_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u4_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u4_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u4_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u4_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u4_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u4_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u4_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u4_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u4_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u4_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u4_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u4_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 5 / 44 \quad \texttt{anx\_II/1.1/e}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape e) Les raisons pour lesquelles le produit constitue un dispositif.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document justifie la qualification du produit en tant que dispositif médical en précisant sa destination et son mode d'action.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le produit est un dispositif médical car il est destiné par le fabricant à être utilisé chez l'homme à des fins de surveillance d'une maladie, et son action principale n'est obtenue ni par des moyens pharmacologiques ou immunologiques ni par métabolisme. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u5_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u5_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u5_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u5_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u5_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u5_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u5_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u5_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u5_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u5_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u5_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u5_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u5_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 6 / 44 \quad \texttt{anx\_II/1.1/f}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape f) La classe de risque du dispositif et la justification de la ou des règles de classification appliquées conformément à l'annexe VIII.\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} La classe de risque est indiquée, mais la justification et la règle de classification de l'annexe VIII appliquée sont manquantes.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif relève de la classe IIa. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u6_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u6_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u6_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u6_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u6_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u6_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u6_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u6_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u6_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u6_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u6_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u6_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u6_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 7 / 44 \quad \texttt{anx\_II/1.1/g}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape g) Une explication de toute nouvelle caractéristique.\end{quote}
+\rub{La réponse de l'outil : non trouvé}
+\textbf{Justification :} Le document ne mentionne aucune nouvelle caractéristique et ne précise pas explicitement que le dispositif n'en comporte pas.\par
+\textbf{Passages du dossier cités :} aucun.\par
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u7_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u7_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u7_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u7_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u7_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u7_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u7_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u7_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u7_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u7_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u7_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u7_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u7_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 8 / 44 \quad \texttt{anx\_II/1.1/h}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape h) Une description des accessoires du dispositif, des autres dispositifs et des produits autres que des dispositifs destinés à être utilisés en combinaison avec le dispositif.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document précise l'absence d'accessoires et décrit le produit non médical (téléphone ou tablette) utilisé en combinaison avec le dispositif.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif n'a pas d'accessoire. »
+\item « Il est utilisé avec un téléphone ou une tablette du commerce, fourni par l'établissement, sur lequel l'application FICTIF-Therm est installée ; ce téléphone n'est pas un dispositif médical. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u8_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u8_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u8_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u8_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u8_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u8_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u8_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u8_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u8_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u8_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u8_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u8_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u8_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 9 / 44 \quad \texttt{anx\_II/1.1/i}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape i) Une description ou la liste complète des différentes configurations ou variantes du dispositif qui doivent être mises à disposition sur le marché.\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document mentionne l'existence de plusieurs tailles, mais ne fournit ni la liste complète ni la description de ces différentes configurations.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le capteur est disponible en plusieurs tailles. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u9_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u9_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u9_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u9_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u9_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u9_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u9_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u9_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u9_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u9_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u9_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u9_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u9_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 10 / 44 \quad \texttt{anx\_II/1.1/j}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape j) Une description générale des éléments fonctionnels clés tels que les pièces ou composants (y compris le logiciel, le cas échéant), la formulation, la composition, la fonctionnalité et, le cas échéant, la composition qualitative et quantitative. Si nécessaire, celle-ci doit comprendre des représentations visuelles légendées (schémas, photos, dessins, etc.) indiquant clairement les pièces ou composants clés et incluant l'explication nécessaire à la compréhension des dessins et des schémas.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document décrit les composants fonctionnels, le logiciel, le principe de fonctionnement, la composition matérielle et mentionne l'existence d'une vue éclatée légendée.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif comprend quatre éléments fonctionnels : (1) un boîtier souple contenant la thermistance, le microcontrôleur, l'émetteur radio et une pile bouton ; (2) une couche adhésive de fixation ; (3) un film protecteur à retirer avant la pose ; (4) le logiciel, composé du micrologiciel du capteur (version 1.4) et de l'application mobile FICTIF-Therm (version 2.1). »
+\item « Une thermistance placée au contact de la peau voit sa résistance varier avec la température ; un microcontrôleur convertit cette résistance en température toutes les 60 secondes et transmet la valeur à l'application par liaison radio à basse consommation. »
+\item « Le boîtier est en élastomère de silicone de qualité médicale ; la couche adhésive, seul élément en contact direct avec la peau, est un adhésif acrylique sur support en polyuréthane ; le film protecteur est en polyester siliconé et n'entre pas en contact avec le patient. »
+\item « La figure 1 du plan PL-T1-001 représente une vue éclatée légendée du capteur et repère chacun de ces éléments. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u10_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u10_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u10_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u10_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u10_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u10_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u10_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u10_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u10_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u10_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u10_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u10_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u10_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 11 / 44 \quad \texttt{anx\_II/1.1/k}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape k) Une description des matières premières intégrées dans les éléments fonctionnels clés et les éléments en contact direct avec le corps humain ou en contact indirect, par exemple, lors de la circulation extracorporelle des liquides corporels.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document décrit les matériaux utilisés pour les éléments fonctionnels et identifie explicitement l'élément en contact direct avec le corps humain.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le boîtier est en élastomère de silicone de qualité médicale »
+\item « la couche adhésive, seul élément en contact direct avec la peau, est un adhésif acrylique sur support en polyuréthane »
+\item « le film protecteur est en polyester siliconé »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u11_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u11_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u11_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u11_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u11_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u11_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u11_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u11_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u11_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u11_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u11_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u11_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u11_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 12 / 44 \quad \texttt{anx\_II/1.1/l}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape l) Les spécifications techniques, telles que caractéristiques, dimensions et caractéristiques de performance, du dispositif et de toute variante/configuration ou de tout accessoire qui figurent habituellement dans les spécifications du produit mises à disposition de l'utilisateur, par exemple dans des brochures, des catalogues et des publications similaires.\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document indique que le capteur existe en plusieurs tailles, mais ne fournit les dimensions et spécifications techniques que pour une seule configuration.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le capteur est disponible en plusieurs tailles. »
+\item « Dimensions du capteur : 48 mm $\times$ 30 mm $\times$ 5 mm. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u12_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u12_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u12_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u12_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u12_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u12_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u12_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u12_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u12_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u12_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u12_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u12_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u12_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 13 / 44 \quad \texttt{anx\_II/1.2/a}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape a) Une présentation générale de la ou des générations précédentes du dispositif produites par le fabricant, s'il en existe.\end{quote}
+\rub{La réponse de l'outil : non applicable}
+\textbf{Justification :} Le document déclare explicitement qu'il n'existe pas de génération précédente.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « FICTIF-Therm T1 est le premier dispositif de ce type conçu par Exemplia Dispositifs ; il n'existe pas de génération précédente. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u13_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u13_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u13_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u13_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u13_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u13_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u13_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u13_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u13_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u13_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u13_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u13_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u13_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 14 / 44 \quad \texttt{anx\_II/1.2/b}}\par
+{\small\color{gris} Rubrique : 1. DESCRIPTION ET SPÉCIFICATION DU DISPOSITIF, Y COMPRIS LES VARIANTES ET LES ACCESSOIRES}\par
+\rub{L'exigence}
+\begin{quote}\itshape b) Une présentation générale des dispositifs similaires identifiés disponibles sur le marché de l'Union ou le marché international, s'il en existe.\end{quote}
+\rub{La réponse de l'outil : non trouvé}
+\textbf{Justification :} Le document ne mentionne aucun dispositif similaire disponible sur le marché, ni ne précise explicitement qu'il n'en existe pas.\par
+\textbf{Passages du dossier cités :} aucun.\par
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u14_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u14_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u14_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u14_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u14_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u14_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u14_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u14_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u14_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u14_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u14_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u14_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u14_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 15 / 44 \quad \texttt{anx\_II/2/t1}}\par
+{\small\color{gris} Rubrique : 2. INFORMATIONS DEVANT ÊTRE FOURNIES PAR LE FABRICANT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la ou les étiquettes présentes sur le dispositif et sur son conditionnement, par exemple le conditionnement de chaque unité, le conditionnement de vente, le conditionnement de transport en cas de conditions particulières de manipulation, dans les langues acceptées dans les États membres dans lesquels il est envisagé de vendre le dispositif, et\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} L'étiquetage du dispositif lui-même n'est pas mentionné, et les étiquettes du conditionnement sont en français uniquement alors que le dispositif est destiné également au marché allemand.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « L'annexe ETQ-T1 reproduit l'étiquette du sachet unitaire et l'étiquette de la boîte de vente de 20 capteurs. »
+\item « Ces étiquettes sont établies en français uniquement. »
+\item « Le dispositif est destiné à être mis sur le marché en France, en Belgique et en Allemagne. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u15_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u15_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u15_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u15_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u15_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u15_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u15_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u15_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u15_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u15_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u15_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u15_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u15_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 16 / 44 \quad \texttt{anx\_II/2/t2}}\par
+{\small\color{gris} Rubrique : 2. INFORMATIONS DEVANT ÊTRE FOURNIES PAR LE FABRICANT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la notice d'utilisation dans les langues acceptées dans les États membres dans lesquels il est envisagé de vendre le dispositif.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document précise les pays de commercialisation et confirme que la notice est disponible dans les langues correspondantes.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif est destiné à être mis sur le marché en France, en Belgique et en Allemagne. »
+\item « L'annexe NOT-T1 contient la notice d'utilisation en français, en néerlandais et en allemand. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u16_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u16_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u16_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u16_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u16_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u16_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u16_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u16_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u16_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u16_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u16_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u16_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u16_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 17 / 44 \quad \texttt{anx\_II/3/a}}\par
+{\small\color{gris} Rubrique : 3. INFORMATIONS SUR LA CONCEPTION ET LA FABRICATION}\par
+\rub{L'exigence}
+\begin{quote}\itshape a) Informations permettant la compréhension des étapes de la conception du dispositif.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document détaille les cinq étapes de la conception ainsi que les revues documentées associées.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « La conception a suivi cinq étapes, chacune close par une revue documentée : recueil des besoins utilisateurs (revue RC-01), spécification des exigences (RC-02), conception détaillée du matériel et du logiciel (RC-03), vérification (RC-04), validation et transfert en production (RC-05). »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u17_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u17_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u17_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u17_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u17_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u17_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u17_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u17_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u17_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u17_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u17_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u17_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u17_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 18 / 44 \quad \texttt{anx\_II/3/b}}\par
+{\small\color{gris} Rubrique : 3. INFORMATIONS SUR LA CONCEPTION ET LA FABRICATION}\par
+\rub{L'exigence}
+\begin{quote}\itshape b) Informations et spécifications complètes, y compris concernant les processus de fabrication et leur validation, les adjuvants, le contrôle continu et les essais sur le produit final. Les données figurent intégralement dans la documentation technique.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document détaille les spécifications techniques, le processus de fabrication, la validation des procédés spéciaux, l'utilisation d'un adjuvant (agent de démoulage), les contrôles en cours de fabrication et les essais sur le produit final.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Plage de mesure : 30,0 \textdegree{}C à 43,0 \textdegree{}C. Exactitude annoncée : $\pm$ 0,1 \textdegree{}C entre 35,0 \textdegree{}C et 42,0 \textdegree{}C. Résolution d'affichage : 0,1 \textdegree{}C. Autonomie : 72 heures. Portée radio : 10 mètres en champ libre. Dimensions du capteur : 48 mm $\times$ 30 mm $\times$ 5 mm. Masse : 7 g. »
+\item « La fabrication comprend l'assemblage de la carte électronique, le surmoulage du boîtier, la pose de la couche adhésive, la programmation du micrologiciel, l'étalonnage et le conditionnement en sachet unitaire. »
+\item « Le surmoulage et la pose de l'adhésif sont des procédés spéciaux ; leur validation est consignée dans les rapports VAL-SM-02 et VAL-AD-01. »
+\item « Le surmoulage utilise un agent de démoulage »
+\item « Chaque lot fait l'objet de contrôles en cours de fabrication (inspection visuelle de la carte, contrôle dimensionnel du boîtier) »
+\item « et d'un essai final unitaire de fonctionnement et d'exactitude selon la procédure CTL-FIN-03. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u18_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u18_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u18_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u18_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u18_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u18_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u18_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u18_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u18_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u18_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u18_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u18_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u18_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 19 / 44 \quad \texttt{anx\_II/3/c}}\par
+{\small\color{gris} Rubrique : 3. INFORMATIONS SUR LA CONCEPTION ET LA FABRICATION}\par
+\rub{L'exigence}
+\begin{quote}\itshape c) Identification de tous les sites, y compris ceux des fournisseurs et des sous-traitants, où ont lieu les activités de conception et de fabrication.\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document mentionne l'existence d'un sous-traitant pour l'assemblage de la carte électronique, mais n'identifie pas son site (nom ou adresse).\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « La conception et le conditionnement sont réalisés sur le site d'Exemplia Dispositifs SAS, 12 rue des Exemples, 00000 Ville-Fictive, France. »
+\item « L'assemblage de la carte électronique est confié à un sous-traitant. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u19_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u19_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u19_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u19_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u19_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u19_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u19_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u19_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u19_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u19_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u19_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u19_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u19_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 20 / 44 \quad \texttt{anx\_II/4/a}}\par
+{\small\color{gris} Rubrique : 4. EXIGENCES GÉNÉRALES EN MATIÈRE DE SÉCURITÉ ET DE PERFORMANCES}\par
+\rub{L'exigence}
+\begin{quote}\itshape a) les exigences générales en matière de sécurité et de performances qui s'appliquent au dispositif et les raisons pour lesquelles les autres exigences ne s'y appliquent pas;\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document identifie les exigences applicables, mais il ne liste pas les exigences non applicables et ne fournit aucune justification pour leur exclusion.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le tableau EG-T1 liste les exigences générales de l'annexe I retenues comme applicables au dispositif : sections 1 à 9, 10.1, 10.2, 10.4, 11.1, 14.1, 14.2, 15.1, 17.1 à 17.4, 18.1, 18.2, 18.5 à 18.8, 21.1, 21.2 et 23. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u20_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u20_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u20_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u20_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u20_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u20_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u20_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u20_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u20_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u20_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u20_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u20_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u20_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 21 / 44 \quad \texttt{anx\_II/4/b}}\par
+{\small\color{gris} Rubrique : 4. EXIGENCES GÉNÉRALES EN MATIÈRE DE SÉCURITÉ ET DE PERFORMANCES}\par
+\rub{L'exigence}
+\begin{quote}\itshape b) la ou les méthodes utilisées pour démontrer la conformité avec chaque exigence générale applicable en matière de sécurité et de performances;\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document indique qu'un tableau (EG-T1) recense les exigences applicables et précise la méthode de démonstration pour chacune d'entre elles.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Pour chaque exigence retenue, le tableau indique la méthode de démonstration : essai en laboratoire, analyse de conception, évaluation clinique ou revue de l'étiquetage. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u21_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u21_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u21_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u21_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u21_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u21_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u21_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u21_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u21_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u21_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u21_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u21_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u21_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 22 / 44 \quad \texttt{anx\_II/4/c}}\par
+{\small\color{gris} Rubrique : 4. EXIGENCES GÉNÉRALES EN MATIÈRE DE SÉCURITÉ ET DE PERFORMANCES}\par
+\rub{L'exigence}
+\begin{quote}\itshape c) les normes harmonisées, spécifications communes ou autres solutions appliquées; et\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document liste explicitement les normes et référentiels appliqués pour répondre aux exigences générales de sécurité et de performance.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Les référentiels appliqués sont : EN ISO 14971 (gestion des risques), EN ISO 10993-1 (évaluation biologique), EN 60601-1 (sécurité de base des appareils électromédicaux), EN 62304 (cycle de vie du logiciel), EN 62366-1 (aptitude à l'utilisation), EN ISO 80601-2-56 (thermomètres médicaux) et EN ISO 15223-1 (symboles). »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u22_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u22_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u22_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u22_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u22_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u22_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u22_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u22_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u22_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u22_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u22_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u22_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u22_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 23 / 44 \quad \texttt{anx\_II/4/d}}\par
+{\small\color{gris} Rubrique : 4. EXIGENCES GÉNÉRALES EN MATIÈRE DE SÉCURITÉ ET DE PERFORMANCES}\par
+\rub{L'exigence}
+\begin{quote}\itshape d) la référence précise des documents contrôlés fournissant la preuve du respect de chaque norme harmonisée, spécification commune ou autre méthode appliquée pour démontrer la conformité avec les exigences générales en matière de sécurité et de performances. Les informations visées au présent point indiquent où trouver cette preuve dans la documentation technique complète et, le cas échéant, dans le résumé de la documentation technique.\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document mentionne un tableau indiquant la méthode de démonstration, mais il n'est pas précisé que ce tableau contient la référence précise aux documents contrôlés prouvant le respect des normes harmonisées citées.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le tableau EG-T1 liste les exigences générales de l'annexe I retenues comme applicables au dispositif »
+\item « Pour chaque exigence retenue, le tableau indique la méthode de démonstration : essai en laboratoire, analyse de conception, évaluation clinique ou revue de l'étiquetage. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u23_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u23_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u23_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u23_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u23_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u23_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u23_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u23_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u23_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u23_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u23_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u23_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u23_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 24 / 44 \quad \texttt{anx\_II/5/a}}\par
+{\small\color{gris} Rubrique : 5. ANALYSE BÉNÉFICE/RISQUE ET GESTION DES RISQUES}\par
+\rub{L'exigence}
+\begin{quote}\itshape a) l'analyse bénéfice/risque visée à l'annexe I, sections 1 et 8; et\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document décrit la gestion des risques (identification et maîtrise) et les performances cliniques, mais il ne contient pas d'analyse pesant explicitement les bénéfices attendus face aux risques résiduels.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dossier de gestion des risques DGR-T1 recense 46 situations dangereuses. »
+\item « le rapport de gestion des risques RGR-T1 conclut que toutes les mesures ont été mises en œuvre et vérifiées. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u24_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u24_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u24_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u24_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u24_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u24_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u24_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u24_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u24_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u24_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u24_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u24_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u24_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 25 / 44 \quad \texttt{anx\_II/5/b}}\par
+{\small\color{gris} Rubrique : 5. ANALYSE BÉNÉFICE/RISQUE ET GESTION DES RISQUES}\par
+\rub{L'exigence}
+\begin{quote}\itshape b) les solutions retenues et les résultats de la gestion des risques visée à l'annexe I, section 3.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document détaille les mesures de maîtrise choisies ainsi que le bilan des risques (acceptables et résiduels) et la conclusion du rapport de gestion des risques.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Les mesures de maîtrise retenues sont, par ordre de priorité : la conception (limitation de l'énergie de la pile, double lecture de la thermistance), les protections (alarme de perte de liaison radio) et l'information de l'utilisateur. »
+\item « Après application de ces mesures, 43 risques sont classés acceptables et 3 risques résiduels sont signalés dans la notice ; le rapport de gestion des risques RGR-T1 conclut que toutes les mesures ont été mises en œuvre et vérifiées. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u25_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u25_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u25_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u25_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u25_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u25_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u25_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u25_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u25_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u25_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u25_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u25_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u25_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 26 / 44 \quad \texttt{anx\_II/6.1/a}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape a) Les résultats d’essais, tels que des essais d’ingénierie, en laboratoire, des simulations d’utilisation, et des essais sur des animaux, et d’évaluations contenus dans la littérature publiée qui sont applicables au dispositif, compte tenu de sa destination, ou à des dispositifs similaires, concernant la sécurité préclinique du dispositif et le respect des spécifications.\end{quote}
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document fournit des résultats d'essais d'ingénierie, de laboratoire et de simulations d'utilisation, mais il manque les évaluations contenues dans la littérature publiée.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le rapport ESS-LAB-07 présente les essais d'ingénierie réalisés en laboratoire »
+\item « Une simulation d'utilisation par douze infirmiers (rapport APT-02) a confirmé que la pose, l'appairage et le retrait sont réalisés sans erreur critique. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u26_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u26_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u26_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u26_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u26_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u26_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u26_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u26_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u26_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u26_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u26_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u26_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u26_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 27 / 44 \quad \texttt{anx\_II/6.1/b/t1}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la biocompatibilité du dispositif, y compris le recensement de tous les matériaux en contact direct ou indirect avec le patient ou l'utilisateur,\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier: Le cas échéant, il convient de démontrer la conformité avec les dispositions de… »}\par
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document recense les matériaux en contact avec le patient et l'utilisateur et présente les conclusions des essais de biocompatibilité.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Les matériaux en contact avec le patient ou l'utilisateur sont recensés dans le rapport BIO-01 : adhésif acrylique sur polyuréthane (contact cutané direct avec le patient, jusqu'à 72 heures) et silicone du boîtier (contact cutané avec le soignant lors de la pose). »
+\item « les résultats, analysés dans le rapport BIO-01, ne montrent aucun effet cytotoxique, sensibilisant ou irritant. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u27_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u27_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u27_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u27_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u27_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u27_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u27_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u27_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u27_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u27_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u27_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u27_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u27_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 28 / 44 \quad \texttt{anx\_II/6.1/b/t2}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la caractérisation physico-chimique et microbiologique,\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier: Le cas échéant, il convient de démontrer la conformité avec les dispositions de… »}\par
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document mentionne le protocole et les conclusions, mais il manque des informations détaillées sur la conception des essais, les méthodes d'analyse des données et les synthèses de données.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le rapport CAR-03 décrit la caractérisation chimique de l'adhésif par analyse des substances extractibles selon le protocole CAR-P-03, ainsi que le dénombrement microbien sur produit fini ; les teneurs mesurées sont inférieures aux seuils fixés dans l'évaluation toxicologique et la charge microbienne est conforme à la spécification interne. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u28_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u28_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u28_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u28_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u28_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u28_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u28_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u28_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u28_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u28_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u28_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u28_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u28_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 29 / 44 \quad \texttt{anx\_II/6.1/b/t3}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la sécurité électrique et la compatibilité électromagnétique,\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier: Le cas échéant, il convient de démontrer la conformité avec les dispositions de… »}\par
+\rub{La réponse de l'outil : non conforme}
+\textbf{Justification :} Le document traite de la sécurité électrique, mais ne mentionne aucun essai ou analyse concernant la compatibilité électromagnétique.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Les essais de sécurité électrique ont été réalisés par un laboratoire externe selon le protocole SEC-P-04 ; le rapport SEC-04 conclut à la conformité pour les courants de fuite, l'échauffement de surface et la protection contre le court-circuit de la pile. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u29_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u29_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u29_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u29_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u29_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u29_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u29_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u29_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u29_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u29_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u29_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u29_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u29_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 30 / 44 \quad \texttt{anx\_II/6.1/b/t4}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la vérification et la validation du logiciel: description de la conception et du processus de développement du logiciel et preuve de la validation de celui-ci, tel qu'il est utilisé dans le dispositif fini. Ces informations incluent en règle générale un résumé des résultats de l'ensemble de la vérification, de la validation et des essais réalisés en interne et dans un environnement d'utilisation simulé ou réel avant la libération finale. En outre, elles prennent en compte toutes les différentes configurations du matériel informatique et, le cas échéant, des différents systèmes d'exploitation figurant dans les informations fournies par le fabricant,\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier: Le cas échéant, il convient de démontrer la conformité avec les dispositions de… »}\par
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document décrit le processus de développement (cycle en V), résume les résultats des tests internes et en environnement simulé, et précise la prise en compte des configurations matérielles et OS.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le logiciel a été développé selon un cycle en V décrit dans le plan de développement PDL-T1 : exigences, architecture, conception détaillée, codage, tests unitaires, tests d'intégration et tests système. »
+\item « Le rapport de validation logicielle RVL-T1 résume les résultats : 412 tests unitaires, 88 tests d'intégration et 57 tests système exécutés en interne, tous passés, complétés par une validation en environnement d'utilisation simulé dans un service hospitalier de démonstration avant la libération de la version 2.1. »
+\item « Les essais ont couvert les deux systèmes d'exploitation mobiles pris en charge et les six modèles de téléphone et de tablette listés dans la notice. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u30_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u30_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u30_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u30_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u30_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u30_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u30_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u30_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u30_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u30_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u30_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u30_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u30_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 31 / 44 \quad \texttt{anx\_II/6.1/b/t5}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la stabilité, y compris la durée de conservation en stock, et\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier: Le cas échéant, il convient de démontrer la conformité avec les dispositions de… »}\par
+\rub{La réponse de l'outil : non trouvé}
+\textbf{Justification :} Le document ne contient aucune information concernant la stabilité du dispositif ni sa durée de conservation en stock.\par
+\textbf{Passages du dossier cités :} aucun.\par
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u31_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u31_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u31_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u31_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u31_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u31_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u31_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u31_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u31_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u31_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u31_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u31_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u31_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 32 / 44 \quad \texttt{anx\_II/6.1/b/t6}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — les performances et la sécurité.\end{quote}
+{\small\color{gris} Elle complète : « Des informations détaillées relatives à la conception des essais, aux protocoles d'essai ou d'étude complets, aux méthodes d'analyse des données, ainsi que des synthèses de données et des conclusions des essais concernant en particulier: Le cas échéant, il convient de démontrer la conformité avec les dispositions de… »}\par
+\rub{La réponse de l'outil : non trouvé}
+{\small Le modèle avait proposé « non conforme », mais une de ses citations n'a pas été retrouvée mot pour mot dans le dossier ; par règle, l'outil ramène alors le verdict à « non trouvé ».}\par
+\textbf{Justification :} Le document fournit des synthèses et des conclusions concernant les performances et la sécurité, mais il ne contient pas les informations détaillées sur la conception des essais, les protocoles complets, ni les méthodes d'analyse des données demandées.\par
+\textbf{Passages du dossier cités :} aucun.\par
+{\small\color{gris} Citations non retrouvées mot pour mot (écartées) :}
+\begin{itemize}\small\color{gris}
+\item « Le rapport PERF-05 donne un écart maximal de 0,08 \textdegree{}C sur la plage de 35,0 \textdegree{}C à 42,0 \textdegree{}C. »
+\item « Le rapport SEC-04 conclut à la conformité pour les courants de fuite, l'échauffement de surface et la protection contre le court-circuit de la pile. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u32_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u32_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u32_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u32_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u32_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u32_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u32_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u32_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u32_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u32_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u32_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u32_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u32_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 33 / 44 \quad \texttt{anx\_II/6.1/c}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape c) Le rapport sur l'évaluation clinique ainsi que ses mises à jour et le plan d'évaluation clinique visé à l'article 61, paragraphe 12, et à l'annexe XIV, partie A.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document mentionne explicitement le plan d'évaluation clinique (PEC-T1) et le rapport d'évaluation clinique (REC-T1), tout en précisant que ce dernier a été mis à jour (révision B).\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le plan d'évaluation clinique PEC-T1 définit la destination, les critères de performance clinique et les sources de données retenues. »
+\item « Le rapport d'évaluation clinique REC-T1, révision B, mis à jour après l'étude de concordance EC-T1-01 menée sur 60 patients »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u33_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u33_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u33_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u33_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u33_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u33_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u33_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u33_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u33_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u33_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u33_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u33_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u33_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 34 / 44 \quad \texttt{anx\_II/6.1/d}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape d) Le plan de suivi clinique après commercialisation (SCAC) et le rapport d'évaluation du SCAC, visés à l'annexe XIV, partie B ou une justification expliquant pourquoi un SCAC n'est pas applicable.\end{quote}
+\rub{La réponse de l'outil : non trouvé}
+\textbf{Justification :} Le document mentionne une évaluation clinique (PEC-T1 et REC-T1), mais ne contient aucune mention d'un plan ou d'un rapport de suivi clinique après commercialisation (SCAC), ni de justification quant à son éventuelle non-applicabilité.\par
+\textbf{Passages du dossier cités :} aucun.\par
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u34_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u34_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u34_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u34_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u34_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u34_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u34_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u34_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u34_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u34_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u34_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u34_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u34_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 35 / 44 \quad \texttt{anx\_II/6.2/a}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape a) Une mention indiquant si un dispositif incorpore comme partie intégrante une substance qui, utilisée séparément, est susceptible d'être considérée comme un médicament au sens de l'article 1er, point 2, de la directive 2001/83/CE, notamment un médicament dérivé du sang ou du plasma humain, visé à l'article 1er, paragraphe 8, premier alinéa, du présent règlement. Dans ce cas, la documentation indique la source de cette substance et fournit les données des essais effectués pour évaluer la sécurité, la qualité et l'utilité de cette substance, compte tenu de la destination du dispositif.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document contient une mention explicite indiquant que le dispositif n'incorpore pas de substance considérée comme un médicament.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif n'incorpore aucune substance qui, utilisée séparément, pourrait être considérée comme un médicament. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u35_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u35_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u35_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u35_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u35_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u35_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u35_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u35_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u35_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u35_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u35_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u35_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u35_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 36 / 44 \quad \texttt{anx\_II/6.2/b}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape b) Une mention indiquant si un dispositif est fabriqué à partir de tissus ou de cellules d'origine humaine ou animale, ou de leurs dérivés, et relève du présent règlement conformément à l'article 1er, paragraphe 6, points f) et g), et si un dispositif incorpore comme partie intégrante des tissus ou cellules d'origine humaine ou animale, ou leurs dérivés, dont l'action est accessoire à celle du dispositif et relève du présent règlement conformément à l'article 1er, paragraphe 10, premier alinéa. Dans ce cas, la documentation indique tous les matériaux d'origine humaine ou animale utilisés et fournit des informations détaillées relatives au respect de l'annexe I, section 13.1 ou 13.2.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document contient une mention explicite indiquant que le dispositif n'est pas fabriqué à partir de tissus ou cellules d'origine humaine ou animale et n'en incorpore pas.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif n'est fabriqué à partir d'aucun tissu ni d'aucune cellule d'origine humaine ou animale, ni de leurs dérivés, et n'en incorpore pas. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u36_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u36_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u36_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u36_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u36_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u36_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u36_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u36_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u36_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u36_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u36_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u36_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u36_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 37 / 44 \quad \texttt{anx\_II/6.2/c/t1}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — l'absorption, la distribution, le métabolisme et l'excrétion,\end{quote}
+{\small\color{gris} Elle complète : « Dans le cas des dispositifs qui sont composés de substances ou de combinaisons de substances qui sont destinées à être introduites dans le corps humain et qui sont absorbées par le corps humain ou dispersées localement dans celui-ci, des informations détaillées relatives notamment à la conception des essais, aux… »}\par
+\rub{La réponse de l'outil : non applicable}
+\textbf{Justification :} Le document déclare explicitement que le dispositif ne rentre pas dans le cas des substances destinées à être introduites dans le corps humain.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u37_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u37_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u37_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u37_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u37_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u37_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u37_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u37_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u37_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u37_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u37_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u37_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u37_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 38 / 44 \quad \texttt{anx\_II/6.2/c/t2}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — d'éventuelles interactions de ces substances ou de leurs produits de métabolisme dans le corps humain, avec d'autres dispositifs, médicaments ou substances, eu égard à la population cible et à son état de santé,\end{quote}
+{\small\color{gris} Elle complète : « Dans le cas des dispositifs qui sont composés de substances ou de combinaisons de substances qui sont destinées à être introduites dans le corps humain et qui sont absorbées par le corps humain ou dispersées localement dans celui-ci, des informations détaillées relatives notamment à la conception des essais, aux… »}\par
+\rub{La réponse de l'outil : non applicable}
+\textbf{Justification :} Le document déclare explicitement que le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain, ce qui rend cette exigence non applicable.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u38_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u38_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u38_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u38_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u38_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u38_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u38_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u38_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u38_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u38_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u38_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u38_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u38_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 39 / 44 \quad \texttt{anx\_II/6.2/c/t3}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la tolérance locale, et\end{quote}
+{\small\color{gris} Elle complète : « Dans le cas des dispositifs qui sont composés de substances ou de combinaisons de substances qui sont destinées à être introduites dans le corps humain et qui sont absorbées par le corps humain ou dispersées localement dans celui-ci, des informations détaillées relatives notamment à la conception des essais, aux… »}\par
+\rub{La réponse de l'outil : non applicable}
+\textbf{Justification :} Le document déclare explicitement que le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain, ce qui rend cette exigence non applicable.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u39_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u39_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u39_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u39_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u39_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u39_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u39_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u39_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u39_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u39_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u39_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u39_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u39_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 40 / 44 \quad \texttt{anx\_II/6.2/c/t4}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape — la toxicité, y compris la toxicité résultant d'une dose unique et de doses répétées, la génotoxicité, la carcinogénicité et la toxicité pour la reproduction ou le développement, selon le cas, en fonction du niveau et de la nature de l'exposition au dispositif.\end{quote}
+{\small\color{gris} Elle complète : « Dans le cas des dispositifs qui sont composés de substances ou de combinaisons de substances qui sont destinées à être introduites dans le corps humain et qui sont absorbées par le corps humain ou dispersées localement dans celui-ci, des informations détaillées relatives notamment à la conception des essais, aux… »}\par
+\rub{La réponse de l'outil : non applicable}
+\textbf{Justification :} Le document déclare explicitement que le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain, rendant cette exigence non applicable.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif n'est pas composé de substances destinées à être introduites dans le corps humain ; il reste à la surface de la peau. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u40_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u40_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u40_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u40_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u40_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u40_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u40_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u40_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u40_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u40_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u40_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u40_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u40_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 41 / 44 \quad \texttt{anx\_II/6.2/d}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape d) Dans le cas des dispositifs contenant des substances cancérogènes, mutagènes ou toxiques pour la reproduction ou des perturbateurs endocriniens visés à l'annexe I, section 10.4.1, la justification visée à la section 10.4.2 de ladite annexe.\end{quote}
+\rub{La réponse de l'outil : non applicable}
+\textbf{Justification :} Le document déclare explicitement que le dispositif ne contient pas les substances visées par l'exigence.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif ne contient aucune substance cancérogène, mutagène ou toxique pour la reproduction, ni aucun perturbateur endocrinien. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u41_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u41_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u41_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u41_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u41_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u41_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u41_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u41_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u41_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u41_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u41_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u41_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u41_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 42 / 44 \quad \texttt{anx\_II/6.2/e}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape e) Dans le cas des dispositifs mis sur le marché à l'état stérile ou dans des conditions microbiologiques particulières, une description des conditions environnementales pour les étapes de fabrication. Dans le cas des dispositifs mis sur le marché à l'état stérile, une description des méthodes utilisées, y compris les rapports de validation, pour le conditionnement, la stérilisation et le maintien de la stérilité. Le rapport de validation tient compte des tests de biocharge, des essais de recherche de pyrogènes et, s'il y a lieu, des essais de recherche de résidus de stérilisation.\end{quote}
+\rub{La réponse de l'outil : non applicable}
+\textbf{Justification :} Le document déclare explicitement que le dispositif n'est ni stérile, ni soumis à des conditions microbiologiques particulières.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le dispositif est mis sur le marché à l'état non stérile et sans condition microbiologique particulière. »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u42_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u42_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u42_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u42_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u42_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u42_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u42_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u42_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u42_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u42_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u42_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u42_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u42_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 43 / 44 \quad \texttt{anx\_II/6.2/f}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape f) Dans le cas des dispositifs mis sur le marché ayant une fonction de mesurage, une description des méthodes utilisées pour garantir l'exactitude indiquée dans les spécifications.\end{quote}
+\rub{La réponse de l'outil : conforme}
+\textbf{Justification :} Le document décrit précisément la méthode d'étalonnage et de contrôle en fin de fabrication utilisée pour garantir l'exactitude du dispositif.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Pour garantir l'exactitude annoncée, chaque capteur est étalonné en fin de fabrication sur deux points de température dans un bain thermostaté raccordé à un étalon national, puis contrôlé sur un troisième point ; les capteurs dont l'écart dépasse 0,05 \textdegree{}C sont rebutés (procédure ETA-02). »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u43_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u43_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u43_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u43_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u43_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u43_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u43_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u43_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u43_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u43_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u43_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u43_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u43_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries 44 / 44 \quad \texttt{anx\_II/6.2/g}}\par
+{\small\color{gris} Rubrique : 6. VÉRIFICATION ET VALIDATION DU PRODUIT}\par
+\rub{L'exigence}
+\begin{quote}\itshape g) Si le dispositif doit être raccordé à un ou plusieurs autres dispositifs pour pouvoir fonctionner comme prévu, une description du raccordement/de la configuration incluant la preuve qu'il/elle est conforme aux exigences générales en matière de sécurité et de performances pour tous les dispositifs concernés une fois connectés, au regard des caractéristiques indiquées par le fabricant.\end{quote}
+\rub{La réponse de l'outil : non applicable}
+\textbf{Justification :} Le document déclare explicitement que le dispositif ne doit être raccordé à aucun autre dispositif pour fonctionner comme prévu.\par
+\textbf{Passages du dossier cités :}
+\begin{itemize}
+\item « Le capteur ne doit être raccordé à aucun autre dispositif pour fonctionner comme prévu »
+\end{itemize}
+\rub{Vos réponses}
+\textbf{Q1. Selon vous, le bon verdict est :}\par
+\CheckBox[name=u44_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~conforme \quad \CheckBox[name=u44_non_conforme,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non conforme \quad \CheckBox[name=u44_non_trouve,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non trouvé \quad \CheckBox[name=u44_non_applicable,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non applicable\par
+\CheckBox[name=u44_indecis,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~je ne peux pas trancher (exigence ou définitions trop floues)\par
+\textbf{Q2. Les passages cités justifient-ils le verdict de l'outil ?}\par
+\CheckBox[name=u44_cit_oui,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~oui \quad \CheckBox[name=u44_cit_partiel,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~en partie \quad \CheckBox[name=u44_cit_non,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~non \quad \CheckBox[name=u44_cit_sans,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sans objet (aucun passage cité)\par
+\textbf{Q3. Votre confiance dans votre réponse à Q1 :}\par
+\CheckBox[name=u44_conf_sure,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~sûre \quad \CheckBox[name=u44_conf_plutot,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~plutôt sûre \quad \CheckBox[name=u44_conf_hesitante,width=1.05em,height=1.05em,bordercolor={0 0 0},borderwidth=1]{}~hésitante\par
+Remarque (facultatif) : ce qui manque, ce qui vous a fait hésiter, ce qu'un auditeur relèverait\ldots\par
+\TextField[name=u44_note,multiline=true,width=\linewidth,height=2.2cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\newpage
+{\Large\bfseries Pour finir}\par
+\rub{Entre « non conforme » (le sujet est abordé mais incomplet) et « non trouvé » (rien sur le sujet), la frontière vous a-t-elle paru claire ? Que changeriez-vous dans ces définitions ?}
+\TextField[name=g1,multiline=true,width=\linewidth,height=2.6cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\rub{Le verdict « non applicable » n'est accepté que si le dossier déclare explicitement que le cas ne le concerne pas. Cette règle vous paraît-elle juste ?}
+\TextField[name=g2,multiline=true,width=\linewidth,height=2.6cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\rub{Le dossier fictif vous paraît-il réaliste ? Qu'est-ce qu'un vrai dossier aurait de plus difficile ?}
+\TextField[name=g3,multiline=true,width=\linewidth,height=2.6cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\rub{Les réponses de l'outil (verdict, citations, justification) vous seraient-elles utiles pour relire un vrai dossier ? Qu'est-ce qui manque pour qu'elles le soient ?}
+\TextField[name=g4,multiline=true,width=\linewidth,height=2.6cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\rub{Remarques libres.}
+\TextField[name=g5,multiline=true,width=\linewidth,height=2.6cm,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}
+\rub{Temps passé au total (approximatif)}\TextField[name=temps_passe,width=4cm,height=1.3em,bordercolor={0.6 0.6 0.6},borderwidth=0.5]{}\par
+\medskip Merci ! Renvoyez le PDF enregistré. Vos réponses deviendront le corrigé de référence de ce cas (après validation par le porteur du projet) et serviront à mesurer l'outil honnêtement.
+\end{Form}
+\end{document}

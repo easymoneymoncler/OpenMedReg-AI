@@ -423,3 +423,14 @@ entries:
     16 champs. Source dans results/2026-11-11_fictif-therm-t1/dossier_relecture.tex.'
   next_action: L'utilisateur remplit le dossier ; l'agent reporte ses décisions dans
     la vérité terrain sur validation et recalcule les mesures.
+- id: 20261120T190431Z-CLAUDE-a7a48d04
+  at: '2026-11-20T19:04:31.246841+00:00'
+  receiver: CLAUDE
+  summary: 'Rendre l''outil jugeable par une relectrice externe du métier : formulaire
+    PDF hors ligne, version complète des 44 exigences, à l''aveugle.'
+  authorization: Préparer le formulaire et le versionner (source seulement).
+  status: done
+  outcome: scripts/formulaire_relecture.py et formulaire_relecteur.tex ; PDF 50 pages
+    remis à l utilisateur.
+  next_action: Report des réponses de la relectrice dans ground_truth.yaml après validation
+    de l utilisateur.

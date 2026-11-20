@@ -67,6 +67,13 @@ l'utilisateur uniquement.
 
 ## 5. Prochaine tâche immédiate
 
+Depuis le 2026-11-20 : formulaire de relecture à l'aveugle des 44 verdicts de
+`gemma4:31b` (`scripts/formulaire_relecture.py`, source dans
+`results/2026-11-11_fictif-therm-t1/formulaire_relecteur.tex`), destiné à une
+relectrice externe du métier. À son retour : reporter ses réponses dans
+`ground_truth.yaml` (statut `relu` sur validation de l'utilisateur) et
+recalculer les scores des deux modèles.
+
 Relecture par l'utilisateur des 13 unités où un modèle contredit la vérité
 terrain, en commençant par les quatre communes aux deux modèles
 (`anx_II/4/d`, `5/a`, `6.1/a`, `6.1/b/t2`). Puis mesure du juge API sur le

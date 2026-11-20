@@ -90,3 +90,11 @@
   les deux modèles n'est pas significatif sur 44 unités.
 - Hors dépôt : clé SSH dédiée, plugin du fournisseur, journal du serveur
   (`build/runs/serveur/`).
+
+## 2026-11-20 — Formulaire de relecture à l'aveugle
+
+- Ajouté : `scripts/formulaire_relecture.py`,
+  `results/2026-11-11_fictif-therm-t1/formulaire_relecteur.tex`.
+- Vérifié : PDF de 50 pages compilé sans débordement, 44 pages d'exigences,
+  52 champs texte ; le corrigé n'apparaît nulle part dans le formulaire.
+- Non vérifié : remplissage dans un lecteur de PDF de téléphone.
